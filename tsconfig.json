@@ -19,7 +19,7 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
-    "baseUrl": "./",
+    "baseUrl": "./", // Necesario para usar los Alias
     "paths": {
       "@core/*":["src/app/core/*"],
       "@modules/*":["src/app/modules/*"],

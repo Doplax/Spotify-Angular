@@ -1,19 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomePageComponent } from '@modules/home/pages/home-page/home-page.component';
 
-const routes: Routes = [{
-  path: '',
-  component: HomePageComponent,
-  loadChildren:() => import('./modules/home/home.module').then((m) =>m.HomeModule)
-},
-{
-  path: 'auth',
-  loadChildren:() => import('./modules/auth/auth.module').then((m) =>m.AuthModule)
-}];
+const routes: Routes = [
+  {
+    path: '',
+    //Imp Estatica (Sin lazy loading)
+    //component: HomePageComponent,
+
+    // Imp Dinamica:
+    loadChildren: () =>
+      import('@modules/home/home.module').then((m) => m.HomeModule),
+  },
+  {
+    path: 'auth',
+    loadChildren: () =>
+      import('@modules/auth/auth.module').then((m) => m.AuthModule),
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
