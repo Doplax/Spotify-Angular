@@ -1,0 +1,6 @@
+.home-wrapper {
+  margin: 0 0 17.5rem; /* Margen superior e izquierdo en 0, margen inferior en 17.5rem, margen derecho no especificado por lo que se asume 0 */
+  background: rgb(23, 23, 26); /* Color de fondo sólido usando el modelo RGB, con valores para rojo, verde y azul */
+  background: linear-gradient(90deg, rgba(23, 23, 26, 1) 44%, rgba(24, 24, 24, 1)); /* Gradiente lineal de fondo comenzando con color rgba(23, 23, 26) al 44% de la izquierda y transicionando a rgba(24, 24, 24) hacia la derecha */
+  min-height: 100vh; /* Altura mínima del elemento para que ocupe al menos el 100% de la altura de la ventana gráfica */
+}
