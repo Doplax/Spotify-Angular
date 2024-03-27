@@ -2,7 +2,7 @@
   "name": "spotify",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
+    "start": "ng serve",
     "dev": ". ~/.nvm/nvm.sh && nvm use && ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
