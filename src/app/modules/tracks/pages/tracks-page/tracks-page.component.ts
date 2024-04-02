@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import tracks from '@data/tracks.json'
 
 @Component({
   selector: 'app-tracks-page',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class TracksPageComponent {
 
+  tracks = tracks
 }
