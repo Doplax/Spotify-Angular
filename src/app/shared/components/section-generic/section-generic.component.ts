@@ -7,6 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class SectionGenericComponent {
   @Input() title: string = ''
-  @Input() mode: 'small' | 'big' = 'small'
+  @Input() mode: 'small' | 'big' = 'small' // Será small por defecto
   @Input() dataTracks: Array<any> = []
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import tracks from '@data/tracks.json'
+import incomingTracks from '@data/tracks.json'
 
 @Component({
   selector: 'app-tracks-page',
@@ -8,5 +8,5 @@ import tracks from '@data/tracks.json'
 })
 export class TracksPageComponent {
 
-  tracks = tracks
+  public tracks:Array<any> = incomingTracks.data
 }
