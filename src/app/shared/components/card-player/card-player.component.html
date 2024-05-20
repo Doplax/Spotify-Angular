@@ -1,6 +1,6 @@
 <!-- Diseño del mode (small)-->
 <div *ngIf="mode==='small'" class="card-player player-small">
-  <img [src]="track.cover" [alt]="track.name" class="cover">
+  <img appImgBroken [src]="track.cover" [alt]="track.name" class="cover">
   <div class="content-player">
       {{track.name}}
   </div>
