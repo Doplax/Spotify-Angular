@@ -1,10 +1,14 @@
 <div class="tracks-page">
   <!-- TOP Section -->
   <app-section-generic
-    [dataTracks]="tracks"
+    [dataTracks]="tracksTrending"
     [title]="'La mejor música del mundo'"
     [mode]="'small'"
   />
   <!-- Bottom Section -->
-  <app-section-generic [title]="'Lo mejor de la Electronica'" [mode]="'big'" />
+  <app-section-generic
+    [dataTracks]="tracksRandom"
+    [title]="'Lo mejor de la Electronica'"
+    [mode]="'big'"
+  />
 </div>
