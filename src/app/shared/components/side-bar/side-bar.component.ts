@@ -21,7 +21,7 @@ export class SideBarComponent implements OnInit {
   customOptions: Array<any> = [];
 
   // Inject Router and TrackService into the component
-  constructor(private router: Router, private trackService: TrackService) {}
+  constructor(private router: Router) {}
 
   // Lifecycle hook that is called after the component's view has been initialized
   ngOnInit(): void {
@@ -76,14 +76,6 @@ export class SideBarComponent implements OnInit {
         router: ['/'],
       },
     ];
-
-    // Subscribe to the random tracks observable and update `customOptions` when new data arrives
-    this.trackService.dataTracksRandom$.subscribe((response: any) => {
-      this.customOptions.push({
-        name: response[0].name,
-        router: [],
-      });
-    });
   }
 
   // Method to navigate to the favorites route with query parameters
