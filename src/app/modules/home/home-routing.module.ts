@@ -20,6 +20,10 @@ const routes: Routes = [
     loadChildren: () =>
       import('@modules/tracks/tracks.module').then((m) => m.TracksModule),
   },
+  {
+    path: '**', // when 404 redirects us to tracks
+    redirectTo:'/tracks'
+  }
 ];
 
 @NgModule({
