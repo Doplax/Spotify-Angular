@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: '**', // Para redirigir un 404
-    redirectTo: '/auth/login',
+    redirectTo: 'login',
   },
 ];
 

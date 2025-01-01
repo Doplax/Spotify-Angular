@@ -9,9 +9,8 @@ export class InjectSessionInterceptor implements HttpInterceptor {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-      console.log("Soy el interceptor",req);
       try {
-        const token = this.cookieService.get('token')
+        const token = this.cookieService.get('token_service')
         let newRequest = req
         newRequest = req.clone({
           setHeaders: {

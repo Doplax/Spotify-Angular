@@ -16,11 +16,11 @@ export class AuthService {
       email,
       password,
     };
-
-    return this.http.post(`${this.URL}/auth/login`, body).pipe(
+    return this.http.post(`${this.URL}/api/auth/login`, body).pipe(
       tap((responseOk: any) => {
-        const { tokenSession } = responseOk;
-        this.cookie.set('token_service', tokenSession, 4, '/');
+        const { token } = responseOk;
+        this.cookie.set('token_service', token, 4, '/');
+        //
       })
     );
   }
