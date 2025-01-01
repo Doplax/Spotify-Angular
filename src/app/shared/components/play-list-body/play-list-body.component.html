@@ -5,29 +5,31 @@
     <li (click)="changeSort('')">fecha incorporación</li>
     <li><i class="uil uil-clock-eight"></i></li>
   </ul>
-  <ul
-    class="play-list-rows"
-    *ngFor="
-      let track of tracks | orderList : optionSort.property : optionSort.order
-    "
-  >
-    <!--{{ track | json }}-->
-    <li class="track-name">
-      <ng-container
-        *ngTemplateOutlet="coverSection; context: { track: track }"
-      ></ng-container>
-    </li>
-    <li class="track-name-opacity">
-      {{ track.name }}
-    </li>
-    <li class="track-name-opacity">
-      {{ track.album }}
-    </li>
-    <li class="track-name-opacity">
-      <!-- TODO: Arreglar la duración -->
-      {{ track.album }}
-    </li>
-  </ul>
+  @for (
+    track of tracks | orderList : optionSort.property : optionSort.order
+    ; track
+    track) {
+    <ul
+      class="play-list-rows"
+      >
+      <!--{{ track | json }}-->
+      <li class="track-name">
+        <ng-container
+          *ngTemplateOutlet="coverSection; context: { track: track }"
+        ></ng-container>
+      </li>
+      <li class="track-name-opacity">
+        {{ track.name }}
+      </li>
+      <li class="track-name-opacity">
+        {{ track.album }}
+      </li>
+      <li class="track-name-opacity">
+        <!-- TODO: Arreglar la duración -->
+        {{ track.album }}
+      </li>
+    </ul>
+  }
 </div>
 
 <!--template del cover-->
@@ -38,7 +40,7 @@
       class="cover-track"
       [src]="track.cover"
       [alt]="track.name"
-    />
+      />
     <div class="cover-info">
       <div class="name-track">{{ track.name }}</div>
       <div class="name-track-details">{{ track.artist.name }}</div>
