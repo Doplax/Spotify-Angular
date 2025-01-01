@@ -30,7 +30,7 @@ export class TrackService {
    */
   getAllTracks$(): Observable<any> {
     return this.httpClient
-      .get(`${this.URL}/tracks`) // We will subscribe where we use this method
+      .get(`${this.URL}/api/tracks`) // We will subscribe where we use this method
       .pipe(
         map(({ data }: any) => {
           return data;
@@ -43,15 +43,16 @@ export class TrackService {
    * @returns random songs
    */
   getAllRandom$(): Observable<any> {
-    return this.httpClient.get(`${this.URL}/tracks`).pipe(
-      mergeMap(({ data }: any) => this.skipById(data, 1)),
+    console.log(`${this.URL}/api/tracks`)
+    return this.httpClient.get(`${this.URL}/api/tracks`).pipe(
+      mergeMap(({ data }: any) => {
+        return of(this.skipById(data, 1));
+      }),
       tap((data) => console.log('ok', data)),
-
       catchError((err) => {
-        console.log("something went wrong...",err);
+        console.error("something went wrong...",err);
         return of([])
       })
-      
     );
   }
 }

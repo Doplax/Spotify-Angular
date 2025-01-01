@@ -13,7 +13,8 @@ export class SearchService {
   }
 
   searchTracks$(term: string): Observable<any> {
-    return this.http.get(`${this.URL}/tracks/?src=${term}`)
+    debugger
+    return this.http.get(`${this.URL}public/tracks/?src=${term}`)
       .pipe(
         map((dataRaw:any) => dataRaw.data)
       )
