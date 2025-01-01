@@ -1,7 +1,7 @@
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { from, Observable, of } from 'rxjs';
 import { catchError, map, mergeMap, tap } from 'rxjs/operators';
 import { TrackModel } from '@core/models/tracks.model';
 
@@ -18,7 +18,7 @@ export class TrackService {
     id: number
   ): Promise<TrackModel[]> {
     return new Promise((resolve, reject) => {
-      const listTmp = listTracks.filter((a) => a._id === id);
+      const listTmp = listTracks.filter((a) => a._id !== id);
       resolve(listTmp);
     });
   }
@@ -30,7 +30,7 @@ export class TrackService {
    */
   getAllTracks$(): Observable<any> {
     return this.httpClient
-      .get(`${this.URL}/api/tracks`) // We will subscribe where we use this method
+      .get(`${this.URL}/api/tracks`)
       .pipe(
         map(({ data }: any) => {
           return data;
@@ -43,12 +43,10 @@ export class TrackService {
    * @returns random songs
    */
   getAllRandom$(): Observable<any> {
-    console.log(`${this.URL}/api/tracks`)
     return this.httpClient.get(`${this.URL}/api/tracks`).pipe(
-      mergeMap(({ data }: any) => {
-        return of(this.skipById(data, 1));
-      }),
-      tap((data) => console.log('ok', data)),
+      tap((data) => console.log('Antes', data)),
+      mergeMap(({ data }: any) => this.skipById(data, 1)),
+      tap((data) => console.log('Despues', data)),
       catchError((err) => {
         console.error("something went wrong...",err);
         return of([])
