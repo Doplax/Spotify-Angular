@@ -5,18 +5,12 @@
     <li (click)="changeSort('')">fecha incorporación</li>
     <li><i class="uil uil-clock-eight"></i></li>
   </ul>
-  @for (
-    track of tracks | orderList : optionSort.property : optionSort.order
-    ; track
-    track) {
-    <ul
-      class="play-list-rows"
-      >
+  @for (track of tracks | orderList : optionSort.property : optionSort.order; track track) {
+    <ul class="play-list-rows">
       <!--{{ track | json }}-->
       <li class="track-name">
-        <ng-container
-          *ngTemplateOutlet="coverSection; context: { track: track }"
-        ></ng-container>
+        <ng-container *ngTemplateOutlet="coverSection; context: { track: track }">
+        </ng-container>
       </li>
       <li class="track-name-opacity">
         {{ track.name }}
