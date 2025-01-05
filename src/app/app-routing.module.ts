@@ -4,11 +4,13 @@ import { SessionGuard } from '@core/guards/session.guard';
 import { HomePageComponent } from '@modules/home/pages/home-page/home-page.component';
 
 const routes: Routes = [
+   // (Public) Login, Register, Forgot Password
   {
     path: 'auth',
     loadChildren: () =>
       import('@modules/auth/auth.module').then((m) => m.AuthModule),
   },
+  // (Private)
   {
     path: '',
     component: HomePageComponent,

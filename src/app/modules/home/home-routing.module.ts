@@ -11,14 +11,12 @@ const routes: Routes = [
   {
     path: 'favorites',
     loadChildren: () =>
-      import('@modules/favorites/favorites.module').then(
-        (m) => m.FavoritesModule
-      ),
+      import('@modules/favorites/favorites.module').then((m) => m.FavoritesModule),
   },
   {
     path: 'history',
     loadChildren: () =>
-      import('@modules/tracks/tracks.module').then((m) => m.TracksModule),
+      import('@modules/history/history.module').then((m) => m.HistoryModule),
   },
   {
     path: '**', // when 404 redirects us to tracks
