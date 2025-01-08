@@ -19,9 +19,9 @@
 
 <ng-template #artistZone>
   <!--<div class="artist-inside" *ngIf="multimediaService.trackInfo$ | async as mockCover">-->
-  @if (true) {
+  @if (multimediaService.trackInfo$ | async) {
     <div class="artist-inside">
-      <img [src]="mockCover.cover" alt="cover" class="cover" />
+      <img [src]="mockCover?.cover" alt="cover" class="cover" />
       <div class="track-info">
         <h3 class="track-title">{{ mockCover?.name }}</h3>
         <h5 class="track-title sub-title">{{ mockCover?.album }}</h5>
@@ -32,6 +32,7 @@
         </button>
       </div>
     </div>
+  <!--</div>-->
   }
 </ng-template>
 

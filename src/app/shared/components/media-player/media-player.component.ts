@@ -10,31 +10,16 @@ import { Subscription } from 'rxjs';
 })
 export class MediaPlayerComponent implements OnInit, OnDestroy {
   state = 'paused';
-  mockCover: any = {
-    cover:
-      'https://m.media-amazon.com/images/I/51OfTDxHYuL._UXNaN_FMjpg_QL85_.jpg',
-    title: 'Rap Sin Corte',
-    name: 'Rap Sin Corte V',
-  };
+  mockCover!: TrackModel;
 
   listObservers$: Array<Subscription> = [];
 
-  constructor(private multimediaService: MultimediaService) {}
+  constructor(public multimediaService: MultimediaService) {}
 
   ngOnInit(): void {
-    const observer1$: Subscription = this.multimediaService.callback.subscribe(
-      (response: TrackModel) => {
-        console.log('Recibiendo canción...', response);
-      }
-    );
-
-    const observer2$: Subscription = this.multimediaService.callback.subscribe(
-      (response: TrackModel) => {
-        console.log('Recibiendo canción...', response);
-      }
-    );
-
-    this.listObservers$ = [observer1$, observer2$];
+    this.multimediaService.trackInfo$.subscribe((response) => {
+      console.log(response);
+    })
   }
 
   ngOnDestroy(): void {
