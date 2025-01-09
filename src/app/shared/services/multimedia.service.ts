@@ -11,26 +11,86 @@ export class MultimediaService {
 
   public trackInfo$: BehaviorSubject<any> = new BehaviorSubject<any>(undefined);
   public audio!: HTMLAudioElement;
+  public timeElapsed$: BehaviorSubject<string> = new BehaviorSubject<string>('00:00');
+  public playerStatus$: BehaviorSubject<string> = new BehaviorSubject<string>('paused');
 
   constructor() {
+    this.audio = new Audio();
 
     this.trackInfo$.subscribe((response) => {
       if(response) {
         this.setAudio(response);
       }
-      console.log('Recibiendo canción...', response);
     });
-    
-    this.audio = new Audio();
-
-
+    this.listenAllEvents();
   }
 
-  private listenAllEvents(): void {}
+  private listenAllEvents(): void {
+    this.audio.addEventListener('timeupdate',this.calculateTime,false);
+    this.audio.addEventListener('playing',this.setPlayerStatus,false);
+    this.audio.addEventListener('play',this.setPlayerStatus,false);
+    this.audio.addEventListener('pause',this.setPlayerStatus,false);
+    this.audio.addEventListener('ended',this.setPlayerStatus,false);
+  }
 
+  private calculateTime = () => {
+    const { duration, currentTime } = this.audio;
+    //console.table([duration, currentTime]);
+    this.setTimeElapsed(currentTime);
+    this.setRemaining(currentTime, duration);
+  }
+
+  private setTimeElapsed(currentTime: number): void {
+    let seconds = Math.floor(currentTime % 60)
+    let minutes = Math.floor((currentTime / 60) % 60);
+
+    const displaySeconds = seconds < 10 ? `0${seconds}` : seconds;
+    const displayMinutes = minutes < 10 ? `0${minutes}` : minutes;
+    const displayFormat = `${displayMinutes}:${displaySeconds}`
+    this.timeElapsed$.next(displayFormat);
+  }
+
+  private setRemaining(currentTime: number, duration: number) {
+    let timeLeft = duration - currentTime;
+    let seconds = Math.floor(timeLeft % 60)
+    let minutes = Math.floor((timeLeft / 60) % 60);
+
+    const displaySeconds = seconds < 10 ? `0${seconds}` : seconds;
+    const displayMinutes = minutes < 10 ? `0${minutes}` : minutes;
+    const displayFormat = `-${displayMinutes}:${displaySeconds}`;
+    this.timeElapsed$.next(displayFormat);
+  }
+
+  private setPlayerStatus = (state:any) => {
+    switch (state.type) {
+      case 'playing':
+        this.playerStatus$.next('playing');
+        break;
+      case 'pause':
+        this.playerStatus$.next('paused');
+        break;
+      case 'ended':
+        this.playerStatus$.next('ended');
+        break;
+      default:
+        this.playerStatus$.next('paused');
+        break;
+    }
+  }
+
+
+  // Public
   public setAudio(track: TrackModel): void {
     console.log('Cambiando canción...', track);
     this.audio.src = track.url;
     this.audio.play();
+  }
+
+  public tooglePlayer(): void {
+    if (this.audio.paused) {
+      this.audio.play();
+    } else {
+      this.audio.pause();
+    }
   }
 }

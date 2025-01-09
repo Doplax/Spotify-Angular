@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./media-player.component.scss'],
 })
 export class MediaPlayerComponent implements OnInit, OnDestroy {
-  state = 'paused';
+  state: string = 'paused';
   mockCover!: TrackModel;
 
   listObservers$: Array<Subscription> = [];
@@ -17,9 +17,12 @@ export class MediaPlayerComponent implements OnInit, OnDestroy {
   constructor(public multimediaService: MultimediaService) {}
 
   ngOnInit(): void {
-    this.multimediaService.trackInfo$.subscribe((response) => {
-      console.log(response);
-    })
+    const playerStatusObserver$ = this.multimediaService.playerStatus$.subscribe((response) => {
+      this.state = response
+    });
+
+
+    this.listObservers$ = [playerStatusObserver$]
   }
 
   ngOnDestroy(): void {

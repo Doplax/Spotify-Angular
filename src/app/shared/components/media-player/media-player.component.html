@@ -42,11 +42,11 @@
       <button class="arrow btn">
         <i class="uil uil-previous"></i>
       </button>
-      <button class="play btn">
+      <button (click)="multimediaService.tooglePlayer()" class="play btn">
         <i
           [ngClass]="{
-            'uil-play-circle': state === 'paused',
-            'uil-pause-circle': state !== 'paused'
+            'uil-play-circle': state === 'playing',
+            'uil-pause-circle': state === 'paused'
           }"
           class="uil"
         ></i>
@@ -56,8 +56,8 @@
       </button>
     </div>
     <div class="media-linetime">
-      <!--<div class="time">{{multimediaService.timeElapsed$ | async}}</div>
-      <span #progressBar (click)="handlePosition($event)" class="time-progress">
+      <div class="time">{{multimediaService.timeElapsed$ | async}}</div>
+      <!--<span #progressBar (click)="handlePosition($event)" class="time-progress">
         <span class="time-progress-live" [style.width]="(multimediaService.playerPercentage$ | async)+'%'">
         </span>
       </span>
