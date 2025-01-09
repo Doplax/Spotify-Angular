@@ -13,6 +13,7 @@ export class MultimediaService {
   public audio!: HTMLAudioElement;
   public timeElapsed$: BehaviorSubject<string> = new BehaviorSubject<string>('00:00');
   public playerStatus$: BehaviorSubject<string> = new BehaviorSubject<string>('paused');
+  public playerPercentage$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
   constructor() {
     this.audio = new Audio();
@@ -38,6 +39,12 @@ export class MultimediaService {
     //console.table([duration, currentTime]);
     this.setTimeElapsed(currentTime);
     this.setRemaining(currentTime, duration);
+    this.setPercentage(currentTime, duration);
+  }
+
+  private setPercentage(currentTime:number, duration: number): void {
+    const percentage = (currentTime / duration) * 100;
+    this.playerPercentage$.next(percentage);
   }
 
   private setTimeElapsed(currentTime: number): void {
