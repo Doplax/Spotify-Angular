@@ -12,6 +12,7 @@ export class MultimediaService {
   public trackInfo$: BehaviorSubject<any> = new BehaviorSubject<any>(undefined);
   public audio!: HTMLAudioElement;
   public timeElapsed$: BehaviorSubject<string> = new BehaviorSubject<string>('00:00');
+  public timeRemaining$: BehaviorSubject<string> = new BehaviorSubject<string>('00:00');
   public playerStatus$: BehaviorSubject<string> = new BehaviorSubject<string>('paused');
   public playerPercentage$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
@@ -65,7 +66,7 @@ export class MultimediaService {
     const displaySeconds = seconds < 10 ? `0${seconds}` : seconds;
     const displayMinutes = minutes < 10 ? `0${minutes}` : minutes;
     const displayFormat = `-${displayMinutes}:${displaySeconds}`;
-    this.timeElapsed$.next(displayFormat);
+    this.timeRemaining$.next(displayFormat);
   }
 
   private setPlayerStatus = (state:any) => {
@@ -99,5 +100,11 @@ export class MultimediaService {
     } else {
       this.audio.pause();
     }
+  }
+
+  public seekAudio(percentage: number): void {
+    const { duration } = this.audio;
+    const currentTime = (percentage / 100) * duration;
+    this.audio.currentTime = currentTime;
   }
 }
