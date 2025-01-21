@@ -1,4 +1,4 @@
-@import './app/styles/_global.scss';
+@import './app/styles/mixins';
 
 :root {
   --color-1: #1DB954;
@@ -20,11 +20,12 @@
 
 html,
 body {
+  box-sizing: border-box;
+  font-size: 62.5%;
   margin: 0;
   padding: 0;
   background-color: var(--color-3);
   font-family: var(--font-family-1);
-  font-size: var(--font-size-1);
   color: var(--color-4);
   height: 100vh;
   width: 100vw;
