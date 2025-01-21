@@ -1,33 +1,50 @@
-#login-page{
+@import 'mixins';
+
+#login-page {
   background-color: rgb(18, 18, 18);
   width: 100%;
   height: 100%;
 
-  .auth-wrapper{
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
-  }
-}
-h3
- {margin: 0;}
+    padding-top: 5rem;
 
-::ng-deep {
-  .svg-logo{
-    width: 200px;
-    height: 200px;
-  }
-}
-
-@include responsive('tablet') {
-  #login-page{
-    background-color: red($color: #000000);
-  }
-}
-
-
-@include responsive('pc') {
-  #login-page{
-    .auth-wrapper{
-      padding: 0 20px;
+    .header-logo {
+      width: 3rem;
+      height: 3rem;
     }
+
+    .header-text {
+      margin-top: 1rem;
+      font-size: 3rem;
+    }
+  }
+
+  .advisor {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: row;
+    margin: 0 8rem;
+
+    .advisor-logo {
+      width: 3rem;
+      height: 3rem;
+    }
+    .advisor-text {
+      font-size: 1.5rem; 
+      background-color: red;
+    }
+  }
+
+}
+
+@include mobile(){
+  #login-page{
+    background-color: yellow;
   }
 }
