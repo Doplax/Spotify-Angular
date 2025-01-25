@@ -1,9 +1,10 @@
-@import 'mixins';
+@import "mixins";
 
 #login-page {
   background-color: rgb(18, 18, 18);
   width: 100%;
   height: 100%;
+  padding: 3.2rem;
 
   .header {
     display: flex;
@@ -11,16 +12,30 @@
     align-items: center;
     flex-direction: column;
 
-    padding-top: 5rem;
-
     .header-logo {
       width: 3rem;
       height: 3rem;
     }
 
     .header-text {
-      margin-top: 1rem;
       font-size: 3rem;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+  }
+
+  .advisor-error {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background-color: red;
+    padding: 1rem;
+    margin-bottom: 2rem;
+
+    .advisor-error-text {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-left: 2rem;
     }
   }
 
@@ -29,22 +44,185 @@
     justify-content: center;
     align-items: start;
     flex-direction: row;
-    margin: 0 8rem;
+    margin-bottom: 2rem;
 
-    .advisor-logo {
+    .advisor-icon {
       width: 3rem;
       height: 3rem;
     }
     .advisor-text {
-      font-size: 1.5rem; 
-      background-color: red;
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-left: 2rem;
     }
   }
 
+  .login-social-zone {
+    display: flex;
+    flex-direction: column;
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      background-color: transparent;
+      border: 0.1rem solid var(--essential-subdued);
+      border-radius: 4rem;
+      padding: 1rem;
+      color: white;
+      margin-bottom: 1rem;
+      cursor: pointer;
+
+
+      i {
+        font-size: 2rem;
+        margin-right: 1rem;
+        margin-left: 1.5rem;
+        
+      }
+
+      span {
+        font-size: 1.5rem;
+        font-weight: bold;
+        flex: 1;
+      }
+
+      &:hover {
+
+        border-color: var(--essential-base);
+      }
+    }
+  }
+
+  .separator {
+    margin: 2rem 0;
+    border-bottom: 0.08rem solid rgba(129, 129, 129, 0.5);
+  }
+
+  .auth-form {
+    .form-group {
+      display: flex;
+      flex-direction: column;
+
+      label {
+        font-size: 1.3rem;
+        font-weight: bold;
+        margin-top: 2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      input {
+        background-color: transparent;
+        border: 0.1rem solid white;
+        border-radius: 0.1rem;
+        padding: 1rem;
+
+        color: white;
+        font-size: 1.3rem;
+      }
+    }
+
+    .login-btn {
+      margin-top: 2rem;
+      width: 100%;
+      background-color: var(--color-1);
+      height: 4rem;
+      font-size: 1.4rem;
+      font-weight: bold;
+      border-radius: 2rem;
+      border: 0rem;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+        transform: scale(1.01);
+        background-color: var(--color-1-hightlight);
+      }
+    }
+
+    .forgot-passwd {
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+      text-align: center;
+      color: white;
+      width: 100%;
+
+      a {
+        font-size: 1.2rem;
+      }
+    }
+
+    .sign-up {
+      padding-top: 2rem;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      flex-direction: column;
+      flex-wrap: wrap;
+      font-size: 1.2rem;
+
+
+      span {
+        font-size: inherit;
+        text-align: center;
+        color: white;
+        color: rgb(179, 179, 179);
+      }
+      a {
+        margin-left: 0.5rem;
+        border-bottom: 0;
+        font-size: inherit;
+      }
+    }
+  }
+
+  footer {
+    background-color: var(--background-base);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    width: 100%;
+    height: 7rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    color: var(--essential-subdued);;
+
+    p { font-size: inherit;}
+    a { font-size: inherit;}
+  }
 }
 
-@include mobile(){
-  #login-page{
-    background-color: yellow;
+@media (min-width: 768px) {
+  #login-page {
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(rgba(255, 255, 255, 0.15) 0%, rgb(0, 0, 0) 100%);
+
+    .auth-wrapper {
+      background-color: var(--background-base);
+      min-width: 70rem;
+      max-width: 70rem;
+      border-radius: 1rem;
+      padding: 4rem 10rem;
+      height: fit-content;
+    }
+
+    .login-social-zone {
+      padding: 0 8rem ;
+
+    }
+
+    .auth-form {
+      padding: 0 8rem ;
+      .sign-up {
+        display: flex;
+        flex-direction: row;
+      }
+    }
+
   }
 }

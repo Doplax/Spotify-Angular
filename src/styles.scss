@@ -2,6 +2,8 @@
 
 :root {
   --color-1: #1DB954;
+  --color-1-hightlight: #41fe83;
+
   --color-2: #323232;
   --color-3: #000000;
   --color-4: #FFFFFF;
@@ -16,14 +18,21 @@
   --border-radius-2: .5rem;
   --font-family-1: 'Poppins', sans-serif;
   --animation-1: 200ms;
+
+  --background-base: #121212;
+  --essential-base: #FFFFFF;
+  --essential-subdued: #7c7c7c
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 62.5%;
 }
 
 html,
 body {
-  box-sizing: border-box;
-  font-size: 62.5%;
-  margin: 0;
-  padding: 0;
   background-color: var(--color-3);
   font-family: var(--font-family-1);
   color: var(--color-4);
@@ -31,12 +40,15 @@ body {
   width: 100vw;
 }
 
-input,
-button {
-  cursor: pointer;
-  font-family: var(--font-family-1);
+a {
+  text-decoration: none;
 }
 
-button:disabled {
-  opacity: .5;
+.g-link {
+  text-decoration: underline;
+  color: var(--color-4) !important; ;
+  font-weight: 400;
+  &:hover {
+    color: var( --color-1) !important;
+  }
 }

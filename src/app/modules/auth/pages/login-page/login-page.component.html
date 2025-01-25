@@ -1,53 +1,116 @@
 <section id="login-page">
-  <div class="auth-wrapper">
 
+  <div class="auth-wrapper">
     <div class="header">
       <div class="header-logo">
-        <app-svg-logo/>
+        <app-svg-logo />
       </div>
       <h3 class="header-text">Log in to Spotify</h3>
     </div>
 
+  <!-- Advisor -->
+  @if (isErrorSession) {
+      <div class="advisor-error">
+        <i class="advisor-error-icon">
+          <span class="material-symbols-outlined">info</span>
+        </i>
+        <p class="advisor-error-text">
+          {{ errorMessage }}
+        </p>
+      </div>
+    }
+    <!--@else{
+      <div class="advisor">
+        <i class="advisor-icon">
+          <span class="material-symbols-outlined">info</span>
+        </i>
+        <p class="advisor-text">
+          You do not have a Spotify account connected to your Google Account. If
+          you have a Spotify account, please try log in with your Spotify email or
+          username. If you do not have a Spotify account, please sign up.
+        </p>
+      </div>
+    }-->
 
-
-
-    <div class="advisor">
-
-
-      <i class="advisor-icon">
-        <span class="material-symbols-outlined">info</span>
-      </i>
-      <p class="advisor-text">You do not have a Spotify account connected to your Google Account. If you have a Spotify account, please try log in with your Spotify email or username. If you do not have a Spotify account, please sign up.</p>
-    </div>
+    <!-- TODO: use SVG instead icons -->
+    <!-- Social Login -->
     <div class="login-social-zone">
-      <button class="social-btn"><i class="uil uil-google"></i>Continue with Google</button>
-      <button class="social-btn btn-fb "> <i class="uil uil-facebook-f"></i> Continuar con Social</button>
-      <button class="social-btn btn-apple"><i class="uil uil-apple"></i> Continuar con Apple</button>
+      <button class="social-btn">
+        <i>
+          <app-svg-google/>
+        </i>
+        <span>Continue with Google</span>
+      </button>
+
+      <button class="social-btn btn-fb">
+        <i>
+          <app-svg-facebook/>
+        </i>
+        <span>Continue with Facebook</span>
+      </button>
+
+      <button class="social-btn btn-apple">
+        <i>
+          <app-svg-apple/>
+        </i>
+        <span>Continuar con Apple</span>
+      </button>
     </div>
+
     <div class="separator"></div>
-    <form (ngSubmit)="sendLogin()" [formGroup]="formLogin" class="login-auth-form">
+
+    <!-- Form Login -->
+    <form
+      (ngSubmit)="sendLogin()"
+      [formGroup]="formLogin"
+      class="auth-form"
+    >
       <div class="form-group">
-        <label for="email">Dirección de correo o nombre de usuario</label>
-        <input formControlName="email" type="text" placeholder="Dirección de correo o nombre de usuario" class="form-input">
-      </div>
-      <div class="form-group">
-        <label for="password">Contraseña</label>
-        <input formControlName="password" type="password" placeholder="Contraseña" class="form-input">
-      </div>
-      <div class="form-steps">
-        <a class="link" href="">¿Se te ha olvidado la contraseña?</a>
+        <label for="email">Email or Username</label>
+        <input
+          formControlName="email"
+          type="text"
+          placeholder="Dirección de correo o nombre de usuario"
+          class="form-input"
+        />
       </div>
 
-      @if (errorSession) {
-        <div>
-          Ocurrio un error con tu email o password
-        </div>
-      }
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          formControlName="password"
+          type="password"
+          placeholder="Contraseña"
+          class="form-input"
+        />
+      </div>
 
       <div class="form-action">
-        <button  class="login social-btn">Iniciar sesión</button>
+        <button class="login-btn social-btn">Log In</button>
       </div>
+
+      <div class="forgot-passwd">
+        <a class="g-link" href="">Forgot your password?</a>
+      </div>
+
+      <div class="sign-up">
+        <span>Don't have an account?</span>
+        <a class="g-link" href="">
+          Sign up for Spotify
+        </a>
+      </div>
+
     </form>
   </div>
 
+  <footer>
+    <p>This site is protected by reCAPTCHA and the Google
+      <a class="g-link" href="https://policies.google.com/privacy">Privacy Policy</a>
+        and
+      <a class="g-link" href="https://policies.google.com/terms">Terms of Service</a>
+       apply.
+    </p>
+  </footer>
+
 </section>
+

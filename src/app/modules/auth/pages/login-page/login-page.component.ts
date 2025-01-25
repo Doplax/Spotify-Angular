@@ -17,7 +17,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./login-page.component.scss'],
 })
 export class LoginPageComponent implements OnInit {
-  errorSession: boolean = false;
+  isErrorSession: boolean = false;
+  errorMessage: string = '';
   formLogin: FormGroup = new FormGroup({});
 
   constructor(
@@ -47,10 +48,10 @@ export class LoginPageComponent implements OnInit {
       (responseOk) => {
         this.router.navigate(['/']);
       },
-      (err) => {
-        //TODO error >= 400
-        this.errorSession = err;
-        console.log('Login failed');
+      (error) => {
+        this.isErrorSession = true;
+        this.errorMessage = `Login failed: ${error.error || 'There is some problems with the server connection...'}`;
+        console.error(this.errorMessage,error);
       }
     );
   }
