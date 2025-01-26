@@ -6,6 +6,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { InjectSessionInterceptor } from '@core/interceptors/inject-sesion.interceptor';
 import { HeaderComponent } from "./shared/components/header/header.component";
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+//import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { HeaderComponent } from "./shared/components/header/header.component";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    HeaderComponent
+    HeaderComponent,
+    //MatIconModule,
 ],
   providers: [
     CookieService,
@@ -26,6 +29,7 @@ import { HeaderComponent } from "./shared/components/header/header.component";
       useClass: InjectSessionInterceptor,
       multi: true,
     },
+    provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent],
 })
