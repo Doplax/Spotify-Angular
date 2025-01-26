@@ -1,4 +1,5 @@
 @import './app/styles/mixins';
+@import './assets/fonts/Spotify-Mix/styles.css';
 
 :root {
   --color-1: #1DB954;
@@ -16,7 +17,7 @@
   --shadow-2: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   --border-radius-1: .25rem;
   --border-radius-2: .5rem;
-  --font-family-1: 'Poppins', sans-serif;
+  --font-Spotify-Mix: 'Spotify Mix';
   --animation-1: 200ms;
 
   --background-base: #121212;
@@ -28,16 +29,21 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: var(--font-Spotify-Mix);
   font-size: 62.5%;
 }
 
 html,
 body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-width: 100vw;
+  min-height: 100vh;
+
   background-color: var(--color-3);
-  font-family: var(--font-family-1);
   color: var(--color-4);
-  height: 100vh;
-  width: 100vw;
 }
 
 a {
