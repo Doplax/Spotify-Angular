@@ -1,0 +1,14 @@
+header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+
+
+  i {
+    display: block;
+    height: 3rem;
+    width: 3rem;
+  }
+
+  background-color: red;
+}

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
-import { HeaderUserComponent } from './components/header-user/header-user.component';
 import { MediaPlayerComponent } from './components/media-player/media-player.component';
 import { SectionGenericComponent } from './components/section-generic/section-generic.component';
 import { CardPlayerComponent } from './components/card-player/card-player.component';
@@ -14,7 +13,6 @@ import { ImgBrokenDirective } from './directives/img-broken.directive';
 @NgModule({
   declarations: [
     SideBarComponent,
-    HeaderUserComponent,
     MediaPlayerComponent,
     SectionGenericComponent,
     CardPlayerComponent,
@@ -27,7 +25,6 @@ import { ImgBrokenDirective } from './directives/img-broken.directive';
   exports: [
     SideBarComponent,
     MediaPlayerComponent,
-    HeaderUserComponent,
     SectionGenericComponent,
     CardPlayerComponent,
     PlayListHeaderComponent,
