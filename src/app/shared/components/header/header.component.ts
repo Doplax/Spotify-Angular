@@ -7,15 +7,14 @@ import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-header',
-  standalone: true,
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.scss',
-  imports: [
-    SvgLogoComponent,
-    MatIconModule,
-    MatButtonModule
-  ]
+    selector: 'app-header',
+    templateUrl: './header.component.html',
+    styleUrl: './header.component.scss',
+    imports: [
+        SvgLogoComponent,
+        MatIconModule,
+        MatButtonModule
+    ]
 })
 export class HeaderComponent implements OnInit {
   isAuth: boolean = false

@@ -12,9 +12,10 @@ import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login-page',
-  templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.scss'],
+    selector: 'app-login-page',
+    templateUrl: './login-page.component.html',
+    styleUrls: ['./login-page.component.scss'],
+    standalone: false
 })
 export class LoginPageComponent implements OnInit {
   isErrorSession: boolean = false;

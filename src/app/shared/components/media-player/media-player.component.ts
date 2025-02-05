@@ -4,9 +4,10 @@ import { MultimediaService } from '@shared/services/multimedia.service';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-media-player',
-  templateUrl: './media-player.component.html',
-  styleUrls: ['./media-player.component.scss'],
+    selector: 'app-media-player',
+    templateUrl: './media-player.component.html',
+    styleUrls: ['./media-player.component.scss'],
+    standalone: false
 })
 export class MediaPlayerComponent implements OnInit, OnDestroy {
   @ViewChild('progressBar') progressBar: ElementRef = new ElementRef('');

@@ -4,9 +4,10 @@ import { TrackService } from 'src/app/tracks/services/track.service';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-tracks-page',
-  templateUrl: './tracks-page.component.html',
-  styleUrl: './tracks-page.component.scss',
+    selector: 'app-tracks-page',
+    templateUrl: './tracks-page.component.html',
+    styleUrl: './tracks-page.component.scss',
+    standalone: false
 })
 export class TracksPageComponent implements OnInit, OnDestroy {
   public tracksTrending: Array<TrackModel> = [];

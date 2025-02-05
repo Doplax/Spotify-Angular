@@ -3,9 +3,10 @@ import { TrackModel } from '@core/models/tracks.model';
 import { TrackService } from 'src/app/tracks/services/track.service';
 
 @Component({
-  selector: 'app-favorite-page',
-  templateUrl: './favorite-page.component.html',
-  styleUrl: './favorite-page.component.scss',
+    selector: 'app-favorite-page',
+    templateUrl: './favorite-page.component.html',
+    styleUrl: './favorite-page.component.scss',
+    standalone: false
 })
 export class FavoritePageComponent implements OnInit {
   tracksList: Array<TrackModel> = [];

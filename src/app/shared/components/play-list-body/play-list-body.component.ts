@@ -2,9 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { TrackModel } from '@core/models/tracks.model';
 
 @Component({
-  selector: 'app-play-list-body',
-  templateUrl: './play-list-body.component.html',
-  styleUrl: './play-list-body.component.scss',
+    selector: 'app-play-list-body',
+    templateUrl: './play-list-body.component.html',
+    styleUrl: './play-list-body.component.scss',
+    standalone: false
 })
 export class PlayListBodyComponent implements OnInit {
   @Input() tracks: Array<TrackModel> = [];

@@ -3,7 +3,8 @@ import { TrackModel } from '@core/models/tracks.model';
 
 // Definimos el Pipe con el nombre 'orderList'
 @Pipe({
-  name: 'orderList'
+    name: 'orderList',
+    standalone: false
 })
 export class OrderListPipe implements PipeTransform {
 

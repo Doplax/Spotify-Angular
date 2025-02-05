@@ -6,9 +6,10 @@ import { Observable, of } from 'rxjs';
 import { TrackService } from 'src/app/tracks/services/track.service';
 
 @Component({
-  selector: 'app-history-page',
-  templateUrl: './history-page.component.html',
-  styleUrl: './history-page.component.scss'
+    selector: 'app-history-page',
+    templateUrl: './history-page.component.html',
+    styleUrl: './history-page.component.scss',
+    standalone: false
 })
 export class HistoryPageComponent {
   listResults$: Observable<any> = of([]);
