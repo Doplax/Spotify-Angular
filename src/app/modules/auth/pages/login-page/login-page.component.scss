@@ -1,5 +1,10 @@
 @import "mixins";
 
+:host {
+  width: 100%;
+  height: 100%;
+}
+
 #login-page {
   background-color: rgb(18, 18, 18);
   width: 100%;
@@ -66,18 +71,16 @@
       align-items: center;
       background-color: transparent;
       border: 0.1rem solid var(--essential-subdued);
-      border-radius: 4rem;
+      border-radius: var(--border-radius-3);
       padding: 1rem;
       color: white;
       margin-bottom: 1rem;
       cursor: pointer;
 
-
       i {
         font-size: 2rem;
         margin-right: 1rem;
         margin-left: 1.5rem;
-        
       }
 
       span {
@@ -87,7 +90,6 @@
       }
 
       &:hover {
-
         border-color: var(--essential-base);
       }
     }
@@ -126,16 +128,15 @@
       width: 100%;
       background-color: var(--color-1);
       height: 4rem;
-      font-size: 1.4rem;
+      font-size: 2rem;
       font-weight: bold;
-      border-radius: 2rem;
+      border-radius: var(--border-radius-2);
       border: 0rem;
       cursor: pointer;
+      color: black;
 
       &:hover {
-        opacity: 0.8;
-        transform: scale(1.01);
-        background-color: var(--color-1-hightlight);
+        background-color: var(--color-1);
       }
     }
 
@@ -161,7 +162,6 @@
       flex-wrap: wrap;
       font-size: 1.2rem;
 
-
       span {
         font-size: inherit;
         text-align: center;
@@ -182,17 +182,20 @@
     left: 0;
     right: 0;
     position: absolute;
-    width: 100%;
     height: 7rem;
 
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1rem;
-    color: var(--essential-subdued);;
+    color: var(--essential-subdued);
 
-    p { font-size: inherit;}
-    a { font-size: inherit;}
+    p {
+      font-size: inherit;
+    }
+    a {
+      font-size: inherit;
+    }
   }
 }
 
@@ -200,7 +203,10 @@
   #login-page {
     display: flex;
     justify-content: center;
-    background: linear-gradient(rgba(255, 255, 255, 0.15) 0%, rgb(0, 0, 0) 100%);
+    background: linear-gradient(
+      rgba(255, 255, 255, 0.15) 0%,
+      rgb(0, 0, 0) 100%
+    );
 
     .auth-wrapper {
       background-color: var(--background-base);
@@ -212,17 +218,15 @@
     }
 
     .login-social-zone {
-      padding: 0 8rem ;
-
+      padding: 0 8rem;
     }
 
     .auth-form {
-      padding: 0 8rem ;
+      padding: 0 8rem;
       .sign-up {
         display: flex;
         flex-direction: row;
       }
     }
-
   }
 }

@@ -2,6 +2,48 @@ header {
   width: 100%;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  padding: 0.5rem;
+
+
+  background: black;
+
+  button.signUp-btn {
+    color: var(--color-white);
+    background-color: var(--color-black);
+    font-size: 1.8rem;
+
+
+    &:hover{
+      transform: scale(1.05);
+    }
+  }
+
+  button.logIn-btn{
+    background-color: var(--color-white);
+    color: var(--color-black);
+    border-radius: var(--border-radius-2);
+    font-weight: bold;
+    font-size: 100%;
+    font-size: 2rem;
+    padding: 0 3rem;
+
+    span {
+      font-size: 1.5rem !important;
+
+    }
+
+    //::ng-deep{
+    //  span {
+    //    font-size: 1.8rem;
+    //  }
+    //}
+
+
+    &:hover{
+      transform: scale(1.05);
+    }
+  }
 
 
   i {
@@ -10,5 +52,27 @@ header {
     width: 3rem;
   }
 
-  background-color: red;
+
+  .logo-container{
+
+    height: 5rem;
+  }
+  .search-container{
+
+    background-color: blue;
+  }
+  .user-container{
+
+    background-color: blue;
+  }
+
+
+}
+
+.logo-container,
+.search-container,
+.user-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

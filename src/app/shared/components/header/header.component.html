@@ -1,13 +1,21 @@
-<header>
-  <i>
-    <app-svg-logo/>
-  </i>
+@if(isAuth){
+  <header>
+    <div class="logo-container">
+      <i>
+        <app-svg-logo />
+      </i>
+    </div>
 
+    <div class="search-container">
+      <mat-icon>home</mat-icon>
+      <mat-icon>search</mat-icon>
+    </div>
 
+    <div class="user-container">
+      <!--<button  class="signUp-btn">Sign Up</button>-->
+      <button (click)="logOut()"  class="signUp-btn">Log Out</button>
 
-  <span class="material-symbols-outlined">
-    home
-  </span>
-
-</header>
-
+      <button mat-flat-button class="logIn-btn">Log In</button>
+    </div>
+  </header>
+}

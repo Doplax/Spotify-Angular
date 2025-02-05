@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
-import { Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -9,8 +9,19 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthService {
   private readonly URL = environment.api;
-  constructor(private http: HttpClient,  private cookie:CookieService) {}
+  private isAuthSubject = new BehaviorSubject<boolean>(false);
+  public isAuth$ = this.isAuthSubject.asObservable();
 
+  constructor(private http: HttpClient, private cookie: CookieService) {
+    this.checkIsAuth()
+  }
+
+  checkIsAuth(): boolean {
+    const isAuth = !!this.cookie.get('token_service');
+    this.isAuthSubject.next(isAuth);
+    return isAuth;
+  }
+  
   sendCredentials(email: string, password: string): Observable<any> {
     const body = {
       email,
@@ -20,8 +31,15 @@ export class AuthService {
       tap((responseOk: any) => {
         const { token } = responseOk;
         this.cookie.set('token_service', token, 4, '/');
-        //
+        this.checkIsAuth()
       })
     );
   }
+
+  logOut() {
+    this.cookie.delete('token_service', '/');
+    return this.checkIsAuth();
+  }
+
+
 }

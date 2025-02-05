@@ -54,7 +54,7 @@
 .media-player--wrapper .artist .track-like .btn-like {
   border: 0;
   background-color: transparent;
-  color: var(--color-4);
+  color: var(--color-white);
   font-size: var(--font-size-2);
   opacity: .7;
 }
@@ -103,7 +103,7 @@
 .media-player--wrapper .player-controls-inside .buttons-media .btn {
   background-color: transparent;
   border: 0;
-  color: var(--color-4);
+  color: var(--color-white);
   opacity: .7;
   font-size: 1.65rem
 }
@@ -133,7 +133,7 @@
 }
 
 .media-player--wrapper .player-controls-inside .media-linetime .time-progress-live {
-  background-color: var(--color-4);
+  background-color: var(--color-white);
   width: 0%;
   height: 2px;
   transition: all ease var(--animation-1);
@@ -149,6 +149,6 @@
 .media-player--wrapper .player-audio-inside .btn-media {
   background-color: transparent;
   border: 0;
-  color: var(--color-4);
+  color: var(--color-white);
   font-size: var(--font-size-2);
 }
