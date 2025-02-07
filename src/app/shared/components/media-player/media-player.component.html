@@ -58,8 +58,10 @@
     </div>
 
 
+    <!-- MatSlider -->
+     {{value}}
     <mat-slider min="0" max="100" step="0">
-      <input matSliderThumb value="0">
+      <input matSliderThumb [(ngModel)]="value" #slider>
     </mat-slider>
 
 

@@ -17,6 +17,7 @@ export class MediaPlayerComponent implements OnInit, OnDestroy {
   state: string = 'paused';
   mockCover!: TrackModel;
 
+  value:number=0
 
   constructor(public multimediaService: MultimediaService) {}
 
