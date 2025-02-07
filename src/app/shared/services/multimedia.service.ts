@@ -20,9 +20,7 @@ export class MultimediaService {
     this.audio = new Audio();
 
     this.trackInfo$.subscribe((response) => {
-      if(response) {
-        this.setAudio(response);
-      }
+      if(response) { this.setAudio(response);}
     });
     this.listenAllEvents();
   }
