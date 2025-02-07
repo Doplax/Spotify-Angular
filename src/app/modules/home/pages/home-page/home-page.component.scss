@@ -1,6 +1,12 @@
+:host {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+}
+
 .home-wrapper {
   margin: 0 0 0 17.5rem; // Esto es lo que hace que el div no se monte encima de la ControllBar
   background: rgb(23, 23, 26);
   background: linear-gradient(90deg, rgba(23, 23, 26, 1) 44%, rgba(24, 24, 24, 1));
-  min-height: 100vh;
 }

@@ -7,6 +7,9 @@ import { CookieService } from 'ngx-cookie-service';
 import { InjectSessionInterceptor } from '@core/interceptors/inject-sesion.interceptor';
 import { HeaderComponent } from "./shared/components/header/header.component";
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SharedModule } from '@shared/shared.module';
+
 //import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({ declarations: [
@@ -17,6 +20,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
         // Only import other Modules
         BrowserModule,
         AppRoutingModule,
+        BrowserAnimationsModule,
+        SharedModule,
         HeaderComponent], providers: [
         CookieService,
         {

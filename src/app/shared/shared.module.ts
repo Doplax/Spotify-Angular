@@ -9,6 +9,8 @@ import { PlayListBodyComponent } from './components/play-list-body/play-list-bod
 import { RouterLink, RouterModule } from '@angular/router';
 import { OrderListPipe } from './pipe/order-list.pipe';
 import { ImgBrokenDirective } from './directives/img-broken.directive';
+import {MatSliderModule} from '@angular/material/slider';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +23,7 @@ import { ImgBrokenDirective } from './directives/img-broken.directive';
     OrderListPipe,
     ImgBrokenDirective,
   ],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, MatSliderModule],
   exports: [
     SideBarComponent,
     MediaPlayerComponent,

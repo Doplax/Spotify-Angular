@@ -3,6 +3,8 @@ import { TrackModel } from '@core/models/tracks.model';
 import { MultimediaService } from '@shared/services/multimedia.service';
 import { Subscription } from 'rxjs';
 
+
+
 @Component({
     selector: 'app-media-player',
     templateUrl: './media-player.component.html',
