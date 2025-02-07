@@ -10,6 +10,8 @@ import { RouterLink, RouterModule } from '@angular/router';
 import { OrderListPipe } from './pipe/order-list.pipe';
 import { ImgBrokenDirective } from './directives/img-broken.directive';
 import {MatSliderModule} from '@angular/material/slider';
+import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -23,7 +25,7 @@ import {MatSliderModule} from '@angular/material/slider';
     OrderListPipe,
     ImgBrokenDirective,
   ],
-  imports: [CommonModule, RouterModule, MatSliderModule],
+  imports: [CommonModule, RouterModule, MatSliderModule, FormsModule],
   exports: [
     SideBarComponent,
     MediaPlayerComponent,
