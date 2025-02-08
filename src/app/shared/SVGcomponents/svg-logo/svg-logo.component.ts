@@ -12,7 +12,7 @@ import { Component } from '@angular/core';
       width="100%"
       data-encore-id="logoSpotify"
       class="Svg-sc-6c3c1v-0 jlGQTA"
-      style="fill: white"
+      fill="currentColor"
     >
       <title>Spotify</title>
       <path

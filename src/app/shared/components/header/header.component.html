@@ -1,12 +1,12 @@
 <header>
   <div class="logo-container">
-    <app-svg-logo routerLink="/home" />
+    <shared-svg-logo routerLink="/home" />
   </div>
 
   <div class="search-container">
-    <mat-icon routerLink="/home" class="home-icon">home</mat-icon>
+    <shared-svg-home routerLink="/home" class="home-icon"/>
     <div class="search-bar">
-      <mat-icon routerLink="/history" class="home-search">search</mat-icon>
+      <shared-svg-search routerLink="/history" class="home-search"/>
       <div class="flex just-between w-100">
         <input class="search-input" type="text" placeholder="Qué quieres reproducir?" />
         <shared-svg-explore class="explore-icon" />
