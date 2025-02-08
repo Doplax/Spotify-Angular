@@ -15,12 +15,8 @@ export class MediaPlayerComponent implements OnInit, OnDestroy {
   @ViewChild('progressBar') progressBar: ElementRef = new ElementRef('');
   listObservers$: Array<Subscription> = [];
   state: string = 'paused';
-  mockCover!: TrackModel;
-
   currentTrack!:any
-
-
-  progressBarValue:number=this.multimediaService.audio.currentTime
+  progressBarValue!:number;
 
   constructor(public multimediaService: MultimediaService) {}
 

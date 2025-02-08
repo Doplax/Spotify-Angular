@@ -1,5 +1,4 @@
 <div class="media-player">
-  {{ mockCover | json}}
   <div class="media-player--wrapper">
     <!--Zona del artista-->
     <div class="artist player-center">
@@ -22,10 +21,10 @@
   <!--<div class="artist-inside" *ngIf="multimediaService.trackInfo$ | async as mockCover">-->
   @if (multimediaService.trackInfo$ | async) {
     <div class="artist-inside">
-      <!--<img [src]="mockCover.cover" alt="cover" class="cover" />-->
+      <img [src]="currentTrack?.cover" alt="cover" class="cover" />
       <div class="track-info">
-        <!--<h3 class="track-title">{{ mockCover.name }}</h3>-->
-        <!--<h5 class="track-title sub-title">{{ mockCover.album }}</h5>-->
+        <h3 class="track-title">{{ currentTrack?.name }}</h3>
+        <h5 class="track-title sub-title">{{ currentTrack?.album }}</h5>
       </div>
       <div class="track-like">
         <button class="btn-like">
@@ -46,8 +45,8 @@
       <button (click)="multimediaService.tooglePlayer()" class="play btn">
         <i
           [ngClass]="{
-            'uil-play-circle': state === 'playing',
-            'uil-pause-circle': state === 'paused'
+            'uil-play-circle': state === 'paused',
+            'uil-pause-circle': state === 'playing'
           }"
           class="uil"
         ></i>
@@ -59,10 +58,10 @@
 
 
     <!-- MatSlider -->
-     {{progressBarValue}}
+    <!--{{progressBarValue}}
     <mat-slider min="0" max="100" step="0" class="custom-slider">
       <input (click)="handlePosition($event)" matSliderThumb [(ngModel)]="progressBarValue" #slider>
-    </mat-slider>
+    </mat-slider>-->
 
 
     <div class="media-linetime">

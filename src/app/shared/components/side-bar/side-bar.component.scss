@@ -1,10 +1,17 @@
 .side-bar {
   width: 15.5rem;
-  //height: 100vh;
+  height: 100vh;
   //position: fixed;
   top: 0;
   left: 0;
   padding: 0.5rem 1rem;
+  background: var(--color-2);
+  background: linear-gradient(90deg, rgba(23, 23, 26, 1) 44%, rgba(24, 24, 24, 1));
+  border-radius: var(--border-radius-2);
+  margin: 0.5rem;
+  padding: 2rem;
+  width: 30rem;
+
 
   &__list {
     list-style: none;
