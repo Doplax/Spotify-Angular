@@ -9,8 +9,14 @@ import { PlayListBodyComponent } from './components/play-list-body/play-list-bod
 import { RouterLink, RouterModule } from '@angular/router';
 import { OrderListPipe } from './pipe/order-list.pipe';
 import { ImgBrokenDirective } from './directives/img-broken.directive';
-import {MatSliderModule} from '@angular/material/slider';
+import { MatSliderModule } from '@angular/material/slider';
 import { FormsModule } from '@angular/forms';
+import { SvgLogoComponent } from './SVGcomponents/svg-logo/svg-logo.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { HeaderComponent } from './components/header/header.component';
+import { SvgExploreComponent } from './SVGcomponents/svg-explore/svg-explore.component';
+
 
 
 
@@ -24,8 +30,19 @@ import { FormsModule } from '@angular/forms';
     PlayListBodyComponent,
     OrderListPipe,
     ImgBrokenDirective,
+    HeaderComponent,
+    SvgExploreComponent
   ],
-  imports: [CommonModule, RouterModule, MatSliderModule, FormsModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    MatSliderModule,
+    FormsModule,
+    SvgLogoComponent,
+    MatIconModule,
+    MatButtonModule,
+    RouterModule,
+  ],
   exports: [
     SideBarComponent,
     MediaPlayerComponent,
@@ -33,7 +50,9 @@ import { FormsModule } from '@angular/forms';
     CardPlayerComponent,
     PlayListHeaderComponent,
     PlayListBodyComponent,
-    ImgBrokenDirective
+    ImgBrokenDirective,
+    HeaderComponent,
+    SvgExploreComponent
   ],
 })
 export class SharedModule {}

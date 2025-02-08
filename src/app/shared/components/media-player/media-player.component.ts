@@ -15,18 +15,17 @@ export class MediaPlayerComponent implements OnInit, OnDestroy {
   @ViewChild('progressBar') progressBar: ElementRef = new ElementRef('');
   listObservers$: Array<Subscription> = [];
   state: string = 'paused';
-  mockCover!: TrackModel;
-
-  value:number=0
+  currentTrack!:any
+  progressBarValue!:number;
 
   constructor(public multimediaService: MultimediaService) {}
 
   ngOnInit(): void {
-    const playerStatusObserver$ = this.multimediaService.playerStatus$.subscribe((response) => {
-      this.state = response
-    });
+    const playerStatusObserver$ = this.multimediaService.playerStatus$.subscribe((response) => this.state = response);
+    const trackInfoObserver$ = this.multimediaService.trackInfo$.subscribe((response) => this.currentTrack = response );
+    const progressBarValueObserver$ = this.multimediaService.playerPercentage$.subscribe((response) => this.progressBarValue = response);
 
-    this.listObservers$ = [playerStatusObserver$]
+    this.listObservers$ = [playerStatusObserver$, trackInfoObserver$, progressBarValueObserver$]
   }
 
   handlePosition(event:MouseEvent):void {
@@ -35,6 +34,14 @@ export class MediaPlayerComponent implements OnInit, OnDestroy {
     const { x, width } = elNative.getBoundingClientRect();
     const clickX = clientX - x;
     const percentageFromX = clickX / width * 100;
+    console.log({percentageFromX});
+
+    //this.multimediaService.audio.currentTime
+    //console.log({mockCover: this.mockCover});
+    console.log({progressBarValue: this.progressBarValue});
+    console.log({currentTime: this.multimediaService.audio.currentTime});
+    console.log(this.currentTrack);
+
     this.multimediaService.seekAudio(percentageFromX);
   }
 

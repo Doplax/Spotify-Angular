@@ -3,75 +3,135 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 0.5rem;
-
-
   background: black;
+  align-items: center;
 
-  button.signUp-btn {
-    color: var(--color-white);
-    background-color: var(--color-black);
-    font-size: 1.8rem;
-
-
-    &:hover{
-      transform: scale(1.05);
-    }
-  }
-
-  button.logIn-btn{
-    background-color: var(--color-white);
-    color: var(--color-black);
-    border-radius: var(--border-radius-2);
-    font-weight: bold;
-    font-size: 100%;
-    font-size: 2rem;
-    padding: 0 3rem;
-
-    span {
-      font-size: 1.5rem !important;
-
-    }
-
-    //::ng-deep{
-    //  span {
-    //    font-size: 1.8rem;
-    //  }
-    //}
-
-
-    &:hover{
-      transform: scale(1.05);
-    }
-  }
-
-
-  i {
+  //Logo Container
+  .logo-container {
     display: block;
-    height: 3rem;
-    width: 3rem;
+    height: 3.5rem;
+    width: 3.5rem;
+    margin: 0rem 3rem;
+    cursor: pointer;
   }
 
+  //Search Container
+  .search-container {
+    display: flex;
+    justify-content: space-around;
 
-  .logo-container{
+    .home-icon,
+    .home-search {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--color-2);
+      width: 4rem;
+      height: 4rem;
+      border-radius: var(--border-radius-2);
+      margin: 0rem 0.5rem;
+      cursor: pointer;
+    }
 
-    height: 5rem;
+    .search-bar {
+      display: flex;
+      flex-direction: row;
+      justify-content: space;
+      align-items: center;
+
+      background-color: var(--color-2);
+      color: var(--color-white);
+
+
+      border-radius: var(--border-radius-2);
+      width: 30rem;
+
+
+      .search-input {
+        background-color: var(--color-2);
+        color: var(--color-white);
+        border: none;
+        font-size: medium;
+
+        &::placeholder {
+          color: var(--essential-subdued);
+        }
+        &:focus-visible {
+          outline: none;
+        }
+      }
+
+      .explore-icon{
+        width: 2.5rem;
+        height: 2.5rem;
+        margin-right: 2rem;
+        margin-left: 1rem;
+        //border-left: 1px solid gray;
+        position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          right: 3.5rem;
+          //top: 50%;
+          //transform: translateY(-50%);
+          height: 100%;
+          border-left: 2px solid gray;
+        }
+      }
+    }
   }
-  .search-container{
 
-    background-color: blue;
+  // User Container
+  .user-container {
+    margin: 1rem 1rem;
+
+    .signUp-btn {
+      color: var(--color-white);
+      background-color: var(--color-black);
+      font-size: 1.8rem;
+      margin: 0rem 1rem;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    .logIn-btn {
+      background-color: var(--color-white);
+      color: var(--color-black);
+      border-radius: var(--border-radius-2);
+      font-weight: bold;
+      font-size: 100%;
+      font-size: 2rem;
+      padding: 0 3rem;
+
+      ::ng-deep {
+        span {
+          font-size: 1.8rem;
+        }
+      }
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    .account-btn {
+      width: 3rem;
+      height: 3rem;
+      background-color: var(--color-1);
+      color: var(--color-black);
+      font-weight: bold;
+      border-radius: 50%;
+      box-shadow: 0rem 0rem 0.5rem 0.5rem var(--color-2)
+    }
   }
-  .user-container{
-
-    background-color: blue;
-  }
-
-
 }
 
 .logo-container,
 .search-container,
-.user-container{
+.user-container {
   display: flex;
   justify-content: center;
   align-items: center;

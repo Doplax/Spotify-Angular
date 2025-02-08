@@ -8,10 +8,9 @@ describe('SvgLogoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SvgLogoComponent]
-    })
-    .compileComponents();
-    
+      imports: [SvgLogoComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(SvgLogoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
