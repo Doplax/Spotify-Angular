@@ -11,11 +11,10 @@ import { OrderListPipe } from './pipe/order-list.pipe';
 import { ImgBrokenDirective } from './directives/img-broken.directive';
 import { MatSliderModule } from '@angular/material/slider';
 import { FormsModule } from '@angular/forms';
-import { SvgLogoComponent } from './SVGcomponents/svg-logo/svg-logo.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { HeaderComponent } from './components/header/header.component';
-import { SvgExploreComponent } from './SVGcomponents/svg-explore/svg-explore.component';
+import { SvgModule } from './SVGcomponents/svg.module';
 
 
 
@@ -31,17 +30,16 @@ import { SvgExploreComponent } from './SVGcomponents/svg-explore/svg-explore.com
     OrderListPipe,
     ImgBrokenDirective,
     HeaderComponent,
-    SvgExploreComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     MatSliderModule,
     FormsModule,
-    SvgLogoComponent,
     MatIconModule,
     MatButtonModule,
     RouterModule,
+    SvgModule
   ],
   exports: [
     SideBarComponent,
@@ -52,7 +50,6 @@ import { SvgExploreComponent } from './SVGcomponents/svg-explore/svg-explore.com
     PlayListBodyComponent,
     ImgBrokenDirective,
     HeaderComponent,
-    SvgExploreComponent
   ],
 })
 export class SharedModule {}
