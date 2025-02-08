@@ -17,6 +17,9 @@ header {
 
   //Search Container
   .search-container {
+    display: flex;
+    justify-content: space-around;
+
     .home-icon,
     .home-search {
       display: flex;
@@ -28,6 +31,54 @@ header {
       border-radius: var(--border-radius-2);
       margin: 0rem 0.5rem;
       cursor: pointer;
+    }
+
+    .search-bar {
+      display: flex;
+      flex-direction: row;
+      justify-content: space;
+      align-items: center;
+
+      background-color: var(--color-2);
+      color: var(--color-white);
+
+
+      border-radius: var(--border-radius-2);
+      width: 30rem;
+
+
+      .search-input {
+        background-color: var(--color-2);
+        color: var(--color-white);
+        border: none;
+        font-size: medium;
+
+        &::placeholder {
+          color: var(--essential-subdued);
+        }
+        &:focus-visible {
+          outline: none;
+        }
+      }
+
+      .explore-icon{
+        width: 2.5rem;
+        height: 2.5rem;
+        margin-right: 2rem;
+        margin-left: 1rem;
+        //border-left: 1px solid gray;
+        position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          right: 3.5rem;
+          //top: 50%;
+          //transform: translateY(-50%);
+          height: 100%;
+          border-left: 2px solid gray;
+        }
+      }
     }
   }
 
@@ -64,6 +115,16 @@ header {
       &:hover {
         transform: scale(1.05);
       }
+    }
+
+    .account-btn {
+      width: 3rem;
+      height: 3rem;
+      background-color: var(--color-1);
+      color: var(--color-black);
+      font-weight: bold;
+      border-radius: 50%;
+      box-shadow: 0rem 0rem 0.5rem 0.5rem var(--color-2)
     }
   }
 }

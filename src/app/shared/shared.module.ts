@@ -15,6 +15,9 @@ import { SvgLogoComponent } from './SVGcomponents/svg-logo/svg-logo.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { HeaderComponent } from './components/header/header.component';
+import { SvgExploreComponent } from './SVGcomponents/svg-explore/svg-explore.component';
+
+
 
 
 @NgModule({
@@ -27,7 +30,8 @@ import { HeaderComponent } from './components/header/header.component';
     PlayListBodyComponent,
     OrderListPipe,
     ImgBrokenDirective,
-    HeaderComponent
+    HeaderComponent,
+    SvgExploreComponent
   ],
   imports: [
     CommonModule,
@@ -47,7 +51,8 @@ import { HeaderComponent } from './components/header/header.component';
     PlayListHeaderComponent,
     PlayListBodyComponent,
     ImgBrokenDirective,
-    HeaderComponent
+    HeaderComponent,
+    SvgExploreComponent
   ],
 })
 export class SharedModule {}
