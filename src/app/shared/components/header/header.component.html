@@ -1,21 +1,20 @@
-@if(isAuth){
-  <header>
-    <div class="logo-container">
-      <i>
-        <app-svg-logo />
-      </i>
-    </div>
+<header>
+  <div class="logo-container">
+    <app-svg-logo routerLink="/home"/>
+  </div>
 
-    <div class="search-container">
-      <mat-icon>home</mat-icon>
-      <mat-icon>search</mat-icon>
-    </div>
+  <div class="search-container">
+    <mat-icon routerLink="/home" class="home-icon">home</mat-icon>
+    <mat-icon routerLink="/history" class="home-search">search</mat-icon>
+  </div>
 
-    <div class="user-container">
-      <!--<button  class="signUp-btn">Sign Up</button>-->
-      <button (click)="logOut()"  class="signUp-btn">Log Out</button>
-
-      <button mat-flat-button class="logIn-btn">Log In</button>
-    </div>
-  </header>
-}
+  <div class="user-container">
+    <!--<button  class="signUp-btn">Sign Up</button>-->
+    <button (click)="logOut()" class="signUp-btn">Log Out</button>
+    @if(!isAuth){
+      <button mat-flat-button routerLink="/auth/login" class="logIn-btn">
+        Log In
+      </button>
+    }
+  </div>
+</header>

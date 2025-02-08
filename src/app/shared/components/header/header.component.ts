@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SvgLogoComponent } from '../../SVGcomponents/svg-logo/svg-logo.component';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
 import { AuthService } from '@modules/auth/services/auth.service';
 import { Router } from '@angular/router';
 
@@ -9,7 +6,7 @@ import { Router } from '@angular/router';
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
-  imports: [SvgLogoComponent, MatIconModule, MatButtonModule],
+  standalone: false,
 })
 export class HeaderComponent implements OnInit {
   isAuth: boolean = false;
@@ -19,6 +16,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.authService.isAuth$.subscribe((isAuth) => {
       this.isAuth = isAuth;
+      console.log(this.isAuth);
     });
   }
 

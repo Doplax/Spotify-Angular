@@ -1,9 +1,12 @@
 :host {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
-.home-wrapper {
+.container {
+  display: flex;
+  flex-direction: row;
   width: 100%;
   height: 100%;
 }
+
