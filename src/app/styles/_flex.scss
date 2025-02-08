@@ -1,0 +1,41 @@
+/* Contenedor Flex */
+.flex {
+  display: flex;
+}
+.flex-inline {
+  display: inline-flex;
+}
+
+/* Dirección */
+.flex-row {
+  flex-direction: row;
+}
+.flex-row-rev {
+  flex-direction: row-reverse;
+}
+.flex-col {
+  flex-direction: column;
+}
+.flex-col-rev {
+  flex-direction: column-reverse;
+}
+
+/* Justificación (Eje principal) */
+.just-start {
+  justify-content: flex-start;
+}
+.just-center {
+  justify-content: center;
+}
+.just-end {
+  justify-content: flex-end;
+}
+.just-between {
+  justify-content: space-between;
+}
+.just-around {
+  justify-content: space-around;
+}
+.just-evenly {
+  justify-content: space-even;
+}
