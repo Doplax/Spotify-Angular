@@ -11,6 +11,7 @@
   --color-2: #161616;
   --color-black: #000000;
   --color-white: #FFFFFF;
+  --color-whiteRGB: 255, 255, 255;
   --color-5: #181818;
 
   --font-size-1: 1rem;
@@ -29,6 +30,11 @@
   --background-base: #121212;
   --essential-base: #FFFFFF;
   --essential-subdued: #7c7c7c
+  --essential-grey: #282828;
+  --essential-grey-2: #1f1f1f;
+
+  //TODO: change name var and color
+  --temporal-grey: #4d4d4d
 }
 
 * {
@@ -67,4 +73,10 @@ button {
   &:hover {
     color: var( --color-1) !important;
   }
+}
+
+.g-icon {
+  display: block;
+  height: 2.4rem;
+  width: 2.4rem;
 }

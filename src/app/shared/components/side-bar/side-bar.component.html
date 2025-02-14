@@ -1,43 +1,51 @@
 <div class="side-bar">
   <!-- Default Options -->
-  <div><i class="uil uil-ellipsis-h"></i></div>
-  <mat-icon>account_circle</mat-icon>
-  <ul class="side-bar__list list-one">
-    @for (item of mainMenu.defaultOptions; track item) {
-      <li
-        [routerLink]="item.router"
-        [queryParams]="item.query"
-        >
-        <div class="list-wrapper-item">
-          <i [ngClass]="['uil', item.icon]"></i>
-          <span class="side-bar__list list-label">{{ item.name }}</span>
-        </div>
-      </li>
-    }
-  </ul>
-  <!-- AccesLink -->
-  <div class="side-bar__separator"></div>
-  <ul class="side-bar__list list-two">
-    @for (item of mainMenu.accessLink; track item) {
-      <li>
-        <div class="list-wrapper-item">
-          <i [ngClass]="['uil', item.icon]"></i>
-          <span class="side-bar__list list-label">{{ item.name }}</span>
-        </div>
-      </li>
-    }
-  </ul>
-  <!-- Custom Options -->
-  <div class="side-bar__separator line-separator"></div>
-  <ul class="side-bar__list list-three">
-    @for (item of customOptions; track item) {
-      <li
-        [routerLink]="item.router"
-        >
-        <div class="list-wrapper-item">
-          <span class="side-bar__list list-label">{{ item.name }}</span>
-        </div>
-      </li>
-    }
-  </ul>
+
+  <!-- Head Section -->
+  <section class="head-section">
+    <div class="top-section">
+      <div class="flex flex-row items-center">
+        <shared-svg-library class="g-icon" />
+        <span>Tu Biblioteca</span>
+      </div>
+
+      <div class="flex flex-row">
+        <mat-icon>add</mat-icon>
+        <mat-icon>arrow_forward</mat-icon>
+      </div>
+    </div>
+  </section>
+
+  <!-- List Section -->
+  <section class="list-section">
+    <span class="list-btn">Listas</span>
+  </section>
+
+
+  <!-- Search Section -->
+  <section class="search-section">
+    <shared-svg-search class="search-icon"/>
+    <div class="recents-lists">
+      <span>Recientes</span>
+      <mat-icon>format_list_bulleted</mat-icon>
+    </div>
+  </section>
+
+  <!-- Recents Section -->
+  <section class="recents-list-section">
+    <div class="playList-card">
+      <div class="playList-image">
+        <shared-svg-folder class="g-icon"/>
+      </div>
+
+      <div class="playList-info">
+        <span class="title">Nueva Carpeta</span>
+        <span class="subTitle">1 Lista</span>
+      </div>
+
+      <div class="playList-icon">
+        <mat-icon>play_arrow</mat-icon>
+      </div>
+    </div>
+  </section>
 </div>
