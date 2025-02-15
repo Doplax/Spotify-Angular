@@ -18,11 +18,27 @@
     <!--<button  class="signUp-btn">Sign Up</button>-->
     <button (click)="logOut()" class="signUp-btn">Log Out</button>
     @if(isAuth){
-    <button routerLink="/#" class="account-btn">D</button>
+      <button (click)="toggleDropdown()" routerLink="/#" class="account-btn">D</button>
+      @if (isOpenDropdown) {<div [ngTemplateOutlet]="ViewContainerRef"></div>}
     } @else {
-    <button mat-flat-button routerLink="/auth/login" class="logIn-btn">
-      Log In
-    </button>
+      <button mat-flat-button routerLink="/auth/login" class="logIn-btn">
+        Log In
+      </button>
     }
   </div>
 </header>
+
+
+
+
+<!-- TEMPLATES -->
+<ng-template #ViewContainerRef>
+  <div class="account-dropDown">
+    @for (item of acountdropDown; track $index) {
+      <button class="dropDown-item g-hover-grey">
+        <span class="dropDown-text">{{item}}</span>
+        <mat-icon>ios_share</mat-icon>
+      </button>
+    }
+  </div>
+</ng-template>

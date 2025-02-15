@@ -11,6 +11,9 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
   isAuth: boolean = false;
 
+  isOpenDropdown: boolean = false;
+  acountdropDown: string[] = ['Cuenta', 'Perfil', 'Sube a Premium', 'Asistencia','Descargar','Configuración','Cerrar sesión'];
+
   constructor(private authService: AuthService, public router: Router) {}
 
   ngOnInit(): void {
@@ -18,6 +21,10 @@ export class HeaderComponent implements OnInit {
       this.isAuth = isAuth;
       console.log(this.isAuth);
     });
+  }
+
+  toggleDropdown() {
+    this.isOpenDropdown = !this.isOpenDropdown;
   }
 
   checkIsAuth() {

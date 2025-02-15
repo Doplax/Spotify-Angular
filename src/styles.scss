@@ -77,6 +77,16 @@ button {
 
 .g-icon {
   display: block;
+  cursor: pointer;
   height: 2.4rem;
   width: 2.4rem;
+}
+
+
+.g-hover-grey {
+  &:hover {
+    cursor: pointer !important;
+    border-radius: var(--border-radius-1) !important;
+    background-color: rgba(var(--color-whiteRGB), 0.1) !important;
+  }
 }

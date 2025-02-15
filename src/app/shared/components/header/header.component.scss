@@ -42,10 +42,8 @@ header {
       background-color: var(--color-2);
       color: var(--color-white);
 
-
       border-radius: var(--border-radius-2);
       width: 30rem;
-
 
       .search-input {
         background-color: var(--color-2);
@@ -61,7 +59,7 @@ header {
         }
       }
 
-      .explore-icon{
+      .explore-icon {
         width: 2.5rem;
         height: 2.5rem;
         margin-right: 2rem;
@@ -70,7 +68,7 @@ header {
         position: relative;
 
         &::before {
-          content: '';
+          content: "";
           position: absolute;
           right: 3.5rem;
           //top: 50%;
@@ -124,7 +122,7 @@ header {
       color: var(--color-black);
       font-weight: bold;
       border-radius: 50%;
-      box-shadow: 0rem 0rem 0.5rem 0.5rem var(--color-2)
+      box-shadow: 0rem 0rem 0.5rem 0.5rem var(--color-2);
     }
   }
 }
@@ -138,9 +136,50 @@ header {
 }
 
 .mat-rounded {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 300,
-  'GRAD' -25,
-  'opsz' 24
+  font-variation-settings: "FILL" 0, "wght" 300, "GRAD" -25, "opsz" 24;
+}
+
+//DropWodn
+.account-dropDown {
+  background-color: rgb(40, 40, 40);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  top: 5rem;
+  right: 1rem;
+  padding: 1rem;
+  border-radius: var(--border-radius-1);
+  box-shadow: 1rem;
+  z-index: 10;
+
+  .dropDown-item {
+    background-color: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 0.7rem;
+    width: 100%;
+
+    &:hover .dropDown-text {
+      text-decoration: underline;
+    }
+
+    .dropDown-text {
+      color: var(--color-white);
+      font-size: 1.2rem;
+      font-weight: 400;
+      text-align: start;
+      flex: 1;
+    }
+
+    mat-icon {
+      color: var(--color-white);
+      font-size: 2rem;
+      &:hover {
+        text-decoration: none;
+        text-decoration: none;
+      }
+    }
+  }
 }
