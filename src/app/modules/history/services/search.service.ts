@@ -13,7 +13,7 @@ export class SearchService {
   }
 
   searchTracks$(term: string): Observable<any> {
-    return this.http.get(`${this.URL}public/tracks/?src=${term}`)
+    return this.http.get(`${this.URL}public/music/?src=${term}`)
       .pipe(
         map((dataRaw:any) => dataRaw.data)
       )

@@ -8,19 +8,32 @@ import { MultimediaService } from '@shared/services/multimedia.service';
     styleUrls: ['./card-player.component.scss'],
     standalone: false
 })
+// TODO: EN la vista, falta opción de
 export class CardPlayerComponent implements OnInit {
   @Input() mode: 'small' | 'big' = 'small'
-  @Input() track: TrackModel = { _id: 0, name: '', album: '', url: '', cover: '' }; // Lo inicializamos para evitar errores
+  @Input() track!: TrackModel;
+  public isPlaying: boolean = false;
+  public trackInfo: TrackModel | null = null;
 
-  constructor(private multimediaService: MultimediaService) { }
+  // Comparar el ID de la cancion con la que suena en el reproductor
+
+  constructor(private multimediaService: MultimediaService) {
+    this.multimediaService.playerStatus$.subscribe((response) => {
+      this.isPlaying = response === 'playing';
+    });
+    this.multimediaService.trackInfo$.subscribe((response) => {
+      this.trackInfo = response;
+    });
+   }
 
   ngOnInit(): void {
   }
 
-  sendPlay(track: TrackModel): void {
-    //console.log('Enviando canción al reproductor...',track);
-    //this.multimediaService.callback.emit(track)
+  playSong(track: TrackModel): void {
     this.multimediaService.trackInfo$.next(track)
   }
 
+  tooglePlay(): void {
+    this.multimediaService.tooglePlayer();
+  }
 }
