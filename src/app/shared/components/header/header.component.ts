@@ -81,6 +81,11 @@ export class HeaderComponent implements OnInit, AfterViewInit  {
     return isAuth;
   }
 
+  toggleDropdown() {
+    this.isOpenDropdown = !this.isOpenDropdown;
+    console.log('isOpenDropdown',this.isOpenDropdown);
+  }
+
   logOut() {
     console.log('logut funcion');
     this.authService.logOut();

@@ -1,22 +1,22 @@
+<!-- TODO: Change material icons to Native Icons -->
 <div class="media-player">
   <div class="media-player--wrapper">
     <!--Zona del artista-->
     <div class="artist player-center">
-      <ng-container *ngTemplateOutlet="artistZone"></ng-container>
+      <ng-container *ngTemplateOutlet="artistZone" />
     </div>
     <!--Zona del reproductor-->
     <div class="player-controls player-center">
-      <ng-container *ngTemplateOutlet="playerZone"></ng-container>
+      <ng-container *ngTemplateOutlet="playerZone" />
     </div>
     <!--Zona del controles adicionales-->
     <div class="player-audio player-center">
-      <ng-container *ngTemplateOutlet="playerAudio"></ng-container>
+      <ng-container *ngTemplateOutlet="playerAudio" />
     </div>
   </div>
 </div>
 
 <!-- ZONE TEMPLATES -->
-
 <ng-template #artistZone>
   <!--<div class="artist-inside" *ngIf="multimediaService.trackInfo$ | async as mockCover">-->
   @if (multimediaService.trackInfo$ | async) {
@@ -39,23 +39,29 @@
 <ng-template #playerZone>
   <div class="player-controls-inside">
     <div class="buttons-media">
-      <button class="arrow btn">
-        <i class="uil uil-previous"></i>
-      </button>
-      <button (click)="multimediaService.tooglePlayer()" class="play btn">
+      <!-- Repeat -->
+      <!-- TODO: Random Function  -->
+      <shared-svg-random class="g-icon btn size32" />
+
+      <!-- Previous -->
+      <shared-svg-next [revert]="true" class="g-icon btn size32" />
+
+      <!-- Play/Pause -->
+      <button (click)="multimediaService.tooglePlayer()" class="btn">
         <!-- TODO: Create disabled class -->
-        <i
-          [ngClass]="{
-            'uil-play-circle': state === 'pause',
-            'uil-pause-circle': state === 'playing',
-          }
-            "
-          class="uil"
-        ></i>
+        @switch(state){ @case('pause'){
+        <mat-icon>play_circle</mat-icon>
+        } @case('playing') {
+        <mat-icon>pause_circle</mat-icon>
+        } @default {
+        <mat-icon>play_circle</mat-icon>
+        }}
       </button>
-      <button class="arrow btn">
-        <i class="uil uil-step-forward"></i>
-      </button>
+      <!-- Next -->
+      <shared-svg-next class="g-icon btn size32" />
+
+      <!-- TODO: Repeat Function -->
+      <shared-svg-retry class="g-icon bt size32" />
     </div>
 
     <!-- MatSlider -->
@@ -65,15 +71,21 @@
     </mat-slider>-->
 
     <div class="media-linetime">
-      <div class="time">{{ multimediaService.timeElapsed$ | async }}</div>
-      <span #progressBar (click)="handlePosition($event)" class="time-progress">
+      <span class="time">{{ multimediaService.timeElapsed$ | async }}</span>
+      <div>
         <span
-          class="time-progress-live"
-          [style.width]="(multimediaService.playerPercentage$ | async) + '%'"
+          #progressBar
+          (click)="handlePosition($event)"
+          class="time-progress"
         >
+          <span
+            class="time-progress-live"
+            [style.width]="(multimediaService.playerPercentage$ | async) + '%'"
+          >
+          </span>
         </span>
-      </span>
-      <div class="time">{{ multimediaService.timeRemaining$ | async }}</div>
+      </div>
+      <span class="time">{{ multimediaService.timeRemaining$ | async }}</span>
     </div>
   </div>
 </ng-template>

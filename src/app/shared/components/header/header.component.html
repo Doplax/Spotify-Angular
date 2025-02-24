@@ -22,10 +22,10 @@
     <!--<button  class="signUp-btn">Sign Up</button>-->
     @if(isAuth){
     <button
-      id="accountButton"
       #accountButton
       routerLink="/#"
       class="account-btn"
+      (mousedown)="toggleDropdown()"
     >
       D
     </button>

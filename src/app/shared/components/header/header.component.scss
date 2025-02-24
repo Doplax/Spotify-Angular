@@ -123,67 +123,66 @@ header {
       font-weight: bold;
       border-radius: 50%;
       box-shadow: 0rem 0rem 0.5rem 0.5rem var(--color-2);
-    }
-  }
-}
-
-.logo-container,
-.search-container,
-.user-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.mat-rounded {
-  font-variation-settings: "FILL" 0, "wght" 300, "GRAD" -25, "opsz" 24;
-}
-
-//DropWodn
-.account-dropDown {
-  background-color: rgb(40, 40, 40);
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  width: 20rem;
-  top: 5rem;
-  right: 1rem;
-  padding: 1rem;
-  border-radius: var(--border-radius-1);
-  box-shadow: 1rem;
-  z-index: 10;
-
-  .dropDown-item {
-    background-color: inherit;
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    padding: 0.7rem;
-    width: 100%;
-
-    &:hover .dropDown-text {
-      text-decoration: underline;
-    }
-
-    .dropDown-text {
-      color: var(--color-white);
-      font-size: 1.2rem;
-      font-weight: 400;
-      text-align: start;
-      flex: 1;
-    }
-
-    mat-icon {
-      color: var(--color-white);
-      font-size: 2rem;
-      &:hover {
-        text-decoration: none;
-        text-decoration: none;
+      &:focus {
+        background-color: red;
       }
     }
   }
-}
 
-#accountButton:focus{
-  background-color: red !important;
+  .logo-container,
+  .search-container,
+  .user-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mat-rounded {
+    font-variation-settings: "FILL" 0, "wght" 300, "GRAD" -25, "opsz" 24;
+  }
+
+  //DropWodn
+  .account-dropDown {
+    background-color: rgb(40, 40, 40);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    top: 5rem;
+    right: 1rem;
+    padding: 1rem;
+    border-radius: var(--border-radius-1);
+    box-shadow: 1rem;
+    z-index: 10;
+
+    .dropDown-item {
+      background-color: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      padding: 0.7rem;
+      width: 100%;
+
+      &:hover .dropDown-text {
+        text-decoration: underline;
+      }
+
+      .dropDown-text {
+        color: var(--color-white);
+        font-size: 1.2rem;
+        font-weight: 400;
+        text-align: start;
+        flex: 1;
+      }
+
+      mat-icon {
+        color: var(--color-white);
+        font-size: 2rem;
+        &:hover {
+          text-decoration: none;
+          text-decoration: none;
+        }
+      }
+    }
+  }
 }

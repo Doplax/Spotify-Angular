@@ -46,6 +46,10 @@ export class MediaPlayerComponent implements OnInit, OnDestroy {
     this.multimediaService.seekAudio(percentageFromX);
   }
 
+  prueba():void {
+    alert('prueba');
+  }
+
   ngOnDestroy(): void {
     this.listObservers$.forEach((e) => e.unsubscribe());
   }
