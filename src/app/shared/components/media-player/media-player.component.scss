@@ -23,9 +23,10 @@
     }
 
     .artist {
-      width: 25%;
+      width: 33%;
 
       .artist-inside {
+        padding-left: 1rem;
         display: flex;
         gap: 0.5rem;
 
@@ -45,26 +46,28 @@
         .track-title {
           margin: 0;
           font-weight: 400;
-          font-size: 0.8rem;
+          font-size: 1.5rem;
         }
 
         .sub-title {
           margin: 0;
           font-weight: 300;
-          font-size: 80%;
-          opacity: 0.6;
+          font-size: 1rem;
+          opacity: 0.7;
         }
 
         .cover {
-          width: 55px;
-          height: 55px;
+          width: 5.6rem;
+          height: 5.6rem;
           object-fit: cover;
+          margin-right: 1rem;
+          border-radius: 0.5rem;
         }
       }
     }
 
     .player-controls {
-      width: 50%;
+      width: 33%;
       position: relative;
 
       .player-controls-inside {
@@ -79,11 +82,8 @@
           display: flex;
           justify-content: center;
           align-self: center;
-          gap: 0.5rem;
-
-          .play {
-            font-size: 2.35rem;
-          }
+          gap: 0.7rem;
+          margin-bottom: 0.8rem;
 
           .btn {
             background-color: transparent;
@@ -91,6 +91,17 @@
             color: var(--color-white);
             opacity: 0.7;
             font-size: 1.65rem;
+          }
+
+          .play-btn {
+            opacity: 1;
+
+            mat-icon {
+              font-size: 3.8rem;
+              width: 100%;
+              height: 100%;
+              color: var(--color-white);
+            }
           }
         }
 
@@ -102,7 +113,7 @@
           padding: 0;
 
           .time {
-            padding: 0.5rem 0;
+            padding: 1rem;
           }
 
           .time-progress {
@@ -126,7 +137,7 @@
     }
 
     .player-audio {
-      width: 25%;
+      width: 33%;
 
       .player-audio-inside {
         display: flex;

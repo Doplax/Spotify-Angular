@@ -47,7 +47,7 @@
       <shared-svg-next [revert]="true" class="g-icon btn size32" />
 
       <!-- Play/Pause -->
-      <button (click)="multimediaService.tooglePlayer()" class="btn">
+      <button (click)="multimediaService.tooglePlayer()" class="play-btn btn">
         <!-- TODO: Create disabled class -->
         @switch(state){ @case('pause'){
         <mat-icon>play_circle</mat-icon>
@@ -61,7 +61,7 @@
       <shared-svg-next class="g-icon btn size32" />
 
       <!-- TODO: Repeat Function -->
-      <shared-svg-retry class="g-icon bt size32" />
+      <shared-svg-retry class="g-icon btn size32" />
     </div>
 
     <!-- MatSlider -->
