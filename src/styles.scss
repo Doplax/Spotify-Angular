@@ -28,6 +28,7 @@
   --animation-1: 200ms;
 
   --background-base: #121212;
+
   --essential-base: #FFFFFF;
   --essential-subdued: #7c7c7c
   --essential-grey: #282828;
@@ -113,4 +114,23 @@ button {
   &:hover {
     opacity: 1;
   }
+
+
+
 }
+
+.g-chip-btn_active{
+  opacity: 1;
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+
+// SVG
+.g-svg_focus{
+  opacity: 1;
+  &:target {
+    color: var(--color-1-hightlight);
+  }
+}
+

@@ -33,6 +33,19 @@
     </div>
   </div>
   <!--</div>-->
+  } @else {
+  <div class="artist-inside">
+    <img [src]="currentTrack?.cover" alt="cover" class="cover" />
+    <div class="track-info">
+      <h3 class="track-title">{{ "Nombre de la canción" }}</h3>
+      <h5 class="track-title sub-title">{{ "Nombre del Artista" }}</h5>
+    </div>
+    <div class="track-like">
+      <button class="btn-like">
+        <i class="uil uil-heart"></i>
+      </button>
+    </div>
+  </div>
   }
 </ng-template>
 
@@ -92,14 +105,21 @@
 
 <ng-template #playerAudio>
   <div class="player-audio-inside">
-    <button class="btn-media">
-      <i class="uil uil-list-ui-alt"></i>
-    </button>
-    <button class="btn-media">
-      <i class="uil uil-boombox"></i>
-    </button>
-    <button class="btn-media">
-      <i class="uil uil-volume-off"></i>
-    </button>
+    <!--<shared-svg-lyrics matTooltip="Vista sonando" class="g-icon btn size32" />-->
+    <shared-svg-lyrics matTooltip="Letra" class="g-icon btn size32" />
+    <shared-svg-queue matTooltip="Cola" class="g-icon btn size32" />
+    <shared-svg-connect-device
+      matTooltip="Conectar a un dispositivo"
+      class="g-icon btn size32"
+    />
+    <shared-svg-volume matTooltip="Silenciar" class="g-icon btn size32" />
+    <shared-svg-mini-player
+      matTooltip="Abrir el Minireproductor"
+      class="g-icon btn size32"
+    />
+    <shared-svg-full-screen
+      matTooltip="Pantalla completa"
+      class="g-icon btn size32"
+    />
   </div>
 </ng-template>

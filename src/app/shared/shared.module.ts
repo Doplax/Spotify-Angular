@@ -16,6 +16,12 @@ import { RouterLink, RouterModule } from '@angular/router';
 import { SectionGenericComponent } from './components/section-generic/section-generic.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { SvgModule } from './SVGcomponents/svg.module';
+import { SvgVolumeComponent } from './SVGcomponents/svg-volume/svg-volume.component';
+import { SvgFullScreenComponent } from './SVGcomponents/svg-fullScreen/svg-fullScreen.component';
+import { SvgMiniPlayerComponent } from './SVGcomponents/svg-mini-player/svg-mini-player.component';
+import { SvgConnectDeviceComponent } from './SVGcomponents/svg-connect-device/svg-connect-device.component';
+import { SvgQueueComponent } from './SVGcomponents/svg-queue/svg-queue.component';
+import { SvgLyricsComponent } from './SVGcomponents/svg-lyrics/svg-lyrics.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +33,13 @@ import { SvgModule } from './SVGcomponents/svg.module';
     PlayListBodyComponent,
     PlayListHeaderComponent,
     SectionGenericComponent,
+    SvgVolumeComponent,
     SideBarComponent,
+    SvgFullScreenComponent,
+    SvgMiniPlayerComponent,
+    SvgConnectDeviceComponent,
+    SvgQueueComponent,
+    SvgLyricsComponent,
   ],
   imports: [
     CommonModule,

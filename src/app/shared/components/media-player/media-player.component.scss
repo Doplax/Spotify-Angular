@@ -85,16 +85,12 @@
           gap: 0.7rem;
           margin-bottom: 0.8rem;
 
-          .btn {
-            background-color: transparent;
-            border: 0;
-            color: var(--color-white);
-            opacity: 0.7;
-            font-size: 1.65rem;
-          }
-
           .play-btn {
             opacity: 1;
+            transition: transform 0.3s ease;
+            &:hover {
+              transform: scale(1.05);
+            }
 
             mat-icon {
               font-size: 3.8rem;
@@ -138,34 +134,32 @@
 
     .player-audio {
       width: 33%;
-
       .player-audio-inside {
         display: flex;
         justify-content: flex-end;
         width: 100%;
-
-        .btn-media {
-          background-color: transparent;
-          border: 0;
-          color: var(--color-white);
-          font-size: var(--font-size-2);
-        }
       }
     }
   }
 }
 
 .size32 {
-  height: 32px;
-  width: 32px;
+  height: 3.2rem;
+  width: 3.2rem;
   padding: 0.8rem;
-  display: flex;
-  justify-content: center;
-  align-self: center;
 }
 
 .btn {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: transparent;
+  border: 0;
+  color: var(--color-white);
+  opacity: 0.7;
+  font-size: 1.65rem;
+
+  &:hover {
+    opacity: 1;
+  }
 }
