@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
     <svg
       data-encore-id="icon"
       role="img"
-      aria-hidden="true"
       class="color"
       viewBox="0 0 24 24"
       fill="currentColor"

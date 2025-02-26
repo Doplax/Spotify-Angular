@@ -2,16 +2,17 @@ import { Component, HostBinding, Input } from '@angular/core';
 
 @Component({
   selector: 'shared-svg-next',
-  styles: [`
-    :host(.revert) {
-      transform: rotate(180deg);
-    }
-  `],
+  styles: [
+    `
+      :host(.revert) {
+        transform: rotate(180deg);
+      }
+    `,
+  ],
   template: `
     <svg
       data-encore-id="icon"
       role="img"
-      aria-hidden="true"
       class="Svg-sc-ytk21e-0 dYnaPI e-9541-icon"
       viewBox="0 0 16 16"
       fill="currentColor"
@@ -28,5 +29,4 @@ export class SvgNextComponent {
   @HostBinding('class.revert') get isRevert() {
     return this.revert;
   }
-
 }

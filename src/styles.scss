@@ -67,6 +67,7 @@ button {
   outline: none;
 }
 
+// Global Classes
 .g-link {
   text-decoration: underline;
   color: var(--color-white) !important; ;
@@ -83,7 +84,6 @@ button {
   width: 2.4rem;
 }
 
-
 .g-hover-grey {
   &:hover {
     cursor: pointer !important;
@@ -92,10 +92,8 @@ button {
   }
 }
 
-
 // TODO: abstract in a component?
-
-  // List Section
+// List Section
 .g-chip-section {
   display: flex;
   align-items: start;
@@ -114,9 +112,6 @@ button {
   &:hover {
     opacity: 1;
   }
-
-
-
 }
 
 .g-chip-btn_active{
@@ -124,13 +119,3 @@ button {
   background-color: var(--color-white);
   color: var(--color-black);
 }
-
-
-// SVG
-.g-svg_focus{
-  opacity: 1;
-  &:target {
-    color: var(--color-1-hightlight);
-  }
-}
-

@@ -5,7 +5,6 @@ import { Component } from '@angular/core';
   template: `<svg
     data-encore-id="icon"
     role="img"
-    aria-hidden="true"
     class="Svg-sc-ytk21e-0 dYnaPI e-9541-icon"
     viewBox="0 0 16 16"
   >

@@ -162,4 +162,9 @@
   &:hover {
     opacity: 1;
   }
+  ::ng-deep svg:focus-within {
+    color: var(--color-1-hightlight);
+    opacity: 1;
+    outline: none;
+  }
 }
