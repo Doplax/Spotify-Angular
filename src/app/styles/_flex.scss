@@ -37,9 +37,73 @@
   justify-content: space-around;
 }
 .just-evenly {
-  justify-content: space-even;
+  justify-content: space-evenly;
 }
 
+/* Alineación (Eje secundario) */
+.items-start {
+  align-items: flex-start;
+}
+.items-center {
+  align-items: center;
+}
+.items-end {
+  align-items: flex-end;
+}
+.items-baseline {
+  align-items: baseline;
+}
+.items-stretch {
+  align-items: stretch;
+}
+
+/* Alineación de contenido (Para múltiples líneas) */
+.content-start {
+  align-content: flex-start;
+}
+.content-center {
+  align-content: center;
+}
+.content-end {
+  align-content: flex-end;
+}
+.content-between {
+  align-content: space-between;
+}
+.content-around {
+  align-content: space-around;
+}
+.content-evenly {
+  align-content: space-evenly;
+}
+.content-stretch {
+  align-content: stretch;
+}
+
+/* Auto-alineación (Para elementos individuales) */
+.self-auto {
+  align-self: auto;
+}
+.self-start {
+  align-self: flex-start;
+}
+.self-center {
+  align-self: center;
+}
+.self-end {
+  align-self: flex-end;
+}
+.self-stretch {
+  align-self: stretch;
+}
+.self-baseline {
+  align-self: baseline;
+}
+
+/* Tamaños */
 .w-100 {
   width: 100%;
+}
+.h-100 {
+  height: 100%;
 }

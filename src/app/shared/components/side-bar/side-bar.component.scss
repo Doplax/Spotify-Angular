@@ -5,60 +5,124 @@
   top: 0;
   left: 0;
   padding: 0.5rem 1rem;
-  background: var(--color-2);
-  background: linear-gradient(90deg, rgba(23, 23, 26, 1) 44%, rgba(24, 24, 24, 1));
+  background: var(--background-base);
+  background-color: rgba(var(--essential-grey), 0.9);
+
+  background: linear-gradient(
+    90deg,
+    rgba(23, 23, 26, 1) 44%,
+    rgba(24, 24, 24, 1)
+  );
   border-radius: var(--border-radius-1);
   margin: 0.5rem;
-  padding: 2rem;
+  padding: 1.5rem;
   width: 30rem;
 
+  section {
+    margin-bottom: 2rem;
+  }
 
-  &__list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    opacity: 0.8;
+  // Head Section
+  .head-section {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
 
-    .list-label {
-      font-size: 90%;
-      font-weight: 500;
-    }
-
-    .list-wrapper-item {
-      font-size: var(--font-size-1);
-      font-weight: 500;
+    .top-section {
       display: flex;
-      align-items: center;
-      align-content: center;
-      color: white;
+      flex-direction: row;
+      width: 100%;
+      justify-content: space-between;
 
-      &:hover {
-        cursor: pointer;
-        color: rgb(147, 147, 147);
+      shared-svg-library {
+        margin-right: 1rem;
       }
 
-      .uil {
-        font-size: var(--font-size-3);
-        padding-right: 0.5rem;
+      span {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: rgba(var(--essential-grey), 0.9);
       }
-    }
-
-    &.list-three {
-      .list-wrapper-item {
-        padding: 0.25rem 0;
-      }
-    }
-
-    li {
-      cursor: pointer;
     }
   }
 
-  &__separator {
-    margin: 1rem 0;
+  // List Section | Moved to global file
+  //.list-section {
+  //  display: flex;
+  //  align-items: start;
+  //  width: 100%;
 
-    &.line-separator {
-      border-bottom: solid 1px var(--color-2);
+  //  .list-btn {
+  //    background-color: var(--temporal-grey);
+  //    border-radius: var(--border-radius-2);
+  //    padding: 0.5rem 1rem;
+  //    font-weight: 400;
+  //    font-size: 1.5rem;
+  //  }
+  //}
+
+  //Search Section
+  .search-section {
+    display: flex;
+    justify-content: space-between;
+
+    .recents-lists {
+      display: flex;
+      align-items: center;
+      span {
+        margin-right: 0.5rem;
+      }
     }
+  }
+
+  //Recents Section
+  .recents-list-section {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+
+    .playList-card {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+      padding: 0.7rem;
+
+
+
+
+      .playList-image{
+        padding: 1.2rem;
+        border-radius: 0.4rem;
+        background-color: var(--temporal-grey);
+      }
+
+      .playList-info{
+        margin-left: 1rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        .title{
+          font-size: 1.5rem;
+          font-weight: 500;
+          color: var(--color-white);
+        }
+
+        .subTitle{
+          font-size: 1.2rem;
+          font-weight: 400;
+          color: var(--color-white);
+        }
+      }
+
+      .playList-icon{
+        mat-icon{
+        }
+      }
+    }
+
   }
 }

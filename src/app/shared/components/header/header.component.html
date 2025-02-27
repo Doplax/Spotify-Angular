@@ -1,14 +1,18 @@
 <header>
   <div class="logo-container">
-    <app-svg-logo routerLink="/home" />
+    <shared-svg-logo routerLink="/home" />
   </div>
 
   <div class="search-container">
-    <mat-icon routerLink="/home" class="home-icon">home</mat-icon>
+    <shared-svg-home routerLink="/home" class="home-icon" />
     <div class="search-bar">
-      <mat-icon routerLink="/history" class="home-search">search</mat-icon>
+      <shared-svg-search routerLink="/history" class="home-search" />
       <div class="flex just-between w-100">
-        <input class="search-input" type="text" placeholder="Qué quieres reproducir?" />
+        <input
+          class="search-input"
+          type="text"
+          placeholder="Qué quieres reproducir?"
+        />
         <shared-svg-explore class="explore-icon" />
       </div>
     </div>
@@ -16,13 +20,33 @@
 
   <div class="user-container">
     <!--<button  class="signUp-btn">Sign Up</button>-->
-    <button (click)="logOut()" class="signUp-btn">Log Out</button>
     @if(isAuth){
-    <button routerLink="/#" class="account-btn">D</button>
-    } @else {
+    <button
+      #accountButton
+      routerLink="/#"
+      class="account-btn"
+      (mousedown)="toggleDropdown()"
+    >
+      D
+    </button>
+    @if (isOpenDropdown) {
+      <ng-container [ngTemplateOutlet]="AccountDropDownRef"/>
+    } } @else {
     <button mat-flat-button routerLink="/auth/login" class="logIn-btn">
       Log In
     </button>
     }
   </div>
 </header>
+
+<!-- TEMPLATES -->
+<ng-template #AccountDropDownRef>
+  <div class="account-dropDown">
+    @for (item of acountdropDown; track $index) {
+    <button (mousedown)="item.command()" class="dropDown-item g-hover-grey">
+      <span class="dropDown-text">{{ item.label }}</span>
+      <mat-icon>ios_share</mat-icon>
+    </button>
+    }
+  </div>
+</ng-template>

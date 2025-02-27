@@ -4,11 +4,8 @@ import { CommonModule } from '@angular/common';
 import { AuthRoutingModule } from './auth-routing.module';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { SvgLogoComponent } from '../../shared/SVGcomponents/svg-logo/svg-logo.component';
-import { SvgGoogleComponent } from '../../shared/SVGcomponents/svg-google/svg-google.component';
-import { SvgFacebookComponent } from '../../shared/SVGcomponents/svg-facebook/svg-facebook.component';
-import { SvgAppleComponent } from '../../shared/SVGcomponents/svg-apple/svg-apple.component';
 import { MatButtonModule } from '@angular/material/button';
+import { SvgModule } from "../../shared/SVGcomponents/svg.module";
 
 @NgModule({
   declarations: [LoginPageComponent],
@@ -16,11 +13,8 @@ import { MatButtonModule } from '@angular/material/button';
     CommonModule,
     AuthRoutingModule,
     ReactiveFormsModule,
-    SvgLogoComponent,
-    SvgGoogleComponent,
-    SvgFacebookComponent,
-    SvgAppleComponent,
     MatButtonModule,
-  ],
+    SvgModule
+],
 })
 export class AuthModule {}

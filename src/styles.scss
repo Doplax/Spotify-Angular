@@ -11,6 +11,7 @@
   --color-2: #161616;
   --color-black: #000000;
   --color-white: #FFFFFF;
+  --color-whiteRGB: 255, 255, 255;
   --color-5: #181818;
 
   --font-size-1: 1rem;
@@ -27,8 +28,14 @@
   --animation-1: 200ms;
 
   --background-base: #121212;
+
   --essential-base: #FFFFFF;
   --essential-subdued: #7c7c7c
+  --essential-grey: #282828;
+  --essential-grey-2: #1f1f1f;
+
+  //TODO: change name var and color
+  --temporal-grey: #4d4d4d
 }
 
 * {
@@ -60,6 +67,7 @@ button {
   outline: none;
 }
 
+// Global Classes
 .g-link {
   text-decoration: underline;
   color: var(--color-white) !important; ;
@@ -67,4 +75,47 @@ button {
   &:hover {
     color: var( --color-1) !important;
   }
+}
+
+.g-icon {
+  display: block;
+  cursor: pointer;
+  height: 2.4rem;
+  width: 2.4rem;
+}
+
+.g-hover-grey {
+  &:hover {
+    cursor: pointer !important;
+    border-radius: var(--border-radius-1) !important;
+    background-color: rgba(var(--color-whiteRGB), 0.1) !important;
+  }
+}
+
+// TODO: abstract in a component?
+// List Section
+.g-chip-section {
+  display: flex;
+  align-items: start;
+  width: 100%;
+  gap: 1rem;
+}
+
+.g-chip-btn {
+  background-color: var(--temporal-grey);
+  border-radius: var(--border-radius-2);
+  padding: 0.5rem 1rem;
+  font-weight: 400;
+  font-size: 1.2rem;
+  opacity: 0.8;
+  cursor: pointer;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.g-chip-btn_active{
+  opacity: 1;
+  background-color: var(--color-white);
+  color: var(--color-black);
 }

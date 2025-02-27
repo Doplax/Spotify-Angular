@@ -1,4 +1,12 @@
 <div class="tracks-page">
+
+  <section class="g-chip-section">
+    <span class="g-chip-btn g-chip-btn_active">Todo</span>
+    <span class="g-chip-btn">Música</span>
+    <span class="g-chip-btn">Pódcast</span>
+    <span class="g-chip-btn">Audiolibros</span>
+  </section>
+
   <!-- TOP Section -->
   <app-section-generic
     [dataTracks]="tracksTrending"
@@ -6,14 +14,7 @@
     [mode]="'small'"
   />
   <!-- Bottom Section -->
-  <app-section-generic
-    [dataTracks]="tracksRandom"
-    [title]="'Lo mejor de la Electronica'"
-    [mode]="'big'"
-  />
-
-
-  @for (item of [0,0,0,0,0,0,0,0,0]; track $index) {
+  @for (item of [0,0,0]; track $index) {
     <app-section-generic
     [dataTracks]="tracksRandom"
     [title]="'Lo mejor de la Electronica'"

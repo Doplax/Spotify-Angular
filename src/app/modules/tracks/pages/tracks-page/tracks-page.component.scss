@@ -6,9 +6,18 @@
 .tracks-page {
   padding: 1rem;
   background: var(--color-2);
-  background: linear-gradient(90deg, rgba(23, 23, 26, 1) 44%, rgba(24, 24, 24, 1));
+  //background: linear-gradient(90deg, rgba(23, 23, 26, 1) 44%, rgba(24, 24, 24, 1));
   border-radius: var(--border-radius-1);
   margin: 0.5rem;
   padding: 2rem;
-
+  background: linear-gradient(
+    360deg,
+    var(--background-base) 93%,
+    rgba(229, 255, 0, 0.1) 95%,
+    rgba(229, 255, 0, 0.2) 96%,
+    rgba(229, 255, 0, 0.3) 97%,
+    rgba(229, 255, 0, 0.4) 98%,
+    rgba(229, 255, 0, 0.5) 100%
+  );
+  //background-color: ;
 }

@@ -15,13 +15,14 @@ export class MediaPlayerComponent implements OnInit, OnDestroy {
   @ViewChild('progressBar') progressBar: ElementRef = new ElementRef('');
   listObservers$: Array<Subscription> = [];
   state: string = 'paused';
-  currentTrack!:any
+  currentTrack!:any // TODO: Change any for TrackModel
   progressBarValue!:number;
 
   constructor(public multimediaService: MultimediaService) {}
 
   ngOnInit(): void {
-    const playerStatusObserver$ = this.multimediaService.playerStatus$.subscribe((response) => this.state = response);
+    const playerStatusObserver$ = this.multimediaService.playerStatus$.subscribe((response) => {
+      this.state = response});
     const trackInfoObserver$ = this.multimediaService.trackInfo$.subscribe((response) => this.currentTrack = response );
     const progressBarValueObserver$ = this.multimediaService.playerPercentage$.subscribe((response) => this.progressBarValue = response);
 
@@ -39,10 +40,14 @@ export class MediaPlayerComponent implements OnInit, OnDestroy {
     //this.multimediaService.audio.currentTime
     //console.log({mockCover: this.mockCover});
     console.log({progressBarValue: this.progressBarValue});
-    console.log({currentTime: this.multimediaService.audio.currentTime});
+    console.log({currentTime: this.multimediaService.currentSong.currentTime});
     console.log(this.currentTrack);
 
     this.multimediaService.seekAudio(percentageFromX);
+  }
+
+  prueba():void {
+    alert('prueba');
   }
 
   ngOnDestroy(): void {
