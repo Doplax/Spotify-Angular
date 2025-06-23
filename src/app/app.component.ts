@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-root',
@@ -6,6 +7,12 @@ import { Component } from '@angular/core';
     styleUrl: './app.component.scss',
     standalone: false
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'spotify';
+
+  ngOnInit() {
+    console.log('Environment:', environment.environmentName);
+  }
+
+
 }
