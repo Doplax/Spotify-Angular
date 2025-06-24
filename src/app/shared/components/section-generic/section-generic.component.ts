@@ -8,7 +8,8 @@ import { TrackModel } from '@core/models/tracks.model';
     standalone: false
 })
 export class SectionGenericComponent {
-  @Input() title: string = ''
+  @Input() title: string = '';
+  @Input() isLoading: boolean = false;
   @Input() mode: 'small' | 'big' = 'small' // Será small por defecto
   @Input() dataTracks: Array<TrackModel> = []
 }

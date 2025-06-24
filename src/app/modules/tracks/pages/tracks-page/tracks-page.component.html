@@ -8,10 +8,12 @@
   </section>
 
   <!-- TOP Section -->
+   {{isLoading}}
   <app-section-generic
     [dataTracks]="tracksTrending"
     [title]="'La mejor música del mundo'"
     [mode]="'small'"
+    [isLoading]="isLoading"
   />
   <!-- Bottom Section -->
   @for (item of [0,0,0,0]; track $index) {
@@ -19,6 +21,7 @@
     [dataTracks]="tracksRandom"
     [title]="'Lo mejor de la Electronica'"
     [mode]="'big'"
+    [isLoading]="isLoading"
   />
   }
 </div>

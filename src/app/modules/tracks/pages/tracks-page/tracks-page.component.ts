@@ -12,6 +12,7 @@ import { Subscription } from 'rxjs';
 export class TracksPageComponent implements OnInit, OnDestroy {
   public tracksTrending: Array<TrackModel> = [];
   public tracksRandom: Array<TrackModel> = [];
+  public isLoading: boolean = false;
 
   listObservers$: Array<Subscription> = [];
 
@@ -21,9 +22,23 @@ export class TracksPageComponent implements OnInit, OnDestroy {
     this.loadDataAll();
   }
 
-  async loadDataAll(): Promise<any> {
-    this.tracksTrending = await this.trackService.getAllTracks$().toPromise();
-    this.tracksRandom   = await this.trackService.getAllRandom$().toPromise();
+  async loadDataAll(): Promise<void> {
+    this.isLoading = true;                        
+    try {
+      const [trending, random] = await Promise.all([
+        this.trackService.getAllTracks$().toPromise(),
+        this.trackService.getAllRandom$().toPromise()
+      ]);
+
+      this.tracksTrending = trending;
+      this.tracksRandom = random;
+    } catch (e) {
+      console.error('Error loading tracks', e);
+      this.tracksTrending = [];
+      this.tracksRandom = [];
+    } finally {
+      this.isLoading = false;
+    }
   }
 
   ngOnDestroy(): void {}
