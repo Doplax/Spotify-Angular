@@ -14,7 +14,12 @@ import { SvgNextComponent } from './svg-next/svg-next.component';
 import { SvgPreviewComponent } from './svg-preview/svg-preview.component';
 import { SvgRandomComponent } from './svg-random/svg-random.component';
 import { SvgRetryComponent } from './svg-retry/svg-retry.component';
-//import { SvgVolumeComponent } from './svg-volume/svg-volume.component';
+import { SvgVolumeComponent } from './svg-volume/svg-volume.component';
+import { SvgFullScreenComponent } from './svg-fullScreen/svg-fullScreen.component';
+import { SvgMiniPlayerComponent } from './svg-mini-player/svg-mini-player.component';
+import { SvgConnectDeviceComponent } from './svg-connect-device/svg-connect-device.component';
+import { SvgQueueComponent } from './svg-queue/svg-queue.component';
+import { SvgLyricsComponent } from './svg-lyrics/svg-lyrics.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +39,12 @@ import { SvgRetryComponent } from './svg-retry/svg-retry.component';
     SvgPreviewComponent,
     SvgRandomComponent,
     SvgRetryComponent,
+    SvgVolumeComponent,
+    SvgFullScreenComponent,
+    SvgMiniPlayerComponent,
+    SvgConnectDeviceComponent,
+    SvgQueueComponent,
+    SvgLyricsComponent,
   ],
   imports: [],
   exports: [
@@ -53,6 +64,12 @@ import { SvgRetryComponent } from './svg-retry/svg-retry.component';
     SvgPreviewComponent,
     SvgRandomComponent,
     SvgRetryComponent,
+    SvgVolumeComponent,
+    SvgFullScreenComponent,
+    SvgMiniPlayerComponent,
+    SvgConnectDeviceComponent,
+    SvgQueueComponent,
+    SvgLyricsComponent,
   ],
 })
 export class SvgModule {}
