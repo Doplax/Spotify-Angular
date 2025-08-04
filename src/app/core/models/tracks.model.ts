@@ -4,7 +4,7 @@ export interface TrackModel {
   name: string;
   album: string;
   cover: string;
-  //duration: number;
+  duration: number;
   url: string;
   _id: string | number;
   artist?: ArtistModel;

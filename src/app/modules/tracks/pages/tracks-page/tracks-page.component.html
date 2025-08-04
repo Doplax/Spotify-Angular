@@ -7,8 +7,15 @@
     <span class="g-chip-btn">Audiolibros</span>
   </section>
 
+  <!-- PRUEBA -->
+  <app-section-generic
+  [dataTracks]="tracksPrueba"
+  [title]="'Pruebas'"
+  [mode]="'small'"
+  [isLoading]="isLoading"
+/>
+
   <!-- TOP Section -->
-   {{isLoading}}
   <app-section-generic
     [dataTracks]="tracksTrending"
     [title]="'La mejor música del mundo'"

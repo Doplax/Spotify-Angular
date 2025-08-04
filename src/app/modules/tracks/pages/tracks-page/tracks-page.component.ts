@@ -12,6 +12,8 @@ import { Subscription } from 'rxjs';
 export class TracksPageComponent implements OnInit, OnDestroy {
   public tracksTrending: Array<TrackModel> = [];
   public tracksRandom: Array<TrackModel> = [];
+  public tracksPrueba: TrackModel[] = [];
+
   public isLoading: boolean = false;
 
   listObservers$: Array<Subscription> = [];
@@ -19,11 +21,25 @@ export class TracksPageComponent implements OnInit, OnDestroy {
   constructor(private trackService: TrackService) {}
 
   ngOnInit(): void {
-    this.loadDataAll();
+    //this.loadDataAll();
+    this.getOverviewMusic();
+  }
+
+  getOverviewMusic(){
+    this.trackService.getShazamOverviewMusic$().subscribe({
+      next: (data) => {
+        console.log('Shazam Component:', data);
+        debugger
+        this.tracksPrueba = data;
+      },
+      error: (error) => {
+        console.error('Error fetching Shazam details:', error);
+      }
+    });
   }
 
   async loadDataAll(): Promise<void> {
-    this.isLoading = true;                        
+    this.isLoading = true;
     try {
       const [trending, random] = await Promise.all([
         this.trackService.getAllTracks$().toPromise(),

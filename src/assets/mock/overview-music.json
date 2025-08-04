@@ -1,0 +1,468 @@
+{
+  "songs": [
+  {
+    "data": [
+      {
+        "id": "40333609",
+        "type": "shazam-songs"
+      }
+    ],
+    "resources": {
+      "artist-highlights": {
+        "73406786": {
+          "id": "73406786",
+          "type": "artist-highlights"
+        }
+      },
+      "track-highlights": {
+        "578132846": {
+          "id": "578132846",
+          "type": "track-highlights"
+        }
+      },
+      "related-tracks": {
+        "track-similarities-id-40333609": {
+          "id": "track-similarities-id-40333609",
+          "type": "related-tracks"
+        }
+      },
+      "songs": {
+        "1436677761": {
+          "id": "1436677761",
+          "type": "songs",
+          "attributes": {
+            "unitags": [
+              {
+                "namespace": "EditorialMoodsAndActivities",
+                "tag": "Chill",
+                "score": 0.7032453
+              },
+              {
+                "namespace": "MemoryAppropriateness",
+                "tag": "NotAppropriate",
+                "score": 0.9102967
+              }
+            ]
+          }
+        }
+      },
+      "albums": {
+        "1436677753": {
+          "id": "1436677753",
+          "type": "albums",
+          "attributes": {
+            "artistName": "Yiruma",
+            "name": "Yiruma 2nd Album 'First Love' (The Original & the Very First Recording)",
+            "releaseDate": "2001"
+          }
+        }
+      },
+      "shazam-artists": {
+        "42": {
+          "id": "42",
+          "type": "shazam-artists"
+        }
+      },
+      "artists": {
+        "73406786": {
+          "id": "73406786",
+          "attributes": {
+            "name": "Yiruma"
+          },
+          "type": "artists"
+        }
+      },
+      "shazam-songs": {
+        "40333609": {
+          "id": "40333609",
+          "type": "shazam-songs",
+          "attributes": {
+            "type": "MUSIC",
+            "title": "River Flows In You",
+            "artist": "Yiruma",
+            "primaryArtist": "Yiruma",
+            "label": "Stomp Music",
+            "explicit": false,
+            "isrc": "HKOA10616988",
+            "webUrl": "https://www.shazam.com/track/40333609/river-flows-in-you?co=US&offsetInMilliseconds=&timeSkew=&trackLength=",
+            "images": {
+              "artistAvatar": "https://is1-ssl.mzstatic.com/image/thumb/Features116/v4/48/0d/4d/480d4d9b-3ece-267d-1c86-b43dfda20cae/tns.rgpboapg.png/800x800cc.jpg",
+              "coverArt": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/5f/f4/9b/5ff49b8c-d0bb-3748-14f4-131edfb332ce/first_love_3000.jpg/400x400cc.jpg",
+              "coverArtHq": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/5f/f4/9b/5ff49b8c-d0bb-3748-14f4-131edfb332ce/first_love_3000.jpg/800x800cc.jpg"
+            },
+            "artwork": {
+              "url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/5f/f4/9b/5ff49b8c-d0bb-3748-14f4-131edfb332ce/first_love_3000.jpg/{w}x{h}cc.jpg",
+              "textColor1": "09090a",
+              "textColor2": "171615",
+              "textColor3": "333436",
+              "textColor4": "3f3f3e",
+              "bgColor": "dee3e6"
+            },
+            "share": {
+              "subject": "River Flows In You - Yiruma",
+              "text": "River Flows In You by Yiruma",
+              "image": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/5f/f4/9b/5ff49b8c-d0bb-3748-14f4-131edfb332ce/first_love_3000.jpg/400x400cc.jpg",
+              "twitter": "@Shazam found River Flows In You by Yiruma:",
+              "html": "https://www.shazam.com/snippets/email-share/40333609?lang=en-US&country=US",
+              "snapchat": "https://www.shazam.com/partner/sc/track/40333609"
+            },
+            "genres": {
+              "primary": "New Age"
+            },
+            "streaming": {
+              "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/fb/20/de/fb20de73-718c-3639-b2e9-f25f7004572a/mzaf_4684196612707783797.plus.aac.ep.m4a",
+              "deeplink": "intent://music.apple.com/us/album/river-flows-in-you/1436677753?i=1436677761&mttnagencyid=s2n&mttnsiteid=125115&mttn3pid=Apple-Shazam&mttnsub1=Shazam_android_am&mttnsub2=5348615A-616D-3235-3830-44754D6D5973&itscg=30201&app=music&itsct=Shazam_android_am#Intent;scheme=http;package=com.apple.android.music;action=android.intent.action.VIEW;end",
+              "store": "https://play.google.com/store/apps/details?id=com.apple.android.music&referrer=utm_source=https%3A%2F%2Fmusic.apple.com%2Fsubscribe%3Fmttnagencyid%3Ds2n%26mttnsiteid%3D125115%26mttn3pid%3DApple-Shazam%26mttnsub1%3DShazam_android_am%26mttnsub2%3D5348615A-616D-3235-3830-44754D6D5973%26itscg%3D30201%26app%3Dmusic%26itsct%3DShazam_android_am"
+            },
+            "classicalAvailability": true
+          },
+          "relationships": {
+            "artist-highlights": {
+              "data": [
+                {
+                  "id": "73406786",
+                  "type": "artist-highlights"
+                }
+              ]
+            },
+            "track-highlights": {
+              "data": [
+                {
+                  "id": "578132846",
+                  "type": "track-highlights"
+                }
+              ]
+            },
+            "related-tracks": {
+              "data": [
+                {
+                  "id": "track-similarities-id-40333609",
+                  "type": "related-tracks"
+                }
+              ]
+            },
+            "songs": {
+              "data": [
+                {
+                  "id": "1436677761",
+                  "type": "songs"
+                }
+              ]
+            },
+            "albums": {
+              "data": [
+                {
+                  "id": "1436677753",
+                  "type": "albums"
+                }
+              ]
+            },
+            "shazam-artists": {
+              "data": [
+                {
+                  "id": "42",
+                  "type": "shazam-artists"
+                }
+              ]
+            },
+            "artists": {
+              "data": [
+                {
+                  "id": "73406786",
+                  "type": "artists"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "data": [
+      {
+        "id": "407592725",
+        "type": "shazam-songs"
+      }
+    ],
+    "resources": {
+      "artist-highlights": {
+        "1368733420": {
+          "id": "1368733420",
+          "type": "artist-highlights"
+        }
+      },
+      "track-highlights": {
+        "1535185213": {
+          "id": "1535185213",
+          "type": "track-highlights"
+        }
+      },
+      "related-tracks": {
+        "track-similarities-id-407592725": {
+          "id": "track-similarities-id-407592725",
+          "type": "related-tracks"
+        }
+      },
+      "songs": {
+        "1407165118": {
+          "id": "1407165118",
+          "type": "songs",
+          "attributes": {
+            "hasLyrics": true,
+            "hasTimeSyncedLyrics": true,
+            "unitags": [
+              {
+                "namespace": "EditorialEra",
+                "tag": "10s",
+                "score": 0.9973606
+              },
+              {
+                "namespace": "EditorialGenres",
+                "tag": "Hip-Hop/Rap",
+                "score": 0.71262765
+              },
+              {
+                "namespace": "EditorialMoodsAndActivities",
+                "tag": "Workout",
+                "score": 0.7598482
+              }
+            ]
+          }
+        }
+      },
+      "albums": {
+        "1407165109": {
+          "id": "1407165109",
+          "type": "albums",
+          "attributes": {
+            "artistName": "Juice WRLD",
+            "name": "Goodbye & Good Riddance",
+            "releaseDate": "2018"
+          }
+        }
+      },
+      "shazam-artists": {
+        "42": {
+          "id": "42",
+          "type": "shazam-artists"
+        }
+      },
+      "artists": {
+        "1368733420": {
+          "id": "1368733420",
+          "attributes": {
+            "name": "Juice WRLD"
+          },
+          "type": "artists"
+        }
+      },
+      "lyrics": {
+        "37114929": {
+          "id": "37114929",
+          "type": "lyrics",
+          "attributes": {
+            "text": [
+              "(Enviyon on the mix)",
+              "Uhm-uhm-mm, ah",
+              "No, no, no, no (no, no)",
+              "No-no, no, no, no, no, no, no, no, no",
+              "No, no, no, no (no, no)",
+              "",
+              "I still see your shadows in my room",
+              "Can't take back the love that I gave you",
+              "It's to the point where I love and I hate you",
+              "And I cannot change you, so I must replace you, oh",
+              "Easier said than done, I thought you were the one",
+              "Listenin' to my heart instead of my head (of my head)",
+              "You found another one, but I am the better one",
+              "I won't let you forget me (let you forget me)",
+              "",
+              "I still see your shadows in my room",
+              "Can't take back the love that I gave you",
+              "It's to the point where I love and I hate you",
+              "And I cannot change you, so I must replace you, oh",
+              "Easier said than done, I thought you were the one",
+              "Listenin' to my heart instead of my head (of my head)",
+              "You found another one, but I am the better one",
+              "I won't let you forget me (let you forget me)",
+              "",
+              "You left me falling and landing inside my grave",
+              "I know that you want me -, ah",
+              "I take - to make me feel a-okay",
+              "I know it's all in my head",
+              "I have these lucid dreams where I can't move a thing",
+              "Thinking of you in my bed",
+              "You were my everything, thoughts of a wedding ring",
+              "Now I'm just better off - (uh, uh, uh)",
+              "",
+              "I'll do it over again, I didn't want it to end",
+              "I watch it blow in the wind, I should've listened to my friends",
+              "Leave this - in the past, but I want it to last",
+              "You were made outta plastic, fake",
+              "I was tangled up in your drastic ways",
+              "Who knew evil girls have the prettiest face?",
+              "You gave me a heart that was full of mistakes",
+              "I gave you my heart and you made heartbreak",
+              "",
+              "You made my heart break",
+              "You made my heart ache (I still see the shadows in my room)",
+              "You made my heart break",
+              "You made my heart ache (can't take back the love that I gave you)",
+              "You made my heart break (were made outta plastic, fake)",
+              "You made my heart ache (I still see the shadows in my room)",
+              "You made my heart break again (I was tangled up in your drastic ways)",
+              "(Who knew evil girls have the prettiest face?)",
+              "",
+              "I still see your shadows in my room",
+              "Can't take back the love that I gave you",
+              "It's to the point where I love and I hate you",
+              "And I cannot change you, so I must replace you, oh",
+              "Easier said than done, I thought you were the one",
+              "Listenin' to my heart instead of my head (of my head)",
+              "You found another one, but I am the better one",
+              "I won't let you forget me (let you forget me)",
+              "",
+              "I still see your shadows in my room",
+              "Can't take back the love that I gave you",
+              "It's to the point where I love and I hate you",
+              "And I cannot change you, so I must replace you, oh",
+              "Easier said than done, I thought you were the one",
+              "Listenin' to my heart instead of my head (of my head)",
+              "You found another one, but I am the better one",
+              "I won't let you forget me (you forget me, forget me)",
+              "",
+              "(Leave this shit in the past, but I want it to last)",
+              "(You were made outta plastic, fake)",
+              "(I was tangled up in your drastic ways)",
+              "(Who knew evil girls have the prettiest face?)",
+              "(Easier said than done, I thought you were -)",
+              "(Instead of my head, you found ano-)",
+              "(I won't let you forget me)"
+            ],
+            "footer": "Writer(s): Gordon Matthew Sumner, Dominic James Miller, Danny Lee Snodgrass Jr., Nicholas Mira, Jarad Anthony Higgins\nLyrics powered by www.musixmatch.com",
+            "musixmatchLyricsId": "171256082",
+            "providerName": "musixmatch",
+            "syncAvailable": false
+          }
+        }
+      },
+      "shazam-songs": {
+        "407592725": {
+          "id": "407592725",
+          "type": "shazam-songs",
+          "attributes": {
+            "type": "MUSIC",
+            "title": "Lucid Dreams",
+            "artist": "Juice WRLD",
+            "primaryArtist": "Juice WRLD",
+            "label": "Juice WRLD Mixtape / ISR P&D",
+            "explicit": true,
+            "isrc": "USUG11800685",
+            "webUrl": "https://www.shazam.com/track/407592725/lucid-dreams?co=US&offsetInMilliseconds=&timeSkew=&trackLength=",
+            "images": {
+              "artistAvatar": "https://is1-ssl.mzstatic.com/image/thumb/Features115/v4/42/04/ae/4204ae87-e800-6b47-d95c-068e3bd52995/mzl.gwhtpegi.jpg/800x800cc.jpg",
+              "coverArt": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/e4/ca/3a/e4ca3a6c-b144-15db-5fdc-62ec22c9b813/18UMGIM30624.rgb.jpg/400x400cc.jpg",
+              "coverArtHq": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/e4/ca/3a/e4ca3a6c-b144-15db-5fdc-62ec22c9b813/18UMGIM30624.rgb.jpg/800x800cc.jpg"
+            },
+            "artwork": {
+              "url": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/e4/ca/3a/e4ca3a6c-b144-15db-5fdc-62ec22c9b813/18UMGIM30624.rgb.jpg/{w}x{h}cc.jpg",
+              "textColor1": "221e1f",
+              "textColor2": "313032",
+              "textColor3": "4c494a",
+              "textColor4": "585759",
+              "bgColor": "f5f7f6"
+            },
+            "share": {
+              "subject": "Lucid Dreams - Juice WRLD",
+              "text": "Lucid Dreams by Juice WRLD",
+              "image": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/e4/ca/3a/e4ca3a6c-b144-15db-5fdc-62ec22c9b813/18UMGIM30624.rgb.jpg/400x400cc.jpg",
+              "twitter": "@Shazam found Lucid Dreams by Juice WRLD:",
+              "html": "https://www.shazam.com/snippets/email-share/407592725?lang=en-US&country=US",
+              "snapchat": "https://www.shazam.com/partner/sc/track/407592725"
+            },
+            "genres": {
+              "primary": "Hip-Hop/Rap"
+            },
+            "streaming": {
+              "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/bb/f1/49/bbf1496d-4251-9547-6ceb-742be0c4f3f7/mzaf_16465582324462123691.plus.aac.ep.m4a",
+              "deeplink": "intent://music.apple.com/us/album/lucid-dreams/1407165109?i=1407165118&mttnagencyid=s2n&mttnsiteid=125115&mttn3pid=Apple-Shazam&mttnsub1=Shazam_android_am&mttnsub2=5348615A-616D-3235-3830-44754D6D5973&itscg=30201&app=music&itsct=Shazam_android_am#Intent;scheme=http;package=com.apple.android.music;action=android.intent.action.VIEW;end",
+              "store": "https://play.google.com/store/apps/details?id=com.apple.android.music&referrer=utm_source=https%3A%2F%2Fmusic.apple.com%2Fsubscribe%3Fmttnagencyid%3Ds2n%26mttnsiteid%3D125115%26mttn3pid%3DApple-Shazam%26mttnsub1%3DShazam_android_am%26mttnsub2%3D5348615A-616D-3235-3830-44754D6D5973%26itscg%3D30201%26app%3Dmusic%26itsct%3DShazam_android_am"
+            },
+            "classicalAvailability": false
+          },
+          "relationships": {
+            "artist-highlights": {
+              "data": [
+                {
+                  "id": "1368733420",
+                  "type": "artist-highlights"
+                }
+              ]
+            },
+            "track-highlights": {
+              "data": [
+                {
+                  "id": "1535185213",
+                  "type": "track-highlights"
+                }
+              ]
+            },
+            "related-tracks": {
+              "data": [
+                {
+                  "id": "track-similarities-id-407592725",
+                  "type": "related-tracks"
+                }
+              ]
+            },
+            "songs": {
+              "data": [
+                {
+                  "id": "1407165118",
+                  "type": "songs"
+                }
+              ]
+            },
+            "albums": {
+              "data": [
+                {
+                  "id": "1407165109",
+                  "type": "albums"
+                }
+              ]
+            },
+            "shazam-artists": {
+              "data": [
+                {
+                  "id": "42",
+                  "type": "shazam-artists"
+                }
+              ]
+            },
+            "artists": {
+              "data": [
+                {
+                  "id": "1368733420",
+                  "type": "artists"
+                }
+              ]
+            },
+            "lyrics": {
+              "data": [
+                {
+                  "id": "37114929",
+                  "type": "lyrics"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+  ]
+
+}
