@@ -5,3 +5,6 @@
 
 
 Poner la sección de overview
+
+# ERRORES:
+cuando en la card le doy al boton de play cuando ya está sonando, vuelve a comenzar la cancion desde el principio otra vez.
