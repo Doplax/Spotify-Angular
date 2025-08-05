@@ -9,10 +9,12 @@
       <shared-svg-search routerLink="/history" class="home-search" />
       <div class="flex just-between w-100">
         <input
+          #searchInput
           class="search-input"
           type="text"
           placeholder="Qué quieres reproducir?"
-        />
+          (keyup.enter)="goToSearchPage(searchInput.value)"
+          />
         <shared-svg-explore class="explore-icon" />
       </div>
     </div>
@@ -40,6 +42,9 @@
 </header>
 
 <!-- TEMPLATES -->
+
+
+
 <ng-template #AccountDropDownRef>
   <div class="account-dropDown">
     @for (item of acountdropDown; track $index) {

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HistoryPageComponent } from './history-page.component';
+import { HistoryPageComponent } from './search-page.component';
 
 describe('HistoryPageComponent', () => {
   let component: HistoryPageComponent;
@@ -11,7 +11,7 @@ describe('HistoryPageComponent', () => {
       declarations: [HistoryPageComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(HistoryPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

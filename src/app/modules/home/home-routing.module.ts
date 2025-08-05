@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-//import { HomePageComponent } from './pages/home-page/home-page.component';
 
 const routes: Routes = [
   {
@@ -14,9 +13,9 @@ const routes: Routes = [
       import('@modules/favorites/favorites.module').then((m) => m.FavoritesModule),
   },
   {
-    path: 'history',
+    path: 'search',
     loadChildren: () =>
-      import('@modules/history/history.module').then((m) => m.HistoryModule),
+      import('@modules/search/search.module').then((m) => m.SearchModule),
   },
   {
     path: '**', // when 404 redirects us to tracks
