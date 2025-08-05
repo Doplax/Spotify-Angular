@@ -213,12 +213,10 @@ export class ShazamService {
       name: attrs.title,
       album: albumObject.attributes.name,
       cover: attrs.images.coverArt,
-      duration: 60,
       url: previewUrl,
       _id: songObject.id,
     };
 
-    debugger
     return track;
   }
 }

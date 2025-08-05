@@ -1,5 +1,21 @@
 <!-- Diseño del mode (small)-->
-@if (mode==='small') {
+@if ( mode === CardPlayerMode.Small) {
+  @if (isLoading) {
+    <div class="small-skeleton-card"></div>
+  }
+  @else {
+    <div class="card-player player-small" (click)="playSong(track)">
+      <img appImgBroken [src]="track.cover" [alt]="track.name" class="cover" />
+      <div class="song-info">
+        {{ track.name }}
+      </div>
+      <ng-container *ngTemplateOutlet="playerButtons" />
+    </div>
+  }
+}
+
+<!-- Diseño del mode (small)-->
+@if (mode=== CardPlayerMode.Small_1 ) {
   @if (isLoading) {
     <div class="small-skeleton-card"></div>
   }
@@ -15,7 +31,7 @@
 }
 
 <!-- Diseño del mode (big)-->
-@if (mode==='big') {
+@if (mode===  CardPlayerMode.Big) {
   @if(isLoading){
     <div class="big-skeleton-card"></div>
   }
@@ -31,6 +47,7 @@
   }
 }
 
+<!-- TEMPLATE -->
 <ng-template #playerButtons>
   <div class="player-buttons">
     <!-- Pause Current Song -->

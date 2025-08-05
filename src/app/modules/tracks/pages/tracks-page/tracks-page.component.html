@@ -1,4 +1,4 @@
-<div class="tracks-page">
+<div class="tracks-page g-page-container">
 
   <section class="g-chip-section">
     <span class="g-chip-btn g-chip-btn_active">Todo</span>
@@ -9,18 +9,27 @@
 
   <!-- PRUEBA -->
   <app-section-generic
-  [dataTracks]="tracksPrueba"
-  [title]="'Pruebas'"
-  [mode]="'small'"
-  [isLoading]="isLoading"
-/>
+    [dataTracks]="tracksPrueba"
+    [title]="'Pruebas'"
+    [mode]="CardPlayerMode.Small"
+    [isLoading]="isLoading"
+  />
 
   <!-- TOP Section -->
-  <!--<app-section-generic
-    [dataTracks]="tracksTrending"
-    [title]="'La mejor música del mundo'"
-    [mode]="'small'"
+
+  <app-section-generic
+    [dataTracks]="tracksPrueba"
+    [title]="'Pruebas'"
+    [mode]="CardPlayerMode.Small_1"
     [isLoading]="isLoading"
-  />-->
+  />
+
+
+  <app-section-generic
+    [dataTracks]="tracksPrueba"
+    [title]="'La mejor música del mundo'"
+    [mode]="CardPlayerMode.Big"
+    [isLoading]="isLoading"
+  />
 
 </div>

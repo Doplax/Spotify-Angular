@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { TrackModel } from '@core/models/tracks.model';
 import { TrackService } from '@modules/tracks/services/track.service';
 import { Subscription } from 'rxjs';
-import { ShazamService } from '@shared/services/shazam.service';
+import { CardPlayerMode } from '@shared/enums';
 
 @Component({
     selector: 'app-tracks-page',
@@ -16,6 +16,7 @@ export class TracksPageComponent implements OnInit, OnDestroy {
   public tracksPrueba: TrackModel[] = [];
 
   public isLoading: boolean = false;
+  public CardPlayerMode = CardPlayerMode
 
   listObservers$: Array<Subscription> = [];
 

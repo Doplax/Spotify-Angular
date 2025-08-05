@@ -3,8 +3,8 @@
 
     <div class="player-zone">
       <ul class="player-list" [ngClass]="{
-        'card-small':mode === 'small',
-        'card-big':mode === 'big'
+        'card-small': mode === CardPlayerMode.Small || mode === CardPlayerMode.Small_1, 
+        'card-big':mode === CardPlayerMode.Big
       }">
         @if (isLoading) {
           @for (item of [0,0,0,0,0,0,0,0]; track $index;) {

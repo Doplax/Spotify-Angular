@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { TrackModel } from '@core/models/tracks.model';
+import { CardPlayerMode } from '@shared/enums';
 
 @Component({
     selector: 'app-section-generic',
@@ -10,6 +11,7 @@ import { TrackModel } from '@core/models/tracks.model';
 export class SectionGenericComponent {
   @Input() title: string = '';
   @Input() isLoading: boolean = false;
-  @Input() mode: 'small' | 'big' = 'small' // Será small por defecto
+  @Input({required:true}) mode!: CardPlayerMode;
   @Input() dataTracks: Array<TrackModel> = []
+  public CardPlayerMode = CardPlayerMode;
 }
