@@ -1,7 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { TrackModel } from '@core/models/tracks.model';
-import { TrackService } from 'src/app/tracks/services/track.service';
+import { TrackService } from '@modules/tracks/services/track.service';
 import { Subscription } from 'rxjs';
+import { ShazamService } from '@shared/services/shazam.service';
 
 @Component({
     selector: 'app-tracks-page',
@@ -18,22 +19,26 @@ export class TracksPageComponent implements OnInit, OnDestroy {
 
   listObservers$: Array<Subscription> = [];
 
-  constructor(private trackService: TrackService) {}
+  constructor(
+    private trackService: TrackService,
+  ) {}
 
   ngOnInit(): void {
-    //this.loadDataAll();
-    this.getOverviewMusic();
+    this.loadDataAll();
   }
 
-  getOverviewMusic(){
-    this.trackService.getShazamOverviewMusic$().subscribe({
-      next: (data) => {
-        console.log('Shazam Component:', data);
-        debugger
-        this.tracksPrueba = data;
+  getOverviewTracks(): void {
+    this.isLoading = true;
+    this.trackService.getOverviewTracks$().subscribe({
+      next: (tracks) => {
+        this.tracksPrueba = tracks;
       },
-      error: (error) => {
-        console.error('Error fetching Shazam details:', error);
+      error: (err) => {
+        console.error('Error loading tracks', err);
+        this.tracksPrueba = [];
+      },
+      complete: () => {
+        this.isLoading = false;
       }
     });
   }
@@ -41,17 +46,19 @@ export class TracksPageComponent implements OnInit, OnDestroy {
   async loadDataAll(): Promise<void> {
     this.isLoading = true;
     try {
-      const [trending, random] = await Promise.all([
-        this.trackService.getAllTracks$().toPromise(),
-        this.trackService.getAllRandom$().toPromise()
-      ]);
+      this.getOverviewTracks()
+      //const [trending, random] = await Promise.all([
+      //  this.trackService.getAllTracks$().toPromise(),
+      //  this.trackService.getAllRandom$().toPromise()
+      //]);
 
-      this.tracksTrending = trending;
-      this.tracksRandom = random;
+      //this.tracksTrending = trending;
+      //this.tracksRandom = random;
     } catch (e) {
       console.error('Error loading tracks', e);
       this.tracksTrending = [];
       this.tracksRandom = [];
+      this.tracksPrueba = [];
     } finally {
       this.isLoading = false;
     }
