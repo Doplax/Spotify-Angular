@@ -78,9 +78,11 @@ export class ShazamService {
     offset: number = 0,
     limit: number = 5
   ): Observable<any> {
-    // const url = `${this.BASE_URL}/search?term=${encodeURIComponent(term)}&locale=${locale}&offset=${offset}&limit=${limit}`;
-    const url = `${this.BASE_URL}/search.json`; // !Mocked
+    const url = environment.production
+    ? `${environment.shazamApi.baseUrl}/search?term=${encodeURIComponent(term)}&locale=${locale}&offset=${offset}&limit=${limit}`
+    : `${environment.shazamApi.baseUrl}/search.json`; // Mocked URL
 
+    console.log(this.HEADERS);
     return this.http.get(url, { headers: this.HEADERS }).pipe(
       map((data: any) => data),
       catchError((err) => {
