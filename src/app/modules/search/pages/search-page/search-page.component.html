@@ -1,0 +1,16 @@
+<div class="history-page g-page-container">
+
+  <div class="main-container">
+    <div class="artist-container">
+      <span class="title-section">Resultado principal</span>
+      <search-artist-card [artistData]="searchedData.artists.hits[0].artist"/>
+    </div>
+
+    <div class="tracks-container">
+      <span class="title-section">Canciones</span>
+      @for (trackData of searchedData.tracks.hits; track $index) {
+        <search-track [trackData]="trackData.track"/>
+      }
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="track-row">
+  <!-- Cover and play icon -->
+  <div class="track-cover">
+    <img
+      [src]="coverUrl"
+      [alt]="trackTitle"
+      width="56"
+      height="56"
+      style="border-radius:8px;"
+    />
+    <span class="play-icon">&#9654;</span> <!-- Unicode play icon -->
+  </div>
+
+  <!-- Main info -->
+  <div class="track-main">
+    <span class="track-title">{{ trackTitle }}</span>
+    <div class="track-meta">
+      @if (isExplicit) {
+        <span class="explicit-badge">E</span>
+      }
+    </div>
+  </div>
+
+  <!-- Actions and duration -->
+  <div class="track-actions">
+    <button class="add-btn" title="Add to playlist">+</button>
+    <button class="more-btn" title="More options">&#8942;</button>
+  </div>
+</div>

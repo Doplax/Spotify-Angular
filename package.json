@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "start": "ng serve",
+    "start:pre": "ng serve --configuration pre",
+    "start:prod": "ng serve --configuration production",
     "dev:node": ". ~/.nvm/nvm.sh && nvm use && ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",

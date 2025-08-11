@@ -11,7 +11,11 @@ import {
 
 @NgModule({
   declarations: [TracksPageComponent],
-  imports: [CommonModule, TracksRoutingModule, SharedModule],
+  imports: [
+    CommonModule,
+    TracksRoutingModule,
+    SharedModule
+  ],
   providers: [provideHttpClient(withInterceptorsFromDi())],
 })
 export class TracksModule {}

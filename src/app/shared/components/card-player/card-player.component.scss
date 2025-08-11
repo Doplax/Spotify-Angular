@@ -1,5 +1,6 @@
 .card-player {
   overflow: hidden;
+  position: relative;
   background-color: var(--color-2);
   height: 5rem;
   border-radius: var(--border-radius-1);
@@ -7,82 +8,162 @@
   cursor: pointer;
   transition: all ease var(--animation-1);
   justify-content: space-between;
+
+  &:hover {
+    background-color: #4d4d4d;
+
+    .player-buttons {
+      opacity: 1;                               
+      transform: translateY(0);
+    }
+  }
+
+  // SMALL MODE
+  &.player-small {
+    background-color: #4d4d4d;
+    justify-content: flex-start;
+
+
+    &:hover {
+      background-color: #717171;
+    }
+
+    img.cover {
+      width: 5rem;
+      height: 100%;
+      object-fit: cover;
+      border-top-left-radius: var(--border-radius-1);
+      border-bottom-left-radius: var(--border-radius-1);
+    }
+
+    div.song-info {
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      align-content: center;
+      padding: 0 0 0 .75rem;
+      text-overflow: ellipsis;
+    }
+
+    div.player-buttons {
+      position: absolute;
+      right: 0;
+      top: 0.8rem;
+
+      transform: scale(0.8);
+    }
+  }
+
+
+
+  // BIG MODE
+  &.player-big {
+    position: relative;
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
+    width: 17rem;
+
+    img.cover {
+      width: 150px;
+      height: 150px;
+      border-radius: var(--border-radius-1);
+
+    }
+
+    div.song-info {
+      padding: .5rem 0;
+      flex-direction: column;
+      align-self: flex-start;
+      align-items: flex-start;
+
+      .sub-title-track {
+        font-size: 80%;
+        opacity: .7;
+      }
+    }
+
+    .player-buttons {
+      position: absolute;
+      right: 1rem;
+      top: 12rem;
+    }
+  }
 }
 
-.card-player:hover {
-  background-color: #4d4d4d;
-}
 
-.card-player .cover {
-  width: 5rem;
-  height: 100%;
-  object-fit: cover;
-  border-top-left-radius: var(--border-radius-1);
-  border-bottom-left-radius: var(--border-radius-1);
-}
-
-.card-player .content-player {
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  align-content: center;
-  padding: 0 0 0 .75rem;
-  text-overflow: ellipsis;
-}
-
-.card-player .buttons-player {
+// BUTTONS
+.player-buttons {
   opacity: 0;
-  width: 5rem;
+  transform: translateY(1rem);
+  transition: opacity 0.3s ease, transform 0.3s ease;
   display: flex;
   justify-content: center;
   align-content: center;
   align-items: center;
   transition: all ease var(--animation-1);
+
+
+  .play-btn {
+    color: var(--color-1);
+    background-color: black;
+    border-radius: 2rem;
+    height: 3.2rem;
+    width: 3.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 10px 2px #000000;
+
+    mat-icon{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size:4rem;
+      height: auto;
+      width: auto;
+      transform: scale(1.2);
+    }
+  }
 }
 
-.card-player:hover .buttons-player {
-  opacity: 1;
+
+
+// SKELETON
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
 
-.card-player .buttons-player .play-btn {
-  color: var(--color-white);
-  border: 0;
-  font-size: 1.15rem;
-  border-radius: 2rem;
-  background-color: var(--color-1);
-  width: 45px;
-  height: 45px;
-}
-
-.card-player.player-big {
-  position: relative;
-  flex-direction: column;
-  height: 18rem;
-  padding: 1rem;
-}
-
-.card-player.player-big .cover {
-  width: 100%;
-  height: 200px;
+// BASE COMPARTIDA
+%skeleton-base {
   border-radius: var(--border-radius-1);
+  background: linear-gradient(
+    90deg,
+    #3a3a3a 25%,
+    #4d4d4d 50%,
+    #3a3a3a 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
 }
 
-.card-player.player-big .content-player {
-  padding: .5rem 0;
-  flex-direction: column;
-  align-self: flex-start;
-  align-items: flex-start;
+// SMALL
+.small-skeleton-card {
+  @extend %skeleton-base;
+  height: 5rem;
+  width: 100%;
 }
 
-.card-player.player-big .content-player .sub-title-track {
-  font-size: 80%;
-  opacity: .7;
+// BIG
+.big-skeleton-card {
+  @extend %skeleton-base;
+  width: 17rem;
+  height: 12rem;
+  margin: 0 auto;
 }
-
-.card-player.player-big .buttons-player {
-  position: absolute;
-  right: 0;
-  top: 13rem
-}
-
-

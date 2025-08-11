@@ -1,14 +1,25 @@
-<div class="section--generic">
-  <h1 class="section--generic__title">{{title}}</h1>
+<section>
+  <h1 class="title">{{title}}</h1>
 
-  <div class="section--generic__player--zone">
-    <ul class="player--list" [ngClass]="{'card-small':mode === 'small','card-big':mode === 'big'}">
-      @for (track of dataTracks; track track) {
-        <li>
-          <app-card-player [track]="track" [mode]="mode"/>
-        </li>
-      }
-    </ul>
+    <div class="player-zone">
+      <ul class="player-list" [ngClass]="{
+        'card-small': mode === CardPlayerMode.Small || mode === CardPlayerMode.Small_1, 
+        'card-big':mode === CardPlayerMode.Big
+      }">
+        @if (isLoading) {
+          @for (item of [0,0,0,0,0,0,0,0]; track $index;) {
+            <li>
+              <app-card-player [isLoading]="true" [mode]="mode"/>
+            </li>
+          }
+        }
+        @else {
+          @for (track of dataTracks; track track) {
+            <li>
+              <app-card-player [isLoading]="false" [track]="track" [mode]="mode"/>
+            </li>
+          }
+        }
+      </ul>
   </div>
-</div>
-
+</section>

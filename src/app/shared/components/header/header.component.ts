@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 import { AuthService } from '@modules/auth/services/auth.service';
 import { Router } from '@angular/router';
 import { fromEvent } from 'rxjs';
+import { SearchService } from '@modules/search/services/search.service';
 
 
 interface AccountDropDown {
@@ -16,6 +17,7 @@ interface AccountDropDown {
   standalone: false,
 })
 export class HeaderComponent implements OnInit, AfterViewInit  {
+  searchResponse: any[] = [];
   isAuth: boolean = false;
   isOpenDropdown: boolean = false;
   acountdropDown: AccountDropDown[] = [
@@ -56,7 +58,11 @@ export class HeaderComponent implements OnInit, AfterViewInit  {
     }
   ];
 
-  constructor(private authService: AuthService, public router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private searchService: SearchService,
+    public router: Router
+  ) {}
   @ViewChild('accountButton') accountButton!: ElementRef;
 
   ngOnInit(): void {
@@ -74,6 +80,10 @@ export class HeaderComponent implements OnInit, AfterViewInit  {
       blur$.subscribe(() => this.isOpenDropdown = false);  // Close on blur
     }
   }
+
+  goToSearchPage(term: string) {
+    this.router.navigate(['/search'], { queryParams: { term: term } });
+  };
 
   checkIsAuth() {
     const isAuth = this.authService.checkIsAuth();

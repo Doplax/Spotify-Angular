@@ -1,4 +1,5 @@
 {
+  "peacock.remoteColor": "#9b111e",
   "workbench.colorCustomizations": {
     "activityBar.activeBackground": "#c91627",
     "activityBar.background": "#c91627",
@@ -18,5 +19,9 @@
     "titleBar.inactiveBackground": "#9b111e99",
     "titleBar.inactiveForeground": "#e7e7e799"
   },
-  "peacock.remoteColor": "#9b111e"
+  "angular-schematics.schematicsDefaultOptions": {
+    "angular-component": {
+      "ngOnInit": true
+    }
+  }
 }

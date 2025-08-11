@@ -62,13 +62,17 @@
       <!-- Play/Pause -->
       <button (click)="multimediaService.tooglePlayer()" class="play-btn btn">
         <!-- TODO: Create disabled class -->
-        @switch(state){ @case('pause'){
-        <mat-icon>play_circle</mat-icon>
-        } @case('playing') {
-        <mat-icon>pause_circle</mat-icon>
-        } @default {
-        <mat-icon>play_circle</mat-icon>
-        }}
+        @switch(state){
+          @case('pause'){
+            <mat-icon>play_circle</mat-icon>
+          }
+          @case('playing') {
+            <mat-icon>pause_circle</mat-icon>
+          }
+          @default {
+          <mat-icon>play_circle</mat-icon>
+          }
+        }
       </button>
       <!-- Next -->
       <shared-svg-next class="g-icon btn size32" />

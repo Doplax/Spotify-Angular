@@ -1,13 +1,38 @@
-.section--generic {
-  margin-bottom: 2rem;
-}
+:host {
+  margin-bottom: 3rem;
 
-.section--generic__player--zone .player--list {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  gap: 1.15rem;
-}
+  section{
+    margin-bottom: 3rem;
 
+    .title{
+      margin: 1rem 0;
+      font-size: 2rem;
+    }
+
+    .player-zone {
+      .player-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 1.15rem;
+
+        &.card-small {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 1.15rem;
+          margin-right: 2.5rem;
+        }
+
+        &.card-big {
+          display: flex;
+          overflow: auto;
+
+          //&::-webkit-scrollbar {
+          //  display: none;        // Chrome, Safari, Edge moderno
+          //}
+        }
+
+      }
+    }
+  }
+}

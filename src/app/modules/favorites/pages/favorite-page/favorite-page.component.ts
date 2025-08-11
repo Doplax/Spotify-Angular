@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TrackModel } from '@core/models/tracks.model';
-import { TrackService } from 'src/app/tracks/services/track.service';
+import { TrackModel } from '@shared/Models/Tracks';
+import { TrackService } from '@modules/tracks/services/track.service';
 
 @Component({
     selector: 'app-favorite-page',
@@ -18,7 +18,7 @@ export class FavoritePageComponent implements OnInit {
   ngOnInit(): void {}
 
   async loadData(): Promise<any> {
-    this.tracksList = await this.trackService.getAllTracks$().toPromise();
+    //this.tracksList = await this.trackService.getAllTracks$().toPromise();
     console.log(this.tracksList);
   }
 }

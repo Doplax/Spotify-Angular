@@ -1,9 +1,6 @@
 .side-bar {
-  width: 15.5rem;
   height: 100%;
-  //position: fixed;
-  top: 0;
-  left: 0;
+
   padding: 0.5rem 1rem;
   background: var(--background-base);
   background-color: rgba(var(--essential-grey), 0.9);
@@ -14,9 +11,7 @@
     rgba(24, 24, 24, 1)
   );
   border-radius: var(--border-radius-1);
-  margin: 0.5rem;
   padding: 1.5rem;
-  width: 30rem;
 
   section {
     margin-bottom: 2rem;
