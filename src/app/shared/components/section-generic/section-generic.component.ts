@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
-import { TrackModel } from '@core/models/tracks.model';
+import { TrackModel } from '@shared/Models/Tracks';
 import { CardPlayerMode } from '@shared/enums';
 
 @Component({
-    selector: 'app-section-generic',
+    selector: 'shared-section-generic',
     templateUrl: './section-generic.component.html',
     styleUrl: './section-generic.component.scss',
     standalone: false

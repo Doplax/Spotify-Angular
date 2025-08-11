@@ -1,5 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { TrackModel } from '@core/models/tracks.model';
+import { TrackModel } from '@shared/Models/Tracks';
 import { BehaviorSubject, Subject } from 'rxjs';
 
 export enum PlayerStates {

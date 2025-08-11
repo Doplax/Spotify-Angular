@@ -1,4 +1,4 @@
-import { ArtistModel } from "./artist.model";
+import { ArtistModel } from "./Artist";
 
 export interface TrackModel {
   name: string;

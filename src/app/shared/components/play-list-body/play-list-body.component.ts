@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { TrackModel } from '@core/models/tracks.model';
+import { TrackModel } from '@shared/Models/Tracks';
 
 @Component({
     selector: 'app-play-list-body',

@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { TrackModel } from '@core/models/tracks.model';
-import { ShazamSongDetailsDto } from '@shared/Models/ShazamSongDetailsDto';
+import { TrackModel } from '@shared/Models/Tracks';
+import { ShazamSongDetailsDto } from '@shared/Models/Shazam/ShazamSongDetailsDTO';
 
 @Injectable({ providedIn: 'root' })
 export class ShazamService {

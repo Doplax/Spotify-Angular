@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { TrackModel } from '@core/models/tracks.model';
+import { TrackModel } from '@shared/Models/Tracks';
 import { MultimediaService } from '@shared/services/multimedia.service';
 import { CardPlayerMode } from '@shared/enums';
 
@@ -14,7 +14,7 @@ export class CardPlayerComponent implements OnInit {
   @Input() isLoading: boolean = false;
   @Input() mode: CardPlayerMode = CardPlayerMode.Small;
   @Input() track!: TrackModel;
-  public CardPlayerMode = CardPlayerMode; 
+  public CardPlayerMode = CardPlayerMode;
   public isPlaying: boolean = false;
   public trackInfo: TrackModel | null = null;
 
