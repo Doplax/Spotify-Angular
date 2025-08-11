@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { TrackModel } from '@core/models/tracks.model';
+import { TrackModel } from '@shared/Models/Tracks';
 import { SearchService } from '@modules/search/services/search.service';
 import { Observable, of } from 'rxjs';
 import { TrackService } from '@modules/tracks/services/track.service';
 import { ActivatedRoute } from '@angular/router';
+import { CardPlayerMode } from '@shared/enums';
+import { ShazamSearchDTO } from '@shared/Models/Shazam';
 
 @Component({
     selector: 'app-search-page',
@@ -12,8 +14,10 @@ import { ActivatedRoute } from '@angular/router';
     standalone: false
 })
 export class SearchPageComponent {
-  listResults$: Observable<any> = of([]);
-
+  public searchedData!: ShazamSearchDTO.SearchDTO;
+  public CardPlayerMode = CardPlayerMode;
+  public isLoading: boolean = false;
+  public tracksPrueba: TrackModel[] = [];
 
   constructor(
     private searchService: SearchService,
@@ -27,15 +31,14 @@ export class SearchPageComponent {
 
   reciveData(): void {
     this.activatedRoute.queryParamMap.subscribe((params) => {
-      const term = params.get('term') || '';        // "kiss the rain"
+      const term = params.get('term') || '';
 
       // TODO: put alternative value
       //const offset = params.get('offset');
       //const limit = params.get('limit') ;
 
       this.searchService.search$(term).subscribe((data) => {
-        this.listResults$ = data;
-        console.log('Search results:', data);
+        this.searchedData = data ;
       });
     });
   }

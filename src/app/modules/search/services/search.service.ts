@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ShazamSearchDTO } from '@shared/Models/Shazam';
 import { ShazamService } from '@shared/services/shazam.service';
 import { Observable, map } from 'rxjs';
 
@@ -16,10 +17,10 @@ export class SearchService  {
       locale: string = 'en-US',
       offset: number = 0,
       limit: number = 5
-    ): Observable<any> {
+    ): Observable<ShazamSearchDTO.SearchDTO> {
     return this.shazamService.search$(term, locale, offset, limit).pipe(
-      map((data: any) => {
-        return this.shazamService.shazamParser(data)
+      map((searchData: ShazamSearchDTO.SearchDTO) => {
+        return searchData
       })
     );
     }

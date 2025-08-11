@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TrackModel } from '@core/models/tracks.model';
+import { TrackModel } from '@shared/Models/Tracks';
 import { TrackService } from '@modules/tracks/services/track.service';
 
 @Component({
