@@ -13,6 +13,7 @@ export class TrackComponent implements OnInit {
   public trackTitle: string = "";
   public coverUrl: string = "";
   public trackUrl: string = "";
+  public subtitles: string = "";
   public isExplicit: boolean = false;
 
   ngOnInit(): void {
@@ -20,5 +21,7 @@ export class TrackComponent implements OnInit {
     this.coverUrl = this.trackData.images.coverart;
     this.trackUrl = this.trackData.hub.actions[1].uri!;
     this.isExplicit = this.trackData.hub.explicit;
+    this.subtitles = this.trackData.subtitle;
+    console.log(this.trackData)
   }
 }

@@ -23,12 +23,14 @@
     [isLoading]="isLoading"
   />
 
-
-  <shared-section-generic
+  @for (item of [0,1,2,3,4]; track $index) {
+    <shared-section-generic
     [dataTracks]="tracksPrueba"
     [title]="'La mejor música del mundo'"
     [mode]="CardPlayerMode.Big"
     [isLoading]="isLoading"
   />
+  }
 
+  <shared-footer/>
 </div>

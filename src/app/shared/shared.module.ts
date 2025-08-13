@@ -16,6 +16,7 @@ import { RouterLink, RouterModule } from '@angular/router';
 import { SectionGenericComponent } from './components/section-generic/section-generic.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { SvgModule } from './SVGcomponents/svg.module';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { SvgModule } from './SVGcomponents/svg.module';
     PlayListHeaderComponent,
     SectionGenericComponent,
     SideBarComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -49,6 +51,7 @@ import { SvgModule } from './SVGcomponents/svg.module';
     PlayListHeaderComponent,
     SectionGenericComponent,
     SideBarComponent,
+    FooterComponent
   ],
 })
 export class SharedModule {}

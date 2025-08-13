@@ -1,7 +1,7 @@
 :host {
   display: grid;
   grid-template-rows: 6% 84% 10%;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   box-sizing: border-box;
   position: relative;
@@ -27,9 +27,9 @@
     }
 
     .router-wrapper {
+      flex: 1;
       height: 100%;
       overflow: hidden;
-
     }
   }
 

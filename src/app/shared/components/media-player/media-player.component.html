@@ -21,7 +21,7 @@
   <!--<div class="artist-inside" *ngIf="multimediaService.trackInfo$ | async as mockCover">-->
   @if (multimediaService.trackInfo$ | async) {
   <div class="artist-inside">
-    <img [src]="currentTrack?.cover" alt="cover" class="cover" />
+    <img appImgBroken [src]="currentTrack?.cover" alt="cover" class="cover" />
     <div class="track-info">
       <h3 class="track-title">{{ currentTrack?.name }}</h3>
       <h5 class="track-title sub-title">{{ currentTrack?.album }}</h5>

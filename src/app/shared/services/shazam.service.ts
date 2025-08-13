@@ -82,7 +82,6 @@ export class ShazamService {
     ? `${environment.shazamApi.baseUrl}/search?term=${encodeURIComponent(term)}&locale=${locale}&offset=${offset}&limit=${limit}`
     : `${environment.shazamApi.baseUrl}/search.json`; // Mocked URL
 
-    console.log(this.HEADERS);
     return this.http.get(url, { headers: this.HEADERS }).pipe(
       map((data: any) => data),
       catchError((err) => {

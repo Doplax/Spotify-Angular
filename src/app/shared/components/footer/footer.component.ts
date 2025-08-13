@@ -8,43 +8,43 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
 
-  currentYear: number = 2025;
+  currentYear: number = new Date().getFullYear();
 
   footerLinks = {
     company: [
-      { name: 'Acerca de', url: '/about' },
-      { name: 'Empleo', url: '/jobs' },
-      { name: 'For the Record', url: '/record' }
+      { name: 'Acerca de', url: '#' },
+      { name: 'Empleo', url: '#' },
+      { name: 'For the Record', url: '#' }
     ],
     communities: [
-      { name: 'Para artistas', url: '/artists' },
-      { name: 'Desarrolladores', url: '/developers' },
-      { name: 'Publicidad', url: '/advertising' },
-      { name: 'Inversores', url: '/investors' },
-      { name: 'Proveedores', url: '/providers' }
+      { name: 'Para artistas', url: '#' },
+      { name: 'Desarrolladores', url: '#' },
+      { name: 'Publicidad', url: '#' },
+      { name: 'Inversores', url: '#' },
+      { name: 'Proveedores', url: '#' }
     ],
     useful: [
-      { name: 'Asistencia', url: '/support' },
-      { name: 'App gratis para móvil', url: '/mobile' },
-      { name: 'Popular por país', url: '/popular' }
+      { name: 'Asistencia', url: '#' },
+      { name: 'App gratis para móvil', url: '#' },
+      { name: 'Popular por país', url: '#' }
     ],
     plans: [
-      { name: 'Premium Individual', url: '/premium' },
-      { name: 'Premium Duo', url: '/duo' },
-      { name: 'Premium Familiar', url: '/family' },
-      { name: 'Premium para Estudiantes', url: '/student' },
-      { name: 'Spotify Free', url: '/free' },
-      { name: 'Audiobooks Access', url: '/audiobooks' }
+      { name: 'Premium Individual', url: '#' },
+      { name: 'Premium Duo', url: '#' },
+      { name: 'Premium Familiar', url: '#' },
+      { name: 'Premium para Estudiantes', url: '#' },
+      { name: 'Spotify Free', url: '#' },
+      { name: 'Audiobooks Access', url: '#' }
     ],
     bottomLinks: [
-      { name: 'Legal', url: '/legal' },
-      { name: 'Centro de seguridad y privacidad', url: '/privacy-center' },
-      { name: 'Política de Privacidad', url: '/privacy' },
-      { name: 'Cookies', url: '/cookies' },
-      { name: 'Información sobre los anuncios', url: '/ads-info' },
-      { name: 'Accesibilidad', url: '/accessibility' },
-      { name: 'Notice at Collection', url: '/collection-notice' },
-      { name: 'Your Privacy Choices', url: '/privacy-choices', hasIcon: true }
+      { name: 'Legal', url: '#' },
+      { name: 'Centro de seguridad y privacidad', url: '#' },
+      { name: 'Política de Privacidad', url: '#' },
+      { name: 'Cookies', url: '#' },
+      { name: 'Información sobre los anuncios', url: '#' },
+      { name: 'Accesibilidad', url: '#' },
+      { name: 'Notice at Collection', url: '#' },
+      { name: 'Your Privacy Choices', url: '#', hasIcon: true }
     ]
   };
 }
