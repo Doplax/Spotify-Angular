@@ -1,0 +1,72 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer-main">
+      <div class="footer-column">
+        <h3>Empresa</h3>
+        <ul>
+          <li *ngFor="let link of footerLinks.company">
+            <a [href]="link.url">{{ link.name }}</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>Comunidades</h3>
+        <ul>
+          <li *ngFor="let link of footerLinks.communities">
+            <a [href]="link.url">{{ link.name }}</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>Enlaces útiles</h3>
+        <ul>
+          <li *ngFor="let link of footerLinks.useful">
+            <a [href]="link.url">{{ link.name }}</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>Planes de Spotify</h3>
+        <ul>
+          <li *ngFor="let link of footerLinks.plans">
+            <a [href]="link.url">{{ link.name }}</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="social-icons">
+        <a href="https://instagram.com" class="social-icon" aria-label="Instagram">
+          <mat-icon>photo_camera</mat-icon> <!-- <-- Changed to material icon -->
+        </a>
+        <a href="https://twitter.com" class="social-icon" aria-label="Twitter">
+          <mat-icon>twitter</mat-icon> <!-- <-- Changed to material icon -->
+        </a>
+        <a href="https://facebook.com" class="social-icon" aria-label="Facebook">
+          <mat-icon>facebook</mat-icon> <!-- <-- Changed to material icon -->
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="bottom-links">
+        <ul>
+          <li *ngFor="let link of footerLinks.bottomLinks">
+            <a [href]="link.url">
+              {{ link.name }}
+              <span *ngIf="link.hasIcon" class="privacy-icon">
+                <img src="assets/privacy-icon.svg" alt="Privacy icon" />
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="copyright">
+        © {{ currentYear }} Spotify AB
+      </div>
+    </div>
+  </div>
+</footer>
