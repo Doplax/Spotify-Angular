@@ -16,6 +16,10 @@
   min-width: 30rem;
   align-items: flex-start;
 
+  &:hover {
+    background: var(--hover-grey);
+  }
+
 
   .artist-avatar {
     width: 110px;

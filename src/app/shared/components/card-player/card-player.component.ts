@@ -5,7 +5,7 @@ import { CardPlayerMode } from '@shared/enums';
 
 
 @Component({
-    selector: 'app-card-player',
+    selector: 'shared-card-player',
     templateUrl: './card-player.component.html',
     styleUrls: ['./card-player.component.scss'],
     standalone: false

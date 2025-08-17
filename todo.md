@@ -1,17 +1,20 @@
+
+## Search Page
+[] Buscador de canciones: recordar como hacer lo de async para cancelar peticiones antiguas
+[] Actualizar contenido del componente en cada nueva búsqueda
+[] Maquetar Correctamente cards
+
+[] artist-card: utilizar componentes globales para hover y play button.
+[] Poner la sección de overview con datos estáticos apuntado a mi backend
+
+
 # Tareas
+[] 
 [] Crear una clase para permitir el scroll dentro de router-outlet
 [] organizar variables de estilos de manera global
 [] Cards Grandes y pequeñas
 [] default cover en reproductor para cuando no cargue nada
 [] Avanzar alante y atrás en con el reproductor
-
-## Search Page
-[] Buscador de canciones
-[] Actualizar contenido del componente 
-[] Maquetar Correctamente cards
-
-[] artist-card: utilizar componentes globales para hover y play button.
-[] Poner la sección de overview con datos estáticos apuntado a mi backend
 
 
 

@@ -15,3 +15,10 @@
     @content;
   }
 }
+
+
+// USE EXAMPLE
+//@use 'responsive' as *;
+//@include mobile {
+//  color: red;
+//}
