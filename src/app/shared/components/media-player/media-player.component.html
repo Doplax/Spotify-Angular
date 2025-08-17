@@ -17,68 +17,59 @@
 </div>
 
 <!-- ZONE TEMPLATES -->
+ <!-- Artist -->
 <ng-template #artistZone>
-  <!--<div class="artist-inside" *ngIf="multimediaService.trackInfo$ | async as mockCover">-->
   @if (multimediaService.trackInfo$ | async) {
-  <div class="artist-inside">
-    <img appImgBroken [src]="currentTrack?.cover" alt="cover" class="cover" />
-    <div class="track-info">
-      <h3 class="track-title">{{ currentTrack?.name }}</h3>
-      <h5 class="track-title sub-title">{{ currentTrack?.album }}</h5>
+    <div class="artist-inside">
+      <img appImgBroken [src]="currentTrack?.cover" alt="cover" class="cover" />
+      <div class="track-info">
+        <h3 class="track-title">{{ currentTrack?.name }}</h3>
+        <h5 class="track-title sub-title">{{ currentTrack?.album }}</h5>
+      </div>
+      <div class="track-like">
+        <button class="btn-like">
+          <i class="uil uil-heart"></i>
+        </button>
+      </div>
     </div>
-    <div class="track-like">
-      <button class="btn-like">
-        <i class="uil uil-heart"></i>
-      </button>
-    </div>
-  </div>
-  <!--</div>-->
-  } @else {
-  <div class="artist-inside">
-    <img [src]="currentTrack?.cover" alt="cover" class="cover" />
-    <div class="track-info">
-      <h3 class="track-title">{{ "Nombre de la canción" }}</h3>
-      <h5 class="track-title sub-title">{{ "Nombre del Artista" }}</h5>
-    </div>
-    <div class="track-like">
-      <button class="btn-like">
-        <i class="uil uil-heart"></i>
-      </button>
-    </div>
-  </div>
   }
 </ng-template>
 
+<!-- Player Zone -->
 <ng-template #playerZone>
   <div class="player-controls-inside">
     <div class="buttons-media">
-      <!-- Repeat -->
-      <!-- TODO: Random Function  -->
-      <shared-svg-random class="g-icon btn size32" />
-
-      <!-- Previous -->
-      <shared-svg-next [revert]="true" class="g-icon btn size32" />
-
-      <!-- Play/Pause -->
-      <button (click)="multimediaService.tooglePlayer()" class="play-btn btn">
-        <!-- TODO: Create disabled class -->
-        @switch(state){
-          @case('pause'){
-            <mat-icon>play_circle</mat-icon>
+      <!-- Check if there is a track -->
+      @if (multimediaService.trackInfo$ | async ) {
+        <!--There IS a track, controls enabled
+        <!-- Example: trackInfo = { name: "Song", ... } -->
+        <shared-svg-random class="g-icon btn size32" />
+        <shared-svg-next [revert]="true" class="g-icon btn size32" />
+        <button (click)="multimediaService.tooglePlayer()" class="play-btn btn">
+          @switch(state){
+            @case('pause'){
+              <mat-icon>play_circle</mat-icon>
+            }
+            @case('playing') {
+              <mat-icon>pause_circle</mat-icon>
+            }
+            @default {
+              <mat-icon>play_circle</mat-icon>
+            }
           }
-          @case('playing') {
-            <mat-icon>pause_circle</mat-icon>
-          }
-          @default {
-          <mat-icon>play_circle</mat-icon>
-          }
-        }
-      </button>
-      <!-- Next -->
-      <shared-svg-next class="g-icon btn size32" />
-
-      <!-- TODO: Repeat Function -->
-      <shared-svg-retry class="g-icon btn size32" />
+        </button>
+        <shared-svg-next class="g-icon btn size32" />
+        <shared-svg-retry class="g-icon btn size32" />
+      } @else {
+        <!-- There is NO track, controls disabled -->
+        <shared-svg-random class="g-icon btn size32 disabled" />
+        <shared-svg-next [revert]="true" class="g-icon btn size32 disabled" />
+        <button class="play-btn btn disabled" disabled>
+          <mat-icon class="disabled" >play_circle</mat-icon>
+        </button>
+        <shared-svg-next class="g-icon btn size32 disabled" />
+        <shared-svg-retry class="g-icon btn size32 disabled" />
+      }
     </div>
 
     <!-- MatSlider -->
@@ -107,6 +98,8 @@
   </div>
 </ng-template>
 
+
+<!-- Player Audio -->
 <ng-template #playerAudio>
   <div class="player-audio-inside">
     <!--<shared-svg-lyrics matTooltip="Vista sonando" class="g-icon btn size32" />-->

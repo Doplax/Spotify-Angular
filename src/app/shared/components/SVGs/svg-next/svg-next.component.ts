@@ -5,7 +5,7 @@ import { Component, HostBinding, Input } from '@angular/core';
   styles: [
     `
       :host(.revert) {
-        transform: rotate(180deg);
+        transform: rotate(180deg) !important;
       }
     `,
   ],

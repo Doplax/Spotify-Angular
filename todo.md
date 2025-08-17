@@ -9,7 +9,7 @@
 
 
 # Tareas
-[] 
+[] Ocultar nombre cancion artista cover en multimedia cuando no hay cancion
 [] Crear una clase para permitir el scroll dentro de router-outlet
 [] organizar variables de estilos de manera global
 [] Cards Grandes y pequeñas
