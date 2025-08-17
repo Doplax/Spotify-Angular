@@ -178,6 +178,7 @@
       }
     }
   },
+
   {
     "data": [
       {
@@ -460,8 +461,675 @@
         }
       }
     }
-  }
+  },
 
+  {
+    "data": [
+      {
+        "id": "56128738",
+        "type": "shazam-songs"
+      }
+    ],
+    "resources": {
+      "artist-highlights": {
+        "206549742": {
+          "id": "206549742",
+          "type": "artist-highlights"
+        }
+      },
+      "songs": {
+        "309967970": {
+          "id": "309967970",
+          "type": "songs",
+          "attributes": {
+            "unitags": [
+              {
+                "namespace": "EditorialGenres",
+                "tag": "Smooth Jazz",
+                "score": 0.9391552
+              },
+              {
+                "namespace": "MemoryAppropriateness",
+                "tag": "NotAppropriate",
+                "score": 0.9994364
+              }
+            ]
+          }
+        }
+      },
+      "albums": {
+        "309967869": {
+          "id": "309967869",
+          "type": "albums",
+          "attributes": {
+            "artistName": "Ronny Smith",
+            "name": "Just Groovin",
+            "releaseDate": "2009"
+          }
+        }
+      },
+      "shazam-artists": {
+        "42": {
+          "id": "42",
+          "type": "shazam-artists"
+        }
+      },
+      "artists": {
+        "206549742": {
+          "id": "206549742",
+          "attributes": {
+            "name": "Ronny Smith"
+          },
+          "type": "artists"
+        }
+      },
+      "shazam-songs": {
+        "56128738": {
+          "id": "56128738",
+          "type": "shazam-songs",
+          "attributes": {
+            "type": "MUSIC",
+            "title": "Blue Bossa",
+            "artist": "Ronny Smith",
+            "primaryArtist": "Ronny Smith",
+            "label": "Pacific Coast Jazz",
+            "explicit": false,
+            "isrc": "USBST0870010",
+            "webUrl": "https://www.shazam.com/track/56128738/blue-bossa?co=US&offsetInMilliseconds=&timeSkew=&trackLength=",
+            "images": {
+              "coverArt": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/98/a2/06/98a20694-4949-5213-1551-f106da1126cb/mzi.umvuwxin.jpg/400x400cc.jpg",
+              "coverArtHq": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/98/a2/06/98a20694-4949-5213-1551-f106da1126cb/mzi.umvuwxin.jpg/800x800cc.jpg"
+            },
+            "artwork": {
+              "url": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/98/a2/06/98a20694-4949-5213-1551-f106da1126cb/mzi.umvuwxin.jpg/{w}x{h}cc.jpg",
+              "textColor1": "e9a087",
+              "textColor2": "f12f3d",
+              "textColor3": "be826e",
+              "textColor4": "c52732",
+              "bgColor": "130b09"
+            },
+            "share": {
+              "subject": "Blue Bossa - Ronny Smith",
+              "text": "Blue Bossa by Ronny Smith",
+              "image": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/98/a2/06/98a20694-4949-5213-1551-f106da1126cb/mzi.umvuwxin.jpg/400x400cc.jpg",
+              "twitter": "@Shazam found Blue Bossa by Ronny Smith:",
+              "html": "https://www.shazam.com/snippets/email-share/56128738?lang=en-US&country=US",
+              "snapchat": "https://www.shazam.com/partner/sc/track/56128738"
+            },
+            "genres": {
+              "primary": "Jazz"
+            },
+            "streaming": {
+              "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/08/b4/01/08b401ba-1986-6e49-d99f-2ece54ef9491/mzaf_4026633062925078659.plus.aac.ep.m4a",
+              "deeplink": "intent://music.apple.com/us/album/blue-bossa/309967869?i=309967970&mttnagencyid=s2n&mttnsiteid=125115&mttn3pid=Apple-Shazam&mttnsub1=Shazam_android_am&mttnsub2=5348615A-616D-3235-3830-44754D6D5973&itscg=30201&app=music&itsct=Shazam_android_am#Intent;scheme=http;package=com.apple.android.music;action=android.intent.action.VIEW;end",
+              "store": "https://play.google.com/store/apps/details?id=com.apple.android.music&referrer=utm_source=https%3A%2F%2Fmusic.apple.com%2Fsubscribe%3Fmttnagencyid%3Ds2n%26mttnsiteid%3D125115%26mttn3pid%3DApple-Shazam%26mttnsub1%3DShazam_android_am%26mttnsub2%3D5348615A-616D-3235-3830-44754D6D5973%26itscg%3D30201%26app%3Dmusic%26itsct%3DShazam_android_am"
+            },
+            "classicalAvailability": false
+          },
+          "relationships": {
+            "artist-highlights": {
+              "data": [
+                {
+                  "id": "206549742",
+                  "type": "artist-highlights"
+                }
+              ]
+            },
+            "songs": {
+              "data": [
+                {
+                  "id": "309967970",
+                  "type": "songs"
+                }
+              ]
+            },
+            "albums": {
+              "data": [
+                {
+                  "id": "309967869",
+                  "type": "albums"
+                }
+              ]
+            },
+            "shazam-artists": {
+              "data": [
+                {
+                  "id": "42",
+                  "type": "shazam-artists"
+                }
+              ]
+            },
+            "artists": {
+              "data": [
+                {
+                  "id": "206549742",
+                  "type": "artists"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },{
+    "data": [
+      {
+        "id": "295441121",
+        "type": "shazam-songs"
+      }
+    ],
+    "resources": {
+      "artist-highlights": {
+        "920548426": {
+          "id": "920548426",
+          "type": "artist-highlights"
+        }
+      },
+      "songs": {
+        "1640490974": {
+          "id": "1640490974",
+          "type": "songs",
+          "attributes": {
+            "hasLyrics": true,
+            "hasTimeSyncedLyrics": true,
+            "unitags": [
+              {
+                "namespace": "EditorialEra",
+                "tag": "10s",
+                "score": 0.918025
+              },
+              {
+                "namespace": "EditorialGenres",
+                "tag": "Hip-Hop/Rap",
+                "score": 0.74635327
+              },
+              {
+                "namespace": "EditorialGenres",
+                "tag": "Hip-Hop en Español / Latin Rap / Rap Latino",
+                "score": 0.9808016
+              },
+              {
+                "namespace": "MemoryAppropriateness",
+                "tag": "NotAppropriate",
+                "score": 0.9982557
+              }
+            ]
+          }
+        }
+      },
+      "albums": {
+        "1640490968": {
+          "id": "1640490968",
+          "type": "albums",
+          "attributes": {
+            "artistName": "Foyone",
+            "name": "La Jaula de Oro",
+            "releaseDate": "2015"
+          }
+        }
+      },
+      "shazam-artists": {
+        "42": {
+          "id": "42",
+          "type": "shazam-artists"
+        }
+      },
+      "artists": {
+        "920548426": {
+          "id": "920548426",
+          "attributes": {
+            "name": "Foyone"
+          },
+          "type": "artists"
+        }
+      },
+      "lyrics": {
+        "24279589": {
+          "id": "24279589",
+          "type": "lyrics",
+          "attributes": {
+            "text": [
+              "Quién pone el culo por tres duros",
+              "Así no va a triunfar seguro",
+              "Lo suyo es \"ballet,\" ésto es \"vale tudo\"",
+              "Aquí todos lo ven pero son mudos",
+              "",
+              "El camino oscuro, pero ten fe",
+              "Los más zorros van detrás del sueldo de café",
+              "Sea como sea hermano lo conseguiré",
+              "Si Dios no me lo da, da igual yo se lo quitaré",
+              "",
+              "DNC grande en la pared en la casa el juez",
+              "Ni paro ni pararé, pa' frenarme mántenme",
+              "Yo te daré el último toque que hallá abajo ha de ser",
+              "Estoy cumpliendo los deseos que hace tiempo soñé",
+              "",
+              "Lo que no sé ni estoy seguro es si aún duermo o me desperté",
+              "Pero poco importa a estas alturas sé lo que tengo que hacer",
+              "Aunque a veces haya dudas y es que hasta el sol más caliente",
+              "Se acaba muriendo a oscuras",
+              "",
+              "He soñado con Dios (he soñado con Dios)",
+              "Yo estoy seguro",
+              "Quién si no Dios, quién puede andar (¿quién puede andar?)",
+              "Sobre las nubes",
+              "Era tu rostro, no sé (no sé)",
+              "Se me ha olvidado",
+              "Era, lo vi pero yo",
+              "No sé explicarlo",
+              "",
+              "¿Cómo coño puede alguien decir cosas así?",
+              "Si es justo lo que estoy pensando, nunca te ha pasado a ti",
+              "El futuro viniendo hacia mí",
+              "En silencio preguntándome yo que hago aquí",
+              "",
+              "La única respuesta es un silencio mudo",
+              "Lo grande se hace pequeño lo llamo ley del embudo",
+              "Algunos golpes nunca pueden frenarse nunca ni con escudos",
+              "Llegan te hacen daño, te joden, te dan por culo",
+              "",
+              "Lo blando se vuelve duro, lo vivo se vuelve muerto",
+              "Al principio todo era un plan y luego se fue construyendo",
+              "Así fue al principio y será al final de los tiempos",
+              "Así lo quiso cúando lo hizo el arquitecto",
+              "",
+              "Programado por defecto para odiar",
+              "El humano tiene hermanos pero los quiere matar",
+              "Recuerdo una luz en un sueño acercarse a hablar",
+              "Cierro los ojos y otra vez vuelve a pasarme hermano",
+              "",
+              "Dios ha mirado hacia mí (está mirando)",
+              "Luego me ha dicho",
+              "Esto tú lo podrías hacer",
+              "Pero estás dormido (sí lo sé)",
+              "Como los hombres que están",
+              "Ahí viviendo",
+              "Que aunque parezcan andar",
+              "Están despiertos (¡ah-ah!)",
+              "",
+              "Encerrado en la jaula de oro como todos",
+              "Laberintos mentales que desafían a mi lobos",
+              "Solo conozco un modo y es el único que aplico",
+              "Trabajar y cerrar el pico",
+              "",
+              "Trabajar y cerrar el pico",
+              "Hoy he soñado con Dios me ha dicho que",
+              "Podrías hacer esto",
+              "Si no estuvieras durmiendo",
+              "Podrías hacer esto",
+              "Si no estuvieras durmiendo"
+            ],
+            "footer": "Writer(s): Foyone\nLyrics powered by www.musixmatch.com",
+            "musixmatchLyricsId": "47382813",
+            "providerName": "musixmatch",
+            "syncAvailable": false
+          }
+        }
+      },
+      "shazam-songs": {
+        "295441121": {
+          "id": "295441121",
+          "type": "shazam-songs",
+          "attributes": {
+            "type": "MUSIC",
+            "title": "Conversación Con Dios",
+            "artist": "Foyone",
+            "primaryArtist": "Foyone",
+            "label": "Foyone",
+            "explicit": true,
+            "isrc": "QM7281526168",
+            "webUrl": "https://www.shazam.com/track/295441121/conversaci%C3%B3n-con-dios?co=US&offsetInMilliseconds=&timeSkew=&trackLength=",
+            "images": {
+              "artistAvatar": "https://is1-ssl.mzstatic.com/image/thumb/AMCArtistImages126/v4/1e/9c/23/1e9c2327-911f-3e98-b9d1-38e543e64f78/28b45536-5803-4fbc-9879-7963fa4ea205_ami-identity-834aa2abf0d683aa147ff23b144fb469-2024-02-06T10-42-02.317Z_cropped.png/800x800cc.jpg",
+              "coverArt": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/e9/ff/84/e9ff846c-7d33-c8df-e2a5-e3619ddf286b/8433391329962.jpg/400x400cc.jpg",
+              "coverArtHq": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/e9/ff/84/e9ff846c-7d33-c8df-e2a5-e3619ddf286b/8433391329962.jpg/800x800cc.jpg"
+            },
+            "artwork": {
+              "url": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/e9/ff/84/e9ff846c-7d33-c8df-e2a5-e3619ddf286b/8433391329962.jpg/{w}x{h}cc.jpg",
+              "textColor1": "e7c94b",
+              "textColor2": "c9b48b",
+              "textColor3": "bba23c",
+              "textColor4": "a3916f",
+              "bgColor": "0d0600"
+            },
+            "share": {
+              "subject": "Conversación Con Dios - Foyone",
+              "text": "Conversación Con Dios by Foyone",
+              "image": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/e9/ff/84/e9ff846c-7d33-c8df-e2a5-e3619ddf286b/8433391329962.jpg/400x400cc.jpg",
+              "twitter": "@Shazam found Conversación Con Dios by Foyone:",
+              "html": "https://www.shazam.com/snippets/email-share/295441121?lang=en-US&country=US",
+              "snapchat": "https://www.shazam.com/partner/sc/track/295441121"
+            },
+            "genres": {
+              "primary": "Hip-Hop/Rap"
+            },
+            "streaming": {
+              "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/88/7a/54/887a54e2-b85d-392d-a26b-5bf5afc1f688/mzaf_13396665918863012332.plus.aac.ep.m4a",
+              "deeplink": "intent://music.apple.com/us/album/conversaci%C3%B3n-con-dios/1640490968?i=1640490974&mttnagencyid=s2n&mttnsiteid=125115&mttn3pid=Apple-Shazam&mttnsub1=Shazam_android_am&mttnsub2=5348615A-616D-3235-3830-44754D6D5973&itscg=30201&app=music&itsct=Shazam_android_am#Intent;scheme=http;package=com.apple.android.music;action=android.intent.action.VIEW;end",
+              "store": "https://play.google.com/store/apps/details?id=com.apple.android.music&referrer=utm_source=https%3A%2F%2Fmusic.apple.com%2Fsubscribe%3Fmttnagencyid%3Ds2n%26mttnsiteid%3D125115%26mttn3pid%3DApple-Shazam%26mttnsub1%3DShazam_android_am%26mttnsub2%3D5348615A-616D-3235-3830-44754D6D5973%26itscg%3D30201%26app%3Dmusic%26itsct%3DShazam_android_am"
+            },
+            "classicalAvailability": false
+          },
+          "relationships": {
+            "artist-highlights": {
+              "data": [
+                {
+                  "id": "920548426",
+                  "type": "artist-highlights"
+                }
+              ]
+            },
+            "songs": {
+              "data": [
+                {
+                  "id": "1640490974",
+                  "type": "songs"
+                }
+              ]
+            },
+            "albums": {
+              "data": [
+                {
+                  "id": "1640490968",
+                  "type": "albums"
+                }
+              ]
+            },
+            "shazam-artists": {
+              "data": [
+                {
+                  "id": "42",
+                  "type": "shazam-artists"
+                }
+              ]
+            },
+            "artists": {
+              "data": [
+                {
+                  "id": "920548426",
+                  "type": "artists"
+                }
+              ]
+            },
+            "lyrics": {
+              "data": [
+                {
+                  "id": "24279589",
+                  "type": "lyrics"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "data": [
+      {
+        "id": "584535255",
+        "type": "shazam-songs"
+      }
+    ],
+    "resources": {
+      "artist-highlights": {
+        "105159875": {
+          "id": "105159875",
+          "type": "artist-highlights"
+        }
+      },
+      "track-highlights": {
+        "1587019226": {
+          "id": "1587019226",
+          "type": "track-highlights"
+        }
+      },
+      "related-tracks": {
+        "track-similarities-id-584535255": {
+          "id": "track-similarities-id-584535255",
+          "type": "related-tracks"
+        }
+      },
+      "songs": {
+        "1585195150": {
+          "id": "1585195150",
+          "type": "songs",
+          "attributes": {
+            "hasLyrics": true,
+            "hasTimeSyncedLyrics": true,
+            "unitags": [
+              {
+                "namespace": "MemoryAppropriateness",
+                "tag": "NotAppropriate",
+                "score": 0.98657143
+              }
+            ]
+          }
+        }
+      },
+      "albums": {
+        "1585195147": {
+          "id": "1585195147",
+          "type": "albums",
+          "attributes": {
+            "artistName": "SAIKO",
+            "name": "COSAS QUE NO TE DIJE - Single",
+            "releaseDate": "2021"
+          }
+        }
+      },
+      "shazam-artists": {
+        "42": {
+          "id": "42",
+          "type": "shazam-artists"
+        }
+      },
+      "artists": {
+        "105159875": {
+          "id": "105159875",
+          "attributes": {
+            "name": "SAIKO"
+          },
+          "type": "artists"
+        }
+      },
+      "lyrics": {
+        "35430700": {
+          "id": "35430700",
+          "type": "lyrics",
+          "attributes": {
+            "text": [
+              "Yeah, yeah",
+              "Oye, dime, Saiko",
+              "Dime si te gustaría",
+              "",
+              "Vamos a escribir nuestras iniciales juntas, eh",
+              "La verdad que tú me gusta'",
+              "En invierno y en verano y",
+              "Si te hago la pregunta",
+              "",
+              "El horóscopo dice que somos compatible'",
+              "Y eso que yo no creía",
+              "Pero habrá que hacerle caso",
+              "Y yo te aviso, como subas otra foto en la playa, te caso",
+              "",
+              "Mami, dime si te gusto solo por si acaso",
+              "Que de tanto perder, le perdí el miedo al fracaso y (je)",
+              "Estoy pensando si decirte que me gustas tanto",
+              "Que me gustas tanto",
+              "",
+              "Que yo te quiero dormida en la cama con mi hoodie",
+              "Dime si te gustaría, quiero ser todos tus hobbie', mami (mami)",
+              "Solo una cosa te pediría, que si te doy mi corazón",
+              "Me lo cuides todos los día'",
+              "",
+              "Necesito algo que no sea temporal",
+              "Alguien para presumir",
+              "Cuando te lleve a comer con mi familia en Navidad (je)",
+              "No sé si me entiende'",
+              "",
+              "Que yo sé que tienes más pretendiente'",
+              "Pero no tienen nada que ofrecerte",
+              "Quizá alguno te compre ropa de marca",
+              "Pero tú prefieres ponerte la mía, por suerte",
+              "",
+              "Y cada vez que coinciden las mirada'",
+              "Pienso en si tú sientes lo mismo, pero tampoco me dices nada",
+              "Y cuando te va'",
+              "Siempre me giro, por si esta vez me decido",
+              "",
+              "Que yo te quiero dormida en la cama con mi hoodie",
+              "Dime si te gustaría, quiero ser todos tus hobbie', mami (mami)",
+              "Solo una cosa te pediría, que si te doy mi corazón",
+              "Me lo cuides todos los día'",
+              "",
+              "Solo imagina",
+              "Mami, dime si te gusto para ser tú y yo y ya",
+              "Tú y yo y nadie más",
+              "Hay cosas que no te dije aquella noche, pero creo que",
+              "",
+              "En mi tablero falta reina, no tengo castillo",
+              "Pero puedes quedarte en mi casa cuando quiera'",
+              "Solo júrame que tú no serás pasajera",
+              "Y antes de que te fueras",
+              "",
+              "Te dije: \"tú solo confía\"",
+              "Yo también tengo miedo",
+              "De estrellarme si acelero",
+              "Pero contigo no freno",
+              "",
+              "Que yo te quiero dormida en la cama con mi hoodie",
+              "Dime si te gustaría, quiero ser todos tus hobbie', mami (mami)",
+              "Solo una cosa te pediría, que si te doy mi corazón",
+              "Me lo cuides todos los día'",
+              "",
+              "Bebé",
+              "Es que las palabras no vienen easy pa' ti",
+              "Quiero saber si tú piensa' en mí",
+              "¿Cómo te hago ver que esto no es easy?",
+              "Mami, mami"
+            ],
+            "footer": "Writer(s): Marcelo Maravilla, Jose Andres Perez Garcia\nLyrics powered by www.musixmatch.com",
+            "musixmatchLyricsId": "133528038",
+            "providerName": "musixmatch",
+            "syncAvailable": false
+          }
+        }
+      },
+      "shazam-songs": {
+        "584535255": {
+          "id": "584535255",
+          "type": "shazam-songs",
+          "attributes": {
+            "type": "MUSIC",
+            "title": "COSAS QUE NO TE DIJE",
+            "artist": "SAIKO",
+            "primaryArtist": "SAIKO",
+            "label": "WM Spain",
+            "explicit": false,
+            "isrc": "ES5152100862",
+            "webUrl": "https://www.shazam.com/track/584535255/cosas-que-no-te-dije?co=US&offsetInMilliseconds=&timeSkew=&trackLength=",
+            "images": {
+              "artistAvatar": "https://is1-ssl.mzstatic.com/image/thumb/Features116/v4/13/92/7c/13927c31-8072-47aa-2ba0-7008035c1bb5/mza_8128773634527223744.jpg/800x800cc.jpg",
+              "coverArt": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/80/0c/ad/800cad36-64eb-6f23-5536-8f1da9c70fe7/190296450501.jpg/400x400cc.jpg",
+              "coverArtHq": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/80/0c/ad/800cad36-64eb-6f23-5536-8f1da9c70fe7/190296450501.jpg/800x800cc.jpg"
+            },
+            "artwork": {
+              "url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/80/0c/ad/800cad36-64eb-6f23-5536-8f1da9c70fe7/190296450501.jpg/{w}x{h}cc.jpg",
+              "textColor1": "e1d8e2",
+              "textColor2": "e3cd0c",
+              "textColor3": "b5aeb9",
+              "textColor4": "b7a50e",
+              "bgColor": "050616"
+            },
+            "share": {
+              "subject": "COSAS QUE NO TE DIJE - SAIKO",
+              "text": "COSAS QUE NO TE DIJE by SAIKO",
+              "image": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/80/0c/ad/800cad36-64eb-6f23-5536-8f1da9c70fe7/190296450501.jpg/400x400cc.jpg",
+              "twitter": "@Shazam found COSAS QUE NO TE DIJE by SAIKO:",
+              "html": "https://www.shazam.com/snippets/email-share/584535255?lang=en-US&country=US",
+              "snapchat": "https://www.shazam.com/partner/sc/track/584535255"
+            },
+            "genres": {
+              "primary": "Urbano latino"
+            },
+            "streaming": {
+              "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/3f/54/6b/3f546b9d-94d0-a3ed-c866-95a8504f4ef7/mzaf_2304037627084361846.plus.aac.ep.m4a",
+              "deeplink": "intent://music.apple.com/us/album/cosas-que-no-te-dije/1585195147?i=1585195150&mttnagencyid=s2n&mttnsiteid=125115&mttn3pid=Apple-Shazam&mttnsub1=Shazam_android_am&mttnsub2=5348615A-616D-3235-3830-44754D6D5973&itscg=30201&app=music&itsct=Shazam_android_am#Intent;scheme=http;package=com.apple.android.music;action=android.intent.action.VIEW;end",
+              "store": "https://play.google.com/store/apps/details?id=com.apple.android.music&referrer=utm_source=https%3A%2F%2Fmusic.apple.com%2Fsubscribe%3Fmttnagencyid%3Ds2n%26mttnsiteid%3D125115%26mttn3pid%3DApple-Shazam%26mttnsub1%3DShazam_android_am%26mttnsub2%3D5348615A-616D-3235-3830-44754D6D5973%26itscg%3D30201%26app%3Dmusic%26itsct%3DShazam_android_am"
+            },
+            "classicalAvailability": false
+          },
+          "relationships": {
+            "artist-highlights": {
+              "data": [
+                {
+                  "id": "105159875",
+                  "type": "artist-highlights"
+                }
+              ]
+            },
+            "track-highlights": {
+              "data": [
+                {
+                  "id": "1587019226",
+                  "type": "track-highlights"
+                }
+              ]
+            },
+            "related-tracks": {
+              "data": [
+                {
+                  "id": "track-similarities-id-584535255",
+                  "type": "related-tracks"
+                }
+              ]
+            },
+            "songs": {
+              "data": [
+                {
+                  "id": "1585195150",
+                  "type": "songs"
+                }
+              ]
+            },
+            "albums": {
+              "data": [
+                {
+                  "id": "1585195147",
+                  "type": "albums"
+                }
+              ]
+            },
+            "shazam-artists": {
+              "data": [
+                {
+                  "id": "42",
+                  "type": "shazam-artists"
+                }
+              ]
+            },
+            "artists": {
+              "data": [
+                {
+                  "id": "105159875",
+                  "type": "artists"
+                }
+              ]
+            },
+            "lyrics": {
+              "data": [
+                {
+                  "id": "35430700",
+                  "type": "lyrics"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
 
   ]
 

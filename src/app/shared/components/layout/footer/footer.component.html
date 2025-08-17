@@ -1,5 +1,4 @@
 <footer class="footer">
-  <hr>
   <div class="container">
     <div class="footer-main">
       <div class="footer-column">
@@ -40,13 +39,13 @@
 
       <div class="social-icons">
         <a href="https://instagram.com" class="social-icon" aria-label="Instagram">
-          <mat-icon>photo_camera</mat-icon> <!-- <-- Changed to material icon -->
+          <shared-svg-instagram/>
         </a>
         <a href="https://twitter.com" class="social-icon" aria-label="Twitter">
-          <mat-icon>twitter</mat-icon> <!-- <-- Changed to material icon -->
+          <shared-svg-twitter/>
         </a>
         <a href="https://facebook.com" class="social-icon" aria-label="Facebook">
-          <mat-icon>facebook</mat-icon> <!-- <-- Changed to material icon -->
+          <shared-svg-facebook-solid/>
         </a>
       </div>
     </div>
@@ -57,9 +56,7 @@
           <li *ngFor="let link of footerLinks.bottomLinks">
             <a [href]="link.url">
               {{ link.name }}
-              <span *ngIf="link.hasIcon" class="privacy-icon">
-                <img src="assets/privacy-icon.svg" alt="Privacy icon" />
-              </span>
+
             </a>
           </li>
         </ul>

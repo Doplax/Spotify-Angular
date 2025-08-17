@@ -12,7 +12,7 @@ import { InjectSessionInterceptor } from '@core/interceptors/inject-sesion.inter
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from '@shared/shared.module';
-import { SvgModule } from '@shared/SVGcomponents/svg.module';
+import { SvgModule } from '@shared/components/SVGs/svg.module';
 
 
 @NgModule({
