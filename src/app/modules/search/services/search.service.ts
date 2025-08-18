@@ -18,7 +18,7 @@ export class SearchService  {
       offset: number = 0,
       limit: number = 5
     ): Observable<ShazamSearchDTO.SearchDTO> {
-    return this.shazamService.search$(term, locale, offset, limit).pipe(
+    return this.shazamService.overView.search$(term, locale, offset, limit).pipe(
       map((searchData: ShazamSearchDTO.SearchDTO) => {
         return searchData
       })

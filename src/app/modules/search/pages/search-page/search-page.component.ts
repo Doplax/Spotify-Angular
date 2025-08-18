@@ -40,8 +40,13 @@ export class SearchPageComponent {
 
       this.searchService.search$(term).subscribe((data) => {
         this.searchedData = data ;
+        console.log(data.artists.hits[0].artist.adamid)
       });
     });
+  }
+
+  reciveRelatedAlbums(){
+
   }
 
 

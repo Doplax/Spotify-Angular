@@ -15,7 +15,7 @@ export class TrackService {
   constructor(private shazamService: ShazamService) {}
 
   getOverviewTracks$(){
-    return this.shazamService.getOverviewTracks$().pipe(
+    return this.shazamService.custom.getOverviewTracks$().pipe(
       map((data: any) =>  {
         console.log('Tracks Service:', data.songs);
 
@@ -49,7 +49,7 @@ export class TrackService {
     offset: number = 0
   ): Observable<any> {
     return this.shazamService
-      .getListEvents$(artistId, locale, from, to, limit, offset)
+      .overView.getListEvents$(artistId, locale, from, to, limit, offset)
       .pipe(
         map((data) => {
           // Process data if needed
@@ -58,31 +58,6 @@ export class TrackService {
       );
   }
 
-  /**
-   * Searches for tracks, artists, and albums using Shazam API.
-   *
-   * @param term - The search term to look for.
-   * @param locale - The language code.
-   * @param offset - Starting index for pagination.
-   * @param limit - Max results to return.
-   * @returns Observable with processed search results.
-   *
-   * @example
-   * search$('kiss the rain', 'en-US', 0, 5)
-   */
-  search$(
-    term: string,
-    locale: string = 'en-US',
-    offset: number = 0,
-    limit: number = 5
-  ): Observable<any> {
-    return this.shazamService.search$(term, locale, offset, limit).pipe(
-      map((data) => {
-        // Process search results if needed
-        return data;
-      })
-    );
-  }
 
   /**
    * Gets detailed information about a specific song from Shazam API.
@@ -95,7 +70,7 @@ export class TrackService {
    * getSongDetails$('40333609', 'en-US')
    */
   getSongDetails$(id: string, locale: string = 'en-US'): Observable<any> {
-    return this.shazamService.getSongDetails$(id, locale).pipe(
+    return this.shazamService.shazamSongs.getSongDetails$(id, locale).pipe(
       map((data) => {
         // You could convert to TrackModel here if needed
         // const track = this.shazamParser(data);
@@ -118,7 +93,7 @@ export class TrackService {
     similarityId: string,
     locale: string = 'en-US'
   ): Observable<any> {
-    return this.shazamService.getSimilarities$(similarityId, locale).pipe(
+    return this.shazamService.shazamSongs.getListSimilarities$(similarityId, locale).pipe(
       map((data) => {
         // Process similar tracks data if needed
         return data;
@@ -137,7 +112,7 @@ export class TrackService {
    * getAlbumDetails$('850576570', 'en-US')
    */
   getAlbumDetails$(id: string, locale: string = 'en-US'): Observable<any> {
-    return this.shazamService.getAlbumDetails$(id, locale).pipe(
+    return this.shazamService.albums.getAlbumDetails$(id, locale).pipe(
       map((data) => {
         // Process album details if needed
         return data;
@@ -159,7 +134,7 @@ export class TrackService {
     id: string,
     locale: string = 'en-US'
   ): Observable<any> {
-    return this.shazamService.getAlbumRelatedArtist$(id, locale).pipe(
+    return this.shazamService.albums.getAlbumRelatedArtist$(id, locale).pipe(
       map((data) => {
         // Process related artist data if needed
         return data;
