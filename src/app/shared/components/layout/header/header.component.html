@@ -6,52 +6,73 @@
   <div class="search-container">
     <shared-svg-home routerLink="/home" class="home-icon" />
     <div class="search-bar">
-      <shared-svg-search routerLink="/history" class="home-search" />
+      <shared-svg-search class="home-search" (click)="goToSearchPage(searchInput.value)" />
       <div class="flex just-between w-100">
         <input
           #searchInput
           class="search-input"
           type="text"
           placeholder="Qué quieres reproducir?"
+          autocomplete="off"
+          (input)="onInputChange(searchInput.value)"
           (keyup.enter)="goToSearchPage(searchInput.value)"
-          />
+          (focus)="showSuggestions = suggestions.length > 0"
+        />
         <shared-svg-explore class="explore-icon" />
       </div>
+
+      <!-- Live suggestions dropdown — anchored to .search-bar width -->
+      @if (showSuggestions && suggestions.length > 0) {
+        <div class="suggestions-dropdown">
+          @if (isSearching) {
+            <div class="suggestion-loading">Buscando...</div>
+          }
+          @for (track of suggestions; track track._id) {
+            <div class="suggestion-item" (mousedown)="playSuggestion(track)">
+              <img class="suggestion-cover" [src]="track.cover" [alt]="track.name" />
+              <div class="suggestion-info">
+                <span class="suggestion-name">{{ track.name }}</span>
+                <span class="suggestion-artist">{{ track.artist?.name }}</span>
+              </div>
+              <span class="suggestion-play">&#9654;</span>
+            </div>
+          }
+          <div class="suggestion-footer" (mousedown)="goToSearchPage(searchInput.value)">
+            Ver todos los resultados de "<strong>{{ searchInput.value }}</strong>"
+          </div>
+        </div>
+      }
     </div>
   </div>
 
   <div class="user-container">
-    <!--<button  class="signUp-btn">Sign Up</button>-->
-    @if(isAuth){
-    <button
-      #accountButton
-      routerLink="/#"
-      class="account-btn"
-      (mousedown)="toggleDropdown()"
-    >
-      D
-    </button>
-    @if (isOpenDropdown) {
-      <ng-container [ngTemplateOutlet]="AccountDropDownRef"/>
-    } } @else {
-    <button mat-flat-button routerLink="/auth/login" class="logIn-btn">
-      Log In
-    </button>
+    @if (isAuth) {
+      <button
+        #accountButton
+        routerLink="/#"
+        class="account-btn"
+        (mousedown)="toggleDropdown()"
+      >
+        D
+      </button>
+      @if (isOpenDropdown) {
+        <ng-container [ngTemplateOutlet]="AccountDropDownRef" />
+      }
+    } @else {
+      <button mat-flat-button routerLink="/auth/login" class="logIn-btn">
+        Log In
+      </button>
     }
   </div>
 </header>
 
-<!-- TEMPLATES -->
-
-
-
 <ng-template #AccountDropDownRef>
   <div class="account-dropDown">
     @for (item of acountdropDown; track $index) {
-    <button (mousedown)="item.command()" class="dropDown-item g-hover-grey">
-      <span class="dropDown-text">{{ item.label }}</span>
-      <mat-icon>ios_share</mat-icon>
-    </button>
+      <button (mousedown)="item.command()" class="dropDown-item g-hover-grey">
+        <span class="dropDown-text">{{ item.label }}</span>
+        <mat-icon>ios_share</mat-icon>
+      </button>
     }
   </div>
 </ng-template>

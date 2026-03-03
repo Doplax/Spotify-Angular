@@ -39,6 +39,7 @@ header {
       flex-direction: row;
       justify-content: space;
       align-items: center;
+      position: relative;  // anchor for the dropdown
 
       background-color: var(--color-2);
       color: var(--color-white);
@@ -76,6 +77,100 @@ header {
           //transform: translateY(-50%);
           height: 100%;
           border-left: 2px solid gray;
+        }
+      }
+    }
+
+    // ── Live suggestions dropdown ────────────────────────────────────────
+    .suggestions-dropdown {
+      position: absolute;
+      top: calc(100% + 0.6rem);
+      left: 0;
+      right: 0;          // fills exactly the width of .search-bar
+      background-color: #282828;
+      border-radius: 0.6rem;
+      box-shadow: 0 0.8rem 2.4rem rgba(0, 0, 0, 0.6);
+      z-index: 100;
+      overflow: hidden;
+
+      .suggestion-loading {
+        padding: 1.2rem 1.6rem;
+        color: var(--essential-subdued);
+        font-size: 1.2rem;
+      }
+
+      .suggestion-item {
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+        padding: 0.8rem 1.6rem;
+        cursor: pointer;
+        transition: background-color 0.15s ease;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+
+          .suggestion-play {
+            opacity: 1;
+          }
+        }
+
+        .suggestion-cover {
+          width: 4rem;
+          height: 4rem;
+          border-radius: 0.4rem;
+          object-fit: cover;
+          flex-shrink: 0;
+        }
+
+        .suggestion-info {
+          display: flex;
+          flex-direction: column;
+          flex: 1;
+          overflow: hidden;
+
+          .suggestion-name {
+            color: var(--color-white);
+            font-size: 1.3rem;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          .suggestion-artist {
+            color: var(--essential-subdued);
+            font-size: 1.1rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+
+        .suggestion-play {
+          color: var(--spotify-green);
+          font-size: 1.4rem;
+          opacity: 0;
+          transition: opacity 0.15s ease;
+          flex-shrink: 0;
+        }
+      }
+
+      .suggestion-footer {
+        padding: 1rem 1.6rem;
+        color: var(--color-white);
+        font-size: 1.2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        cursor: pointer;
+        text-align: center;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+          text-decoration: underline;
+        }
+
+        strong {
+          color: var(--spotify-green);
         }
       }
     }
