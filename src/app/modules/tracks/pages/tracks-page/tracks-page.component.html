@@ -7,30 +7,14 @@
     <span class="g-chip-btn">Audiolibros</span>
   </section>
 
-  <!-- PRUEBA -->
-  <shared-section-generic
-    [dataTracks]="tracksPrueba"
-    [title]="'Pruebas'"
-    [mode]="CardPlayerMode.Small"
-    [isLoading]="isLoading"
-  />
-
-  <!-- TOP Section -->
-  <!--<shared-section-generic
-    [dataTracks]="tracksPrueba"
-    [title]="'Pruebas'"
-    [mode]="CardPlayerMode.Small_1"
-    [isLoading]="isLoading"
-  />-->
-
-  @for (item of [0,1,2,3,4]; track $index) {
+  @for (section of sections; track section.title) {
     <shared-section-generic
-      [dataTracks]="tracksPrueba"
-      [title]="'La mejor música del mundo'"
-      [mode]="CardPlayerMode.Big"
-      [isLoading]="isLoading"
+      [title]="section.title"
+      [mode]="section.mode"
+      [dataTracks]="section.tracks"
+      [isLoading]="section.isLoading"
     />
   }
 
-  <shared-footer/>
+  <shared-footer />
 </div>

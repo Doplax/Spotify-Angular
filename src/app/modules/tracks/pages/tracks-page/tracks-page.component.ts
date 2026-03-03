@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { TrackModel } from '@shared/Models/Tracks';
-import { TrackService } from '@modules/tracks/services/track.service';
 import { Subscription } from 'rxjs';
 import { CardPlayerMode } from '@shared/enums';
+import { HomeSectionsService } from '@modules/tracks/services/home-sections.service';
+import { HomeSection, HOME_SECTIONS } from '@modules/tracks/models/home-sections.model';
 
 @Component({
     selector: 'app-tracks-page',
@@ -11,59 +11,32 @@ import { CardPlayerMode } from '@shared/enums';
     standalone: false
 })
 export class TracksPageComponent implements OnInit, OnDestroy {
-  public tracksTrending: Array<TrackModel> = [];
-  public tracksRandom: Array<TrackModel> = [];
-  public tracksPrueba: TrackModel[] = [];
+  public sections: HomeSection[] = HOME_SECTIONS.map((cfg) => ({
+    ...cfg,
+    tracks: [],
+    isLoading: true,
+  }));
 
-  public isLoading: boolean = false;
-  public CardPlayerMode = CardPlayerMode
+  public CardPlayerMode = CardPlayerMode;
 
-  listObservers$: Array<Subscription> = [];
+  private sub?: Subscription;
 
-  constructor(
-    private trackService: TrackService,
-  ) {}
+  constructor(private homeSectionsService: HomeSectionsService) {}
 
   ngOnInit(): void {
-    this.loadDataAll();
-  }
-
-  getOverviewTracks(): void {
-    this.isLoading = true;
-    this.trackService.getOverviewTracks$().subscribe({
-      next: (tracks) => {
-        this.tracksPrueba = tracks;
+    this.sub = this.homeSectionsService.loadAllSections$().subscribe({
+      next: (sections) => {
+        this.sections = sections;
       },
       error: (err) => {
-        console.error('Error loading tracks', err);
-        this.tracksPrueba = [];
+        console.error('Error loading home sections', err);
+        this.sections = this.sections.map((s) => ({ ...s, isLoading: false }));
       },
-      complete: () => {
-        this.isLoading = false;
-      }
     });
   }
 
-  async loadDataAll(): Promise<void> {
-    this.isLoading = true;
-    try {
-      this.getOverviewTracks()
-      //const [trending, random] = await Promise.all([
-      //  this.trackService.getAllTracks$().toPromise(),
-      //  this.trackService.getAllRandom$().toPromise()
-      //]);
-
-      //this.tracksTrending = trending;
-      //this.tracksRandom = random;
-    } catch (e) {
-      console.error('Error loading tracks', e);
-      this.tracksTrending = [];
-      this.tracksRandom = [];
-      this.tracksPrueba = [];
-    } finally {
-      this.isLoading = false;
-    }
+  ngOnDestroy(): void {
+    this.sub?.unsubscribe();
   }
-
-  ngOnDestroy(): void {}
 }
+
