@@ -1,27 +1,32 @@
 <div class="history-page g-page-container">
-  <div class="main-container">
-    <div class="artist-container">
-      <span class="title-section">Resultado principal</span>
-      <search-artist-card [artistData]="searchedData.artists.hits[0].artist"/>
+  @if (isLoading) {
+    <div class="loading-container">
+      <span>Buscando...</span>
     </div>
-
-    <div class="tracks-container">
-      <span class="title-section">Canciones</span>
-      @for (trackData of searchedData.tracks.hits; track $index) {
-        <search-track [trackData]="trackData.track"/>
+  } @else if (tracks.length === 0 && searchTerm) {
+    <div class="empty-container">
+      <span>No se encontraron resultados para "{{ searchTerm }}"</span>
+    </div>
+  } @else if (tracks.length > 0) {
+    <div class="main-container">
+      <!-- Top result -->
+      @if (topTrack) {
+        <div class="artist-container">
+          <span class="title-section">Resultado principal</span>
+          <search-artist-card [artistData]="topTrack" />
+        </div>
       }
+
+      <!-- Tracks list -->
+      <div class="tracks-container">
+        <span class="title-section">Canciones</span>
+        @for (track of tracks; track track._id) {
+          <search-track [trackData]="track" />
+        }
+      </div>
     </div>
-  </div>
+  }
 
-  <!--<div class="related-container">
-    <shared-section-generic
-      [dataTracks]="tracksPrueba"
-      [title]="'Artistas relacionados'"
-      [mode]="CardPlayerMode.Big"
-      [isLoading]="isLoading"
-    />
-  </div>-->
-
-  <shared-footer/>
+  <shared-footer />
 </div>
 

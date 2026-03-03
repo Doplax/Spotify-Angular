@@ -1,11 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TrackModel } from '@shared/Models/Tracks';
 import { SearchService } from '@modules/search/services/search.service';
-import { Observable, of } from 'rxjs';
-import { TrackService } from '@modules/tracks/services/track.service';
 import { ActivatedRoute } from '@angular/router';
 import { CardPlayerMode } from '@shared/enums';
-import { ShazamSearchDTO } from '@shared/Models/Shazam';
 
 @Component({
     selector: 'app-search-page',
@@ -13,41 +10,41 @@ import { ShazamSearchDTO } from '@shared/Models/Shazam';
     styleUrl: './search-page.component.scss',
     standalone: false
 })
-export class SearchPageComponent {
-  public searchedData!: ShazamSearchDTO.SearchDTO;
+export class SearchPageComponent implements OnInit {
+  public tracks: TrackModel[] = [];
+  public topTrack: TrackModel | null = null;
   public CardPlayerMode = CardPlayerMode;
   public isLoading: boolean = false;
-  public tracksPrueba: TrackModel[] = [];
-
+  public searchTerm: string = '';
 
   constructor(
     private searchService: SearchService,
     private activatedRoute: ActivatedRoute
-  ){}
-
+  ) {}
 
   ngOnInit(): void {
-    this.reciveData()
+    this.receiveData();
   }
 
-  reciveData(): void {
+  receiveData(): void {
     this.activatedRoute.queryParamMap.subscribe((params) => {
       const term = params.get('term') || '';
+      this.searchTerm = term;
 
-      // TODO: put alternative value
-      //const offset = params.get('offset');
-      //const limit = params.get('limit') ;
+      if (!term) return;
 
-      this.searchService.search$(term).subscribe((data) => {
-        this.searchedData = data ;
-        console.log(data.artists.hits[0].artist.adamid)
+      this.isLoading = true;
+      this.searchService.search$(term).subscribe({
+        next: (tracks) => {
+          this.tracks = tracks;
+          this.topTrack = tracks[0] ?? null;
+          this.isLoading = false;
+        },
+        error: () => {
+          this.isLoading = false;
+        }
       });
     });
   }
-
-  reciveRelatedAlbums(){
-
-  }
-
-
 }
+

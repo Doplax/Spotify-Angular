@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-
-//TODO poner la duracion del objeto audio haciendo fetch a hub.actions[1].uri
+import { TrackModel } from '@shared/Models/Tracks';
+import { MultimediaService } from '@shared/services/multimedia.service';
 
 @Component({
   selector: 'search-artist-card',
@@ -9,17 +9,21 @@ import { Component, Input, OnInit } from '@angular/core';
   standalone: false
 })
 export class ArtistCardComponent implements OnInit {
-  @Input() artistData: any = "";
+  @Input() artistData!: TrackModel;
 
-  public adamid: string = "";
-  public avatar: string = "";
-  public name: string = "";
-  public weburl: string = "";
+  public avatar: string = '';
+  public name: string = '';
+  public artistName: string = '';
+
+  constructor(public multimediaService: MultimediaService) {}
 
   ngOnInit(): void {
-    this.adamid = this.artistData.adamid;
-    this.avatar = this.artistData.avatar;
+    this.avatar = this.artistData.cover;
     this.name = this.artistData.name;
-    this.weburl = this.artistData.weburl;
+    this.artistName = this.artistData.artist?.name ?? '';
+  }
+
+  play(): void {
+    this.multimediaService.trackInfo$.next(this.artistData);
   }
 }

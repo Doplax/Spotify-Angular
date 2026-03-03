@@ -1,27 +1,23 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ShazamSearchDTO } from '@shared/Models/Shazam';
-import { ShazamService } from '@shared/services/shazam.service';
-import { Observable, map } from 'rxjs';
+import { ItunesService } from '@shared/services/itunes.service';
+import { TrackModel } from '@shared/Models/Tracks';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SearchService  {
-  constructor(
-    private shazamService: ShazamService,
-  ) {}
+export class SearchService {
+  constructor(private itunesService: ItunesService) {}
 
-    search$(
-      term: string,
-      locale: string = 'en-US',
-      offset: number = 0,
-      limit: number = 5
-    ): Observable<ShazamSearchDTO.SearchDTO> {
-    return this.shazamService.overView.search$(term, locale, offset, limit).pipe(
-      map((searchData: ShazamSearchDTO.SearchDTO) => {
-        return searchData
-      })
-    );
-    }
+  /**
+   * Searches for songs using the iTunes API and returns internal TrackModel objects.
+   *
+   * @param term - Search query
+   * @param limit - Number of results (default 15)
+   * @returns Observable<TrackModel[]>
+   */
+  search$(term: string, limit: number = 15): Observable<TrackModel[]> {
+    return this.itunesService.searchTracks$(term, limit);
+  }
 }
+

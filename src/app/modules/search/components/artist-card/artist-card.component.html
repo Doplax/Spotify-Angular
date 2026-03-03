@@ -1,13 +1,12 @@
-<div class="artist-card">
+<div class="artist-card" (click)="play()">
   <img class="artist-avatar" [src]="avatar" [alt]="name" />
 
   <div class="artist-details">
     <div class="artist-info">
       <div class="artist-name">{{ name }}</div>
-      <div class="artist-sub">Artista</div>
-      <!-- Use artist info as needed -->
+      <div class="artist-sub">{{ artistName }}</div>
     </div>
-    <button class="play-btn">
+    <button class="play-btn" (click)="$event.stopPropagation(); play()">
       <span class="icon-play">&#9654;</span>
     </button>
   </div>
