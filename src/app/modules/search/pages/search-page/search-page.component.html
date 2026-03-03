@@ -9,24 +9,26 @@
     </div>
   } @else if (tracks.length > 0) {
     <div class="main-container">
-      <!-- Top result -->
+
+      <!-- TOP: artist card full width -->
       @if (topTrack) {
-        <div class="artist-container">
-          <span class="title-section">Resultado principal</span>
-          <search-artist-card [artistData]="topTrack" />
+        <div class="top-section">
+          <search-artist-card [firstTrack]="topTrack" />
         </div>
       }
 
-      <!-- Tracks list -->
-      <div class="tracks-container">
+      <!-- BOTTOM: scrollable tracks list -->
+      <div class="bottom-section">
         <span class="title-section">Canciones</span>
-        @for (track of tracks; track track._id) {
-          <search-track [trackData]="track" />
-        }
+        <div class="tracks-scroll">
+          @for (track of tracks; track track._id) {
+            <search-track [trackData]="track" />
+          }
+        </div>
       </div>
+
     </div>
   }
 
   <shared-footer />
 </div>
-

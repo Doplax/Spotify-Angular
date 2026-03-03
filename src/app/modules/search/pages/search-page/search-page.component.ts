@@ -37,7 +37,8 @@ export class SearchPageComponent implements OnInit {
       this.searchService.search$(term).subscribe({
         next: (tracks) => {
           this.tracks = tracks;
-          this.topTrack = tracks[0] ?? null;
+          // Find the most frequent artist and use their first track for the card
+          this.topTrack = this.getTopArtistTrack(tracks);
           this.isLoading = false;
         },
         error: () => {
@@ -45,6 +46,28 @@ export class SearchPageComponent implements OnInit {
         }
       });
     });
+  }
+
+  /**
+   * Returns the first track of the artist that appears most frequently
+   * in the search results — that's the most relevant artist for the query.
+   */
+  private getTopArtistTrack(tracks: TrackModel[]): TrackModel | null {
+    if (!tracks.length) return null;
+
+    const countMap = new Map<string, number>();
+    for (const t of tracks) {
+      const name = t.artist?.name ?? '';
+      countMap.set(name, (countMap.get(name) ?? 0) + 1);
+    }
+
+    let topArtist = '';
+    let maxCount = 0;
+    countMap.forEach((count, name) => {
+      if (count > maxCount) { maxCount = count; topArtist = name; }
+    });
+
+    return tracks.find((t) => (t.artist?.name ?? '') === topArtist) ?? tracks[0];
   }
 }
 
