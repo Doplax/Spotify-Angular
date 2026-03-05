@@ -1,5 +1,4 @@
 <div class="side-bar">
-  <!-- Default Options -->
 
   <!-- Head Section -->
   <section class="head-section">
@@ -8,7 +7,6 @@
         <shared-svg-library class="g-icon" />
         <span>Tu Biblioteca</span>
       </div>
-
       <div class="flex flex-row">
         <mat-icon>add</mat-icon>
         <mat-icon>arrow_forward</mat-icon>
@@ -16,13 +14,12 @@
     </div>
   </section>
 
-  <!-- List Section -->
+  <!-- Filter chip -->
   <section class="g-chip-section">
     <span class="g-chip-btn">Listas</span>
   </section>
 
-
-  <!-- Search Section -->
+  <!-- Search + sort -->
   <section class="search-section">
     <shared-svg-search class="search-icon"/>
     <div class="recents-lists">
@@ -31,21 +28,29 @@
     </div>
   </section>
 
-  <!-- Recents Section -->
+  <!-- Playlists -->
   <section class="recents-list-section">
-    <div class="playList-card g-hover-grey ">
-      <div class="playList-image">
-        <shared-svg-folder class="g-icon"/>
-      </div>
+    @for (playlist of playlists; track playlist.id) {
+      <div class="playList-card g-hover-grey" (click)="navigateTo(playlist)">
 
-      <div class="playList-info">
-        <span class="title">Nueva Carpeta</span>
-        <span class="subTitle">1 Lista</span>
-      </div>
+        <!-- Colored cover instead of folder icon -->
+        <div class="playList-image" [style.background-color]="playlist.color">
+          <span class="playlist-emoji">🎵</span>
+        </div>
 
-      <div class="playList-icon">
-        <mat-icon>play_arrow</mat-icon>
+        <div class="playList-info">
+          <span class="title">{{ playlist.title }}</span>
+          <span class="subTitle">Playlist · {{ playlist.limit }} canciones</span>
+        </div>
+
+        <div class="playList-icon">
+          <button class="sidebar-play-btn" (click)="playPlaylist($event, playlist)" title="Reproducir">
+            <mat-icon>play_arrow</mat-icon>
+          </button>
+        </div>
+
       </div>
-    </div>
+    }
   </section>
+
 </div>

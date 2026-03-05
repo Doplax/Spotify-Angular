@@ -1,5 +1,8 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PlaylistModel, STATIC_PLAYLISTS } from '@shared/Models/Playlist';
+import { MultimediaService } from '@shared/services/multimedia.service';
+import { PlaylistService } from '@shared/services/playlist.service';
 
 @Component({
     selector: 'app-side-bar',
@@ -8,77 +11,27 @@ import { Router } from '@angular/router';
     standalone: false
 })
 export class SideBarComponent implements OnInit {
-  mainMenu: {
-    defaultOptions: Array<any>;
-    accessLink: Array<any>;
-  } = {
-    defaultOptions: [],
-    accessLink: [],
-  };
+  public playlists: PlaylistModel[] = STATIC_PLAYLISTS;
 
-  customOptions: Array<any> = [];
+  constructor(
+    private router: Router,
+    private playlistService: PlaylistService,
+    private multimediaService: MultimediaService,
+  ) {}
 
-  constructor(private router: Router) {}
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-    this.mainMenu.defaultOptions = [
-      {
-        name: 'Home',
-        icon: 'uil uil-estate',
-        router: ['/'],
-      },
-      {
-        name: 'Buscar',
-        icon: 'uil uil-search',
-        router: ['/', 'history'],
-      },
-      {
-        name: 'Tu biblioteca',
-        icon: 'uil uil-chart',
-        router: ['/', 'favorites'],
-        query: { hola: 'mundo' },
-      },
-    ];
-
-    this.mainMenu.accessLink = [
-      {
-        name: 'Crear lista',
-        icon: 'uil-plus-square',
-      },
-      {
-        name: 'Canciones que te gustan',
-        icon: 'uil-heart-medical',
-      },
-    ];
-
-    this.customOptions = [
-      {
-        name: 'Mi lista º1',
-        router: ['/'],
-      },
-      {
-        name: 'Mi lista º2',
-        router: ['/'],
-      },
-      {
-        name: 'Mi lista º3',
-        router: ['/'],
-      },
-      {
-        name: 'Mi lista º4',
-        router: ['/'],
-      },
-    ];
+  navigateTo(playlist: PlaylistModel): void {
+    this.router.navigate(['/favorites', playlist.id]);
   }
 
-  goTo($event: any): void {
-    this.router.navigate(['/', 'favorites'], {
-      queryParams: {
-        key1: 'value1',
-        key2: 'value2',
-        key3: 'value3',
-      },
+  playPlaylist(event: MouseEvent, playlist: PlaylistModel): void {
+    event.stopPropagation();   // don't trigger navigate
+    this.playlistService.loadTracks$(playlist.id).subscribe((tracks) => {
+      if (tracks.length) {
+        this.multimediaService.setQueue(tracks, 0);
+        this.router.navigate(['/favorites', playlist.id]);
+      }
     });
-    console.log($event);
   }
 }

@@ -1,6 +1,6 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { TrackModel } from '@shared/Models/Tracks';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 export enum PlayerStates {
   PLAY = 'play',
@@ -18,17 +18,16 @@ export enum PlayerStates {
 export class MultimediaService {
   public trackInfo$ = new BehaviorSubject<TrackModel | null>(null);
   public currentSong!: HTMLAudioElement;
-  public timeElapsed$: BehaviorSubject<string> = new BehaviorSubject<string>(
-    '00:00'
-  );
-  public timeRemaining$: BehaviorSubject<string> = new BehaviorSubject<string>(
-    '00:00'
-  );
-  public playerStatus$: BehaviorSubject<string> = new BehaviorSubject<string>(
-    'paused'
-  );
-  public playerPercentage$: BehaviorSubject<number> =
-    new BehaviorSubject<number>(0);
+  public timeElapsed$: BehaviorSubject<string> = new BehaviorSubject<string>('00:00');
+  public timeRemaining$: BehaviorSubject<string> = new BehaviorSubject<string>('00:00');
+  public playerStatus$: BehaviorSubject<string> = new BehaviorSubject<string>('paused');
+  public playerPercentage$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+
+  // ── Queue ─────────────────────────────────────────────────────────────────
+  private queue: TrackModel[] = [];
+  private queueIndex: number = -1;
+  public queue$ = new BehaviorSubject<TrackModel[]>([]);
+  public queueIndex$ = new BehaviorSubject<number>(-1);
 
   constructor() {
     this.currentSong = new Audio();
@@ -43,31 +42,11 @@ export class MultimediaService {
   }
 
   private listenAllEvents(): void {
-    this.currentSong.addEventListener(
-      PlayerStates.TIMEUPDATE,
-      this.calculateTime,
-      false
-    );
-    this.currentSong.addEventListener(
-      PlayerStates.PLAYING,
-      this.setPlayerStatus,
-      false
-    );
-    this.currentSong.addEventListener(
-      PlayerStates.PLAY,
-      this.setPlayerStatus,
-      false
-    );
-    this.currentSong.addEventListener(
-      PlayerStates.PAUSE,
-      this.setPlayerStatus,
-      false
-    );
-    this.currentSong.addEventListener(
-      PlayerStates.ENDED,
-      this.setPlayerStatus,
-      false
-    );
+    this.currentSong.addEventListener(PlayerStates.TIMEUPDATE, this.calculateTime, false);
+    this.currentSong.addEventListener(PlayerStates.PLAYING, this.setPlayerStatus, false);
+    this.currentSong.addEventListener(PlayerStates.PLAY, this.setPlayerStatus, false);
+    this.currentSong.addEventListener(PlayerStates.PAUSE, this.setPlayerStatus, false);
+    this.currentSong.addEventListener(PlayerStates.ENDED, this.onTrackEnded.bind(this), false);
   }
 
   private calculateTime = () => {
@@ -134,5 +113,46 @@ export class MultimediaService {
     const { duration } = this.currentSong;
     const currentTime = (percentage / 100) * duration;
     this.currentSong.currentTime = currentTime;
+  }
+
+  // ── Queue management ──────────────────────────────────────────────────────
+
+  /**
+   * Loads a queue of tracks and starts playing from the given index.
+   * Call this when the user presses Play on a playlist.
+   */
+  public setQueue(tracks: TrackModel[], startIndex: number = 0): void {
+    this.queue = [...tracks];
+    this.queue$.next(this.queue);
+    this.playAtIndex(startIndex);
+  }
+
+  /** Advance to the next track in the queue (wraps around). */
+  public playNext(): void {
+    if (!this.queue.length) return;
+    const next = (this.queueIndex + 1) % this.queue.length;
+    this.playAtIndex(next);
+  }
+
+  /** Go back to the previous track in the queue. */
+  public playPrevious(): void {
+    if (!this.queue.length) return;
+    const prev = (this.queueIndex - 1 + this.queue.length) % this.queue.length;
+    this.playAtIndex(prev);
+  }
+
+  private playAtIndex(index: number): void {
+    if (index < 0 || index >= this.queue.length) return;
+    this.queueIndex = index;
+    this.queueIndex$.next(index);
+    this.trackInfo$.next(this.queue[index]);
+  }
+
+  /** Called automatically when the current track finishes. */
+  private onTrackEnded(): void {
+    this.setPlayerStatus({ type: PlayerStates.ENDED } as any);
+    if (this.queue.length > 0) {
+      this.playNext();
+    }
   }
 }

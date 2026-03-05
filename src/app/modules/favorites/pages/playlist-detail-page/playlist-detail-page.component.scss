@@ -1,0 +1,259 @@
+@use 'responsive' as *;
+
+:host {
+  display: block;
+  height: 100%;
+}
+
+.playlist-detail {
+  overflow-y: auto;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0 !important;    // remove g-page-container padding for full-bleed header
+}
+
+.not-found {
+  color: #b3b3b3;
+  font-size: 1.6rem;
+  padding: 4rem;
+  text-align: center;
+}
+
+// ── HEADER ──────────────────────────────────────────────────────────────────
+.playlist-header {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 2.4rem;
+  padding: 3.2rem 3.2rem 2.4rem;
+  min-height: 24rem;
+
+  .playlist-cover {
+    width: 16rem;
+    height: 16rem;
+    border-radius: 0.4rem;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+
+    .cover-icon {
+      font-size: 6rem;
+    }
+  }
+
+  .playlist-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+
+    .meta-type {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+    }
+
+    .meta-title {
+      font-size: 5rem;
+      font-weight: 900;
+      color: #fff;
+      margin: 0.4rem 0;
+      line-height: 1.1;
+
+      @include tablet {
+        font-size: 3rem;
+      }
+    }
+
+    .meta-description {
+      font-size: 1.4rem;
+      color: rgba(255, 255, 255, 0.7);
+      margin: 0;
+    }
+
+    .meta-count {
+      font-size: 1.3rem;
+      color: rgba(255, 255, 255, 0.5);
+      margin-top: 0.4rem;
+    }
+  }
+}
+
+// ── ACTIONS BAR ──────────────────────────────────────────────────────────────
+.actions-bar {
+  display: flex;
+  align-items: center;
+  gap: 2.4rem;
+  padding: 2.4rem 3.2rem 1.6rem;
+  background: #121212;
+
+  .play-all-btn {
+    width: 5.6rem;
+    height: 5.6rem;
+    background: #1ed760;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.15s, filter 0.15s;
+    flex-shrink: 0;
+
+    &:hover:not(:disabled) {
+      transform: scale(1.06);
+      filter: brightness(1.1);
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .play-icon {
+      color: #000;
+      font-size: 2.2rem;
+      margin-left: 0.3rem;
+    }
+  }
+}
+
+// ── TRACK LIST ───────────────────────────────────────────────────────────────
+.track-list {
+  background: #121212;
+  padding: 0 3.2rem 3.2rem;
+}
+
+.track-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 0.8rem;
+}
+
+.track-row {
+  display: grid;
+  grid-template-columns: 4rem 1fr 1fr 6rem;
+  align-items: center;
+  gap: 1.6rem;
+  padding: 0.8rem 0.8rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+
+  &--header {
+    cursor: default;
+    padding-bottom: 0.8rem;
+
+    span {
+      font-size: 1.2rem;
+      color: #b3b3b3;
+      text-transform: uppercase;
+      letter-spacing: 0.05rem;
+      font-weight: 400;
+    }
+  }
+
+  &--data:hover {
+    background: rgba(255, 255, 255, 0.07);
+  }
+
+  &--active {
+    background: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .col-num {
+    font-size: 1.4rem;
+    color: #b3b3b3;
+    text-align: right;
+
+    .playing-bars {
+      color: #1ed760;
+      font-size: 1.2rem;
+    }
+  }
+
+  .col-info {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    overflow: hidden;
+
+    .track-cover {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 0.2rem;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .track-texts {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+
+      .track-name {
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: #fff;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        &--active {
+          color: #1ed760;
+        }
+      }
+
+      .track-artist {
+        font-size: 1.2rem;
+        color: #b3b3b3;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+
+  .col-album {
+    font-size: 1.3rem;
+    color: #b3b3b3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .col-duration {
+    font-size: 1.3rem;
+    color: #b3b3b3;
+    text-align: right;
+  }
+}
+
+// ── SKELETONS ────────────────────────────────────────────────────────────────
+@keyframes shimmer {
+  0%   { background-position: -60rem 0; }
+  100% { background-position: 60rem 0; }
+}
+
+%skeleton {
+  background: linear-gradient(90deg, #282828 25%, #333 50%, #282828 75%);
+  background-size: 120rem 100%;
+  animation: shimmer 1.6s infinite;
+  border-radius: 0.4rem;
+}
+
+.track-row--skeleton {
+  cursor: default;
+
+  .skeleton-num        { @extend %skeleton; width: 1.6rem; height: 1.6rem; }
+  .skeleton-info       { display: flex; align-items: center; gap: 1.2rem; }
+  .skeleton-cover      { @extend %skeleton; width: 4rem; height: 4rem; flex-shrink: 0; }
+  .skeleton-texts      { display: flex; flex-direction: column; gap: 0.6rem; flex: 1; }
+  .skeleton-line       { @extend %skeleton; height: 1.2rem; }
+  .skeleton-line--name   { width: 70%; }
+  .skeleton-line--artist { width: 40%; }
+  .skeleton-album      { @extend %skeleton; height: 1.2rem; width: 60%; }
+  .skeleton-duration   { @extend %skeleton; height: 1.2rem; width: 3rem; justify-self: end; }
+}

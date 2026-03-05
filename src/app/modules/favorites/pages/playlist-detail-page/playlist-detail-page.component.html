@@ -1,0 +1,85 @@
+<div class="playlist-detail g-page-container">
+
+  @if (!playlist) {
+    <div class="not-found">Playlist no encontrada.</div>
+  } @else {
+
+    <!-- ── HEADER ── -->
+    <div class="playlist-header" [style.background]="'linear-gradient(180deg, ' + playlist.color + '99 0%, #121212 100%)'">
+      <div class="playlist-cover" [style.background-color]="playlist.color">
+        <span class="cover-icon">🎵</span>
+      </div>
+      <div class="playlist-meta">
+        <span class="meta-type">Playlist</span>
+        <h1 class="meta-title">{{ playlist.title }}</h1>
+        <p class="meta-description">{{ playlist.description }}</p>
+        <span class="meta-count">
+          @if (isLoading) { Cargando... } @else { {{ tracks.length }} canciones }
+        </span>
+      </div>
+    </div>
+
+    <!-- ── ACTIONS BAR ── -->
+    <div class="actions-bar">
+      <button class="play-all-btn" (click)="playAll()" [disabled]="isLoading || !tracks.length">
+        <span class="play-icon">&#9654;</span>
+      </button>
+    </div>
+
+    <!-- ── TRACK LIST ── -->
+    <div class="track-list">
+      <!-- Header row -->
+      <div class="track-row track-row--header">
+        <span class="col-num">#</span>
+        <span class="col-info">Título</span>
+        <span class="col-album">Álbum</span>
+        <span class="col-duration">⏱</span>
+      </div>
+      <div class="track-divider"></div>
+
+      @if (isLoading) {
+        @for (i of [1,2,3,4,5,6,7,8]; track i) {
+          <div class="track-row track-row--skeleton">
+            <div class="skeleton-num"></div>
+            <div class="skeleton-info">
+              <div class="skeleton-cover"></div>
+              <div class="skeleton-texts">
+                <div class="skeleton-line skeleton-line--name"></div>
+                <div class="skeleton-line skeleton-line--artist"></div>
+              </div>
+            </div>
+            <div class="skeleton-album"></div>
+            <div class="skeleton-duration"></div>
+          </div>
+        }
+      } @else {
+        @for (track of tracks; track track._id; let i = $index) {
+          <div
+            class="track-row track-row--data"
+            [class.track-row--active]="isPlaying(track)"
+            (click)="playFrom(i)"
+          >
+            <span class="col-num">
+              @if (isPlaying(track)) {
+                <span class="playing-bars">▶</span>
+              } @else {
+                {{ i + 1 }}
+              }
+            </span>
+            <div class="col-info">
+              <img class="track-cover" [src]="track.cover" [alt]="track.name" appImgBroken />
+              <div class="track-texts">
+                <span class="track-name" [class.track-name--active]="isPlaying(track)">{{ track.name }}</span>
+                <span class="track-artist">{{ track.artist?.name }}</span>
+              </div>
+            </div>
+            <span class="col-album">{{ track.album }}</span>
+            <span class="col-duration">0:30</span>
+          </div>
+        }
+      }
+    </div>
+
+    <shared-footer />
+  }
+</div>
