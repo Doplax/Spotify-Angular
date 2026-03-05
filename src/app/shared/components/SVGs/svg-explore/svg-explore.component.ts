@@ -7,9 +7,9 @@ import { Component } from '@angular/core';
     <svg
       data-encore-id="icon"
       role="img"
-      class="color"
       viewBox="0 0 24 24"
       fill="currentColor"
+      style="width:100%;height:100%;display:block;"
     >
       <path
         d="M15 15.5c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2z"
@@ -22,8 +22,11 @@ import { Component } from '@angular/core';
 
   //Style
   styles: `
-    .color {
-      color: white;
+    :host {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: inherit;
     }
   `,
   standalone: false,

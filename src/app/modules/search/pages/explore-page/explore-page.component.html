@@ -1,0 +1,14 @@
+<div class="explore-page g-page-container">
+  <h1 class="explore-title">Explorar todo</h1>
+
+  <div class="categories-grid">
+    @for (cat of categories; track cat.id) {
+      <div
+        class="category-card"
+        [style.background-color]="cat.color"
+      >
+        <span class="category-label">{{ cat.label }}</span>
+      </div>
+    }
+  </div>
+</div>

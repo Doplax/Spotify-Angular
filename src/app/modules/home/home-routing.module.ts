@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ExplorePageComponent } from '@modules/search/pages/explore-page/explore-page.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
     path: 'search',
     loadChildren: () =>
       import('@modules/search/search.module').then((m) => m.SearchModule),
+  },
+  {
+    path: 'explore',
+    component: ExplorePageComponent,
   },
   {
     path: '**', // when 404 redirects us to tracks

@@ -4,7 +4,11 @@
   </div>
 
   <div class="search-container">
-    <shared-svg-home routerLink="/home" class="home-icon" />
+    <shared-svg-home
+      routerLink="/tracks"
+      class="home-icon"
+      [class.home-icon--active]="isHomeActive"
+    />
     <div class="search-bar">
       <shared-svg-search class="home-search" (click)="goToSearchPage(searchInput.value)" />
       <div class="flex just-between w-100">
@@ -18,7 +22,11 @@
           (keyup.enter)="goToSearchPage(searchInput.value)"
           (focus)="showSuggestions = suggestions.length > 0"
         />
-        <shared-svg-explore class="explore-icon" />
+        <shared-svg-explore
+          class="explore-icon"
+          routerLink="/explore"
+          [class.explore-icon--active]="isExploreActive"
+        />
       </div>
 
       <!-- Live suggestions dropdown — anchored to .search-bar width -->

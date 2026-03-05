@@ -32,6 +32,22 @@ header {
       border-radius: var(--border-radius-2);
       margin: 0rem 0.5rem;
       cursor: pointer;
+      transition: background-color 0.15s ease;
+    }
+
+    // Active state: white background for home icon
+    .home-icon--active {
+      background-color: #fff !important;
+
+      // SVG fill goes dark when bg is white
+      ::ng-deep svg {
+        fill: #000;
+        color: #000;
+      }
+    }
+
+    .home-icon:not(.home-icon--active):hover {
+      background-color: var(--color-3, #3a3a3a);
     }
 
     .search-bar {
@@ -66,17 +82,32 @@ header {
         height: 2.5rem;
         margin-right: 2rem;
         margin-left: 1rem;
-        //border-left: 1px solid gray;
         position: relative;
+        cursor: pointer;
+        color: var(--essential-subdued, #b3b3b3);
+        transition: color 0.15s ease;
 
+        // White separator line to the left
         &::before {
           content: "";
           position: absolute;
           right: 3.5rem;
-          //top: 50%;
-          //transform: translateY(-50%);
           height: 100%;
           border-left: 2px solid gray;
+        }
+
+        // Active state — white icon when on /explore
+        &.explore-icon--active {
+          color: #fff;
+        }
+
+        &:hover {
+          color: #fff;
+        }
+
+        // Pass color down into the SVG component
+        ::ng-deep svg {
+          color: inherit;
         }
       }
     }

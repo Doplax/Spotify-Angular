@@ -8,7 +8,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { AuthService } from '@modules/auth/services/auth.service';
-import { NavigationStart, Router } from '@angular/router';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { fromEvent, Subject, Subscription } from 'rxjs';
 import { debounceTime, distinctUntilChanged, filter, switchMap } from 'rxjs/operators';
 import { SearchService } from '@modules/search/services/search.service';
@@ -50,6 +50,10 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   public isSearching: boolean = false;
   public showSuggestions: boolean = false;
 
+  // ── Active nav state ──────────────────────────────────────────────────────
+  public isHomeActive: boolean = false;
+  public isExploreActive: boolean = false;
+
   private searchTerm$ = new Subject<string>();
   private subs: Subscription[] = [];
 
@@ -78,12 +82,20 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit(): void {
     this.authService.isAuth$.subscribe((isAuth) => (this.isAuth = isAuth));
 
-    // Close dropdown on every navigation (home icon, sidebar links, etc.)
-    const nav$ = this.router.events
+    // Set initial active state on load
+    this.updateActiveState(this.router.url);
+
+    // Track active nav icons on every navigation end
+    const navEnd$ = this.router.events
+      .pipe(filter((e) => e instanceof NavigationEnd))
+      .subscribe((e) => this.updateActiveState((e as NavigationEnd).urlAfterRedirects));
+    this.subs.push(navEnd$);
+
+    // Close suggestions dropdown on navigation start
+    const navStart$ = this.router.events
       .pipe(filter((e) => e instanceof NavigationStart))
       .subscribe(() => this.closeSuggestions());
-
-    this.subs.push(nav$);
+    this.subs.push(navStart$);
 
     // Debounced live search
     const search$ = this.searchTerm$.pipe(
@@ -142,6 +154,11 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
 
   closeSuggestions(): void {
     this.showSuggestions = false;
+  }
+
+  private updateActiveState(url: string): void {
+    this.isHomeActive  = url.startsWith('/tracks') || url === '/';
+    this.isExploreActive = url.startsWith('/explore');
   }
 
   // ── Auth helpers ──────────────────────────────────────────────────────────
