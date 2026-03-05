@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ShazamSearchDTO } from '@shared/Models/Shazam/';
+import { TrackModel } from '@shared/Models/Tracks';
+import { MultimediaService } from '@shared/services/multimedia.service';
 
 @Component({
   selector: 'search-track',
@@ -8,17 +9,21 @@ import { ShazamSearchDTO } from '@shared/Models/Shazam/';
   standalone: false,
 })
 export class TrackComponent implements OnInit {
-  @Input() trackData!: ShazamSearchDTO.Track;
+  @Input() trackData!: TrackModel;
 
-  public trackTitle: string = "";
-  public coverUrl: string = "";
-  public trackUrl: string = "";
-  public isExplicit: boolean = false;
+  public trackTitle: string = '';
+  public coverUrl: string = '';
+  public subtitles: string = '';
+
+  constructor(public multimediaService: MultimediaService) {}
 
   ngOnInit(): void {
-    this.trackTitle = this.trackData.title;
-    this.coverUrl = this.trackData.images.coverart;
-    this.trackUrl = this.trackData.hub.actions[1].uri!;
-    this.isExplicit = this.trackData.hub.explicit;
+    this.trackTitle = this.trackData.name;
+    this.coverUrl = this.trackData.cover;
+    this.subtitles = this.trackData.artist?.name ?? this.trackData.album;
+  }
+
+  play(): void {
+    this.multimediaService.trackInfo$.next(this.trackData);
   }
 }

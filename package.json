@@ -1,5 +1,5 @@
 {
-  "name": "spotify",
+  "name": "spotify-angular",
   "version": "0.0.0",
   "scripts": {
     "start": "ng serve",

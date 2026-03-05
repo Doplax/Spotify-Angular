@@ -1,0 +1,132 @@
+{
+  "data": [
+    {
+      "id": "920548426",
+      "type": "artists",
+      "attributes": {
+        "artwork": {
+          "bgColor": "1a1d12",
+          "hasP3": false,
+          "height": 1440,
+          "textColor1": "cfe1c8",
+          "textColor2": "cbaa82",
+          "textColor3": "abbaa4",
+          "textColor4": "a88e6b",
+          "url": "https://is1-ssl.mzstatic.com/image/thumb/AMCArtistImages126/v4/1e/9c/23/1e9c2327-911f-3e98-b9d1-38e543e64f78/28b45536-5803-4fbc-9879-7963fa4ea205_ami-identity-834aa2abf0d683aa147ff23b144fb469-2024-02-06T10-42-02.317Z_cropped.png/{w}x{h}bb.jpg",
+          "width": 1440
+        },
+        "genreNames": [
+          "Hip-Hop/Rap"
+        ],
+        "name": "Foyone",
+        "url": "https://music.apple.com/us/artist/foyone/920548426"
+      },
+      "relationships": {
+        "albums": {
+          "data": [
+            {
+              "id": "1715475756",
+              "type": "albums"
+            },
+            {
+              "id": "1320231992",
+              "type": "albums"
+            },
+            {
+              "id": "1640491201",
+              "type": "albums"
+            },
+            {
+              "id": "1640490968",
+              "type": "albums"
+            },
+            {
+              "id": "1640491452",
+              "type": "albums"
+            },
+            {
+              "id": "1192935894",
+              "type": "albums"
+            },
+            {
+              "id": "1640488571",
+              "type": "albums"
+            },
+            {
+              "id": "1629930078",
+              "type": "albums"
+            },
+            {
+              "id": "1773370701",
+              "type": "albums"
+            },
+            {
+              "id": "1238238534",
+              "type": "albums"
+            },
+            {
+              "id": "1640183157",
+              "type": "albums"
+            },
+            {
+              "id": "1640183056",
+              "type": "albums"
+            },
+            {
+              "id": "1777304803",
+              "type": "albums"
+            },
+            {
+              "id": "1680092742",
+              "type": "albums"
+            },
+            {
+              "id": "1640178086",
+              "type": "albums"
+            },
+            {
+              "id": "1640182289",
+              "type": "albums"
+            },
+            {
+              "id": "1640242210",
+              "type": "albums"
+            },
+            {
+              "id": "1569204508",
+              "type": "albums"
+            },
+            {
+              "id": "1640176213",
+              "type": "albums"
+            },
+            {
+              "id": "1564130537",
+              "type": "albums"
+            },
+            {
+              "id": "1814602249",
+              "type": "albums"
+            },
+            {
+              "id": "1571212401",
+              "type": "albums"
+            },
+            {
+              "id": "1736199553",
+              "type": "albums"
+            },
+            {
+              "id": "1534960178",
+              "type": "albums"
+            },
+            {
+              "id": "1640187268",
+              "type": "albums"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

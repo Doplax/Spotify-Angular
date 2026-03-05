@@ -1,178 +1,137 @@
 {
   "data": [
     {
-      "id": "40333609",
-      "type": "shazam-songs"
-    }
-  ],
-  "resources": {
-    "artist-highlights": {
-      "73406786": {
-        "id": "73406786",
-        "type": "artist-highlights"
-      }
-    },
-    "track-highlights": {
-      "578132846": {
-        "id": "578132846",
-        "type": "track-highlights"
-      }
-    },
-    "related-tracks": {
-      "track-similarities-id-40333609": {
-        "id": "track-similarities-id-40333609",
-        "type": "related-tracks"
-      }
-    },
-    "songs": {
-      "1436677761": {
-        "id": "1436677761",
-        "type": "songs",
-        "attributes": {
-          "unitags": [
+      "id": "567072",
+      "type": "artists",
+      "attributes": {
+        "artwork": {
+          "bgColor": "050003",
+          "hasP3": false,
+          "height": 2595,
+          "textColor1": "ead589",
+          "textColor2": "ccae96",
+          "textColor3": "bcaa6e",
+          "textColor4": "a48b78",
+          "url": "https://is1-ssl.mzstatic.com/image/thumb/AMCArtistImages221/v4/ba/19/f9/ba19f919-a8d6-99f8-2dcb-5f80c05905ca/ami-identity-633ffe096a09d49a5897b472da31d004-2025-01-28T17-42-28.594Z_cropped.png/{w}x{h}bb.jpg",
+          "width": 2595
+        },
+        "editorialNotes": {
+          "name": "Gorillaz",
+          "short": "Laconic trip-hop beats and sizzling electronics from Albarn and co.",
+          "standard": "Laconic trip-hop beats skate beneath ex-Blur frontman Damon Albarn’s distinctive Brit vocals on the animated foursome’s debut album. Nods to hip-hop futurism on “New Genius (Brother)” and dub swagger on “Slow Country” are fused together by Kid Koala’s skittering scratching and Dan \"The Automator\" Nakamura’s sizzling electronics."
+        },
+        "genreNames": [
+          "Alternative"
+        ],
+        "name": "Gorillaz",
+        "url": "https://music.apple.com/us/artist/gorillaz/567072"
+      },
+      "relationships": {
+        "albums": {
+          "data": [
             {
-              "namespace": "EditorialMoodsAndActivities",
-              "tag": "Chill",
-              "score": 0.7032453
+              "id": "850571319",
+              "type": "albums"
             },
             {
-              "namespace": "MemoryAppropriateness",
-              "tag": "NotAppropriate",
-              "score": 0.9102967
+              "id": "1217911994",
+              "type": "albums"
+            },
+            {
+              "id": "859841880",
+              "type": "albums"
+            },
+            {
+              "id": "850576570",
+              "type": "albums"
+            },
+            {
+              "id": "1641561652",
+              "type": "albums"
+            },
+            {
+              "id": "1387814084",
+              "type": "albums"
+            },
+            {
+              "id": "1673502694",
+              "type": "albums"
+            },
+            {
+              "id": "850569437",
+              "type": "albums"
+            },
+            {
+              "id": "1530812327",
+              "type": "albums"
+            },
+            {
+              "id": "1247590076",
+              "type": "albums"
+            },
+            {
+              "id": "1653675571",
+              "type": "albums"
+            },
+            {
+              "id": "850585388",
+              "type": "albums"
+            },
+            {
+              "id": "1300105773",
+              "type": "albums"
+            },
+            {
+              "id": "850583573",
+              "type": "albums"
+            },
+            {
+              "id": "1580441749",
+              "type": "albums"
+            },
+            {
+              "id": "1318802242",
+              "type": "albums"
+            },
+            {
+              "id": "1511203452",
+              "type": "albums"
+            },
+            {
+              "id": "699724514",
+              "type": "albums"
+            },
+            {
+              "id": "884147414",
+              "type": "albums"
+            },
+            {
+              "id": "700025929",
+              "type": "albums"
+            },
+            {
+              "id": "726389588",
+              "type": "albums"
+            },
+            {
+              "id": "1222735817",
+              "type": "albums"
+            },
+            {
+              "id": "1270828262",
+              "type": "albums"
+            },
+            {
+              "id": "1226535984",
+              "type": "albums"
+            },
+            {
+              "id": "693778034",
+              "type": "albums"
             }
           ]
         }
       }
-    },
-    "albums": {
-      "1436677753": {
-        "id": "1436677753",
-        "type": "albums",
-        "attributes": {
-          "artistName": "Yiruma",
-          "name": "Yiruma 2nd Album 'First Love' (The Original & the Very First Recording)",
-          "releaseDate": "2001"
-        }
-      }
-    },
-    "shazam-artists": {
-      "42": {
-        "id": "42",
-        "type": "shazam-artists"
-      }
-    },
-    "artists": {
-      "73406786": {
-        "id": "73406786",
-        "attributes": {
-          "name": "Yiruma"
-        },
-        "type": "artists"
-      }
-    },
-    "shazam-songs": {
-      "40333609": {
-        "id": "40333609",
-        "type": "shazam-songs",
-        "attributes": {
-          "type": "MUSIC",
-          "title": "River Flows In You",
-          "artist": "Yiruma",
-          "primaryArtist": "Yiruma",
-          "label": "Stomp Music",
-          "explicit": false,
-          "isrc": "HKOA10616988",
-          "webUrl": "https://www.shazam.com/track/40333609/river-flows-in-you?co=US&offsetInMilliseconds=&timeSkew=&trackLength=",
-          "images": {
-            "artistAvatar": "https://is1-ssl.mzstatic.com/image/thumb/Features116/v4/48/0d/4d/480d4d9b-3ece-267d-1c86-b43dfda20cae/tns.rgpboapg.png/800x800cc.jpg",
-            "coverArt": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/5f/f4/9b/5ff49b8c-d0bb-3748-14f4-131edfb332ce/first_love_3000.jpg/400x400cc.jpg",
-            "coverArtHq": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/5f/f4/9b/5ff49b8c-d0bb-3748-14f4-131edfb332ce/first_love_3000.jpg/800x800cc.jpg"
-          },
-          "artwork": {
-            "url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/5f/f4/9b/5ff49b8c-d0bb-3748-14f4-131edfb332ce/first_love_3000.jpg/{w}x{h}cc.jpg",
-            "textColor1": "09090a",
-            "textColor2": "171615",
-            "textColor3": "333436",
-            "textColor4": "3f3f3e",
-            "bgColor": "dee3e6"
-          },
-          "share": {
-            "subject": "River Flows In You - Yiruma",
-            "text": "River Flows In You by Yiruma",
-            "image": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/5f/f4/9b/5ff49b8c-d0bb-3748-14f4-131edfb332ce/first_love_3000.jpg/400x400cc.jpg",
-            "twitter": "@Shazam found River Flows In You by Yiruma:",
-            "html": "https://www.shazam.com/snippets/email-share/40333609?lang=en-US&country=US",
-            "snapchat": "https://www.shazam.com/partner/sc/track/40333609"
-          },
-          "genres": {
-            "primary": "New Age"
-          },
-          "streaming": {
-            "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/fb/20/de/fb20de73-718c-3639-b2e9-f25f7004572a/mzaf_4684196612707783797.plus.aac.ep.m4a",
-            "deeplink": "intent://music.apple.com/us/album/river-flows-in-you/1436677753?i=1436677761&mttnagencyid=s2n&mttnsiteid=125115&mttn3pid=Apple-Shazam&mttnsub1=Shazam_android_am&mttnsub2=5348615A-616D-3235-3830-44754D6D5973&itscg=30201&app=music&itsct=Shazam_android_am#Intent;scheme=http;package=com.apple.android.music;action=android.intent.action.VIEW;end",
-            "store": "https://play.google.com/store/apps/details?id=com.apple.android.music&referrer=utm_source=https%3A%2F%2Fmusic.apple.com%2Fsubscribe%3Fmttnagencyid%3Ds2n%26mttnsiteid%3D125115%26mttn3pid%3DApple-Shazam%26mttnsub1%3DShazam_android_am%26mttnsub2%3D5348615A-616D-3235-3830-44754D6D5973%26itscg%3D30201%26app%3Dmusic%26itsct%3DShazam_android_am"
-          },
-          "classicalAvailability": true
-        },
-        "relationships": {
-          "artist-highlights": {
-            "data": [
-              {
-                "id": "73406786",
-                "type": "artist-highlights"
-              }
-            ]
-          },
-          "track-highlights": {
-            "data": [
-              {
-                "id": "578132846",
-                "type": "track-highlights"
-              }
-            ]
-          },
-          "related-tracks": {
-            "data": [
-              {
-                "id": "track-similarities-id-40333609",
-                "type": "related-tracks"
-              }
-            ]
-          },
-          "songs": {
-            "data": [
-              {
-                "id": "1436677761",
-                "type": "songs"
-              }
-            ]
-          },
-          "albums": {
-            "data": [
-              {
-                "id": "1436677753",
-                "type": "albums"
-              }
-            ]
-          },
-          "shazam-artists": {
-            "data": [
-              {
-                "id": "42",
-                "type": "shazam-artists"
-              }
-            ]
-          },
-          "artists": {
-            "data": [
-              {
-                "id": "73406786",
-                "type": "artists"
-              }
-            ]
-          }
-        }
-      }
     }
-  }
+  ]
 }

@@ -3,20 +3,20 @@
 
     <div class="player-zone">
       <ul class="player-list" [ngClass]="{
-        'card-small': mode === CardPlayerMode.Small || mode === CardPlayerMode.Small_1, 
+        'card-small': mode === CardPlayerMode.Small || mode === CardPlayerMode.Small_1,
         'card-big':mode === CardPlayerMode.Big
       }">
         @if (isLoading) {
           @for (item of [0,0,0,0,0,0,0,0]; track $index;) {
             <li>
-              <app-card-player [isLoading]="true" [mode]="mode"/>
+              <shared-card-player [isLoading]="true" [mode]="mode"/>
             </li>
           }
         }
         @else {
           @for (track of dataTracks; track track) {
             <li>
-              <app-card-player [isLoading]="false" [track]="track" [mode]="mode"/>
+              <shared-card-player [isLoading]="false" [track]="track" [mode]="mode"/>
             </li>
           }
         }

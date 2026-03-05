@@ -86,6 +86,10 @@
             transition: transform 0.3s ease;
             &:hover {
               transform: scale(1.05);
+
+              &.disabled {
+                transform: scale(1);
+              }
             }
 
             mat-icon {
@@ -159,8 +163,21 @@
     opacity: 1;
   }
   ::ng-deep svg:focus-within {
-    color: var(--color-1-hightlight);
+    color: var(--spotify-green-hightlight);
     opacity: 1;
     outline: none;
+  }
+}
+
+
+.disabled {
+  color: var(--disabled-color) !important;
+  cursor: not-allowed;
+  opacity: 0.7;
+
+  &:hover {
+    transform: scale(1);
+    opacity: 0.7;
+    color: var(--disabled-color) !important;
   }
 }

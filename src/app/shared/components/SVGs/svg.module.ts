@@ -20,6 +20,9 @@ import { SvgMiniPlayerComponent } from './svg-mini-player/svg-mini-player.compon
 import { SvgConnectDeviceComponent } from './svg-connect-device/svg-connect-device.component';
 import { SvgQueueComponent } from './svg-queue/svg-queue.component';
 import { SvgLyricsComponent } from './svg-lyrics/svg-lyrics.component';
+import { SvgInstagramComponent } from './svg-insagram/svg-instagram.component';
+import { SvgFacebookSolidComponent } from './svg-facebook-solid/svg-facebook-solid.component';
+import { SvgTwitterComponent } from './svg-twitter/svg-twitter.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,7 @@ import { SvgLyricsComponent } from './svg-lyrics/svg-lyrics.component';
     SvgLogoComponent,
     SvgExploreComponent,
     SvgFacebookComponent,
+    SvgFacebookSolidComponent,
     SvgGoogleComponent,
     SvgLogoComponent,
     SvgFolderComponent,
@@ -45,6 +49,8 @@ import { SvgLyricsComponent } from './svg-lyrics/svg-lyrics.component';
     SvgConnectDeviceComponent,
     SvgQueueComponent,
     SvgLyricsComponent,
+    SvgInstagramComponent,
+    SvgTwitterComponent
   ],
   imports: [],
   exports: [
@@ -52,6 +58,7 @@ import { SvgLyricsComponent } from './svg-lyrics/svg-lyrics.component';
     SvgLogoComponent,
     SvgExploreComponent,
     SvgFacebookComponent,
+    SvgFacebookSolidComponent,
     SvgGoogleComponent,
     SvgLogoComponent,
     SvgFolderComponent,
@@ -70,6 +77,8 @@ import { SvgLyricsComponent } from './svg-lyrics/svg-lyrics.component';
     SvgConnectDeviceComponent,
     SvgQueueComponent,
     SvgLyricsComponent,
+    SvgInstagramComponent,
+    SvgTwitterComponent
   ],
 })
 export class SvgModule {}
