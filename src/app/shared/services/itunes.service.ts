@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { map, catchError, switchMap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { ItunesSearchResponse, ItunesTrack } from '@shared/Models/iTunes/ItunesSearchDTO';
 import { TrackModel } from '@shared/Models/Tracks';
@@ -68,15 +68,34 @@ export class ItunesService {
    */
   getTopTracks$(limit: number = 25, genreId?: number): Observable<TrackModel[]> {
     const genre = genreId ? `genre=${genreId}/` : '';
-    const url = `${this.BASE_URL}/us/rss/topsongs/${genre}limit=${limit}/json`;
+    const rssUrl = `${this.BASE_URL}/us/rss/topsongs/${genre}limit=${limit}/json`;
 
-    return this.http.get<any>(url).pipe(
-      map((response) => {
+    return this.http.get<any>(rssUrl).pipe(
+      switchMap((response) => {
         const entries: any[] = response?.feed?.entry ?? [];
-        return entries.map((entry) => this.itunesRssParser(entry));
+        // Extract numeric iTunes track IDs from the RSS entries
+        const ids: string[] = entries
+          .map((e) => e?.id?.attributes?.['im:id'])
+          .filter(Boolean);
+
+        if (!ids.length) return of([]);
+
+        // Batch lookup: one request to get full track data including previewUrl
+        const lookupUrl = `${this.BASE_URL}/lookup?id=${ids.join(',')}&entity=song`;
+        return this.http.get<ItunesSearchResponse>(lookupUrl).pipe(
+          map((res) =>
+            res.results
+              .filter((r) => r.wrapperType === 'track' && !!r.previewUrl)
+              .map((r) => this.itunesParser(r))
+          ),
+          catchError((err) => {
+            console.error('[ItunesService] Error in getTopTracks$ lookup', err);
+            return of([]);
+          })
+        );
       }),
       catchError((err) => {
-        console.error('[ItunesService] Error in getTopTracks$', err);
+        console.error('[ItunesService] Error in getTopTracks$ rss', err);
         return of([]);
       })
     );

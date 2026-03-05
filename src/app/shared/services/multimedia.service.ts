@@ -51,7 +51,8 @@ export class MultimediaService {
 
   private calculateTime = () => {
     const { duration, currentTime } = this.currentSong;
-    //console.table([duration, currentTime]);
+    // duration is NaN while audio hasn't loaded metadata yet — skip to avoid NaN in UI
+    if (!duration || isNaN(duration)) return;
     this.setTimeElapsed(currentTime);
     this.setRemaining(currentTime, duration);
     this.setPercentage(currentTime, duration);
@@ -91,9 +92,12 @@ export class MultimediaService {
 
   // Public
   public setCurrentSong(track: TrackModel): void {
+    // Reset display while new audio loads metadata
+    this.timeElapsed$.next('00:00');
+    this.timeRemaining$.next('00:00');
+    this.playerPercentage$.next(0);
     this.currentSong.src = track.url;
     this.currentSong.play();
-    //console.log({ currentSong: this.currentSong });
   }
 
   public tooglePlayer(): void {
