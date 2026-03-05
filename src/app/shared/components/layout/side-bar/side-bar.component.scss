@@ -93,13 +93,46 @@
         height: 4.4rem;
         border-radius: 0.4rem;
         flex-shrink: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        position: relative;
+        overflow: hidden;
 
-        .playlist-emoji {
-          font-size: 1.8rem;
+        .cover-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          border-radius: 0.4rem;
         }
+
+        // Overlay — always rendered, opacity controlled by parent hover
+        .cover-play-overlay {
+          position: absolute;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.55);
+          border: none;
+          border-radius: 0.4rem;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          opacity: 0;
+          transition: opacity 0.15s ease;
+          pointer-events: none;   // card handles click; enable only on hover below
+
+          mat-icon {
+            color: #fff;
+            font-size: 2.4rem;
+            width: 2.4rem;
+            height: 2.4rem;
+            line-height: 1;
+          }
+        }
+      }
+
+      // Show overlay and re-enable its pointer-events when hovering the card
+      &:hover .playList-image .cover-play-overlay {
+        opacity: 1;
+        pointer-events: all;
       }
 
       .playList-info {
@@ -126,31 +159,6 @@
           overflow: hidden;
           text-overflow: ellipsis;
         }
-      }
-
-      .playList-icon {
-        flex-shrink: 0;
-        opacity: 0;
-        transition: opacity 0.15s;
-
-        .sidebar-play-btn {
-          background: transparent;
-          border: none;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 0.4rem;
-
-          mat-icon {
-            color: #fff;
-            font-size: 2rem;
-          }
-        }
-      }
-
-      &:hover .playList-icon {
-        opacity: 1;
       }
     }
 

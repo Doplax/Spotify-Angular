@@ -21,20 +21,22 @@ export class PlaylistService {
 
   /**
    * Loads the tracks for a playlist from iTunes.
-   * Returns an Observable<TrackModel[]>.
+   * @param playlistId - The playlist id
+   * @param limitOverride - Optional override for number of tracks (useful to fetch just 1 for the cover)
    */
-  loadTracks$(playlistId: string): Observable<TrackModel[]> {
+  loadTracks$(playlistId: string, limitOverride?: number): Observable<TrackModel[]> {
     const playlist = this.getPlaylistById(playlistId);
     if (!playlist) return of([]);
 
     const { source, limit } = playlist;
+    const effectiveLimit = limitOverride ?? limit;
 
     if (source.type === 'genre') {
       const genreId = source.genreId === 0 ? undefined : source.genreId;
-      return this.itunesService.getTopTracks$(limit, genreId);
+      return this.itunesService.getTopTracks$(effectiveLimit, genreId);
     }
 
     // type === 'search'
-    return this.itunesService.searchTracks$(source.term, limit);
+    return this.itunesService.searchTracks$(source.term, effectiveLimit);
   }
 }

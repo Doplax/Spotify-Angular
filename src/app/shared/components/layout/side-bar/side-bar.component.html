@@ -33,20 +33,24 @@
     @for (playlist of playlists; track playlist.id) {
       <div class="playList-card g-hover-grey" (click)="navigateTo(playlist)">
 
-        <!-- Colored cover instead of folder icon -->
+        <!-- Cover image with play overlay on hover -->
         <div class="playList-image" [style.background-color]="playlist.color">
-          <span class="playlist-emoji">🎵</span>
+          @if (coverMap[playlist.id]) {
+            <img
+              class="cover-img"
+              [src]="coverMap[playlist.id]"
+              [alt]="playlist.title"
+              appImgBroken
+            />
+          }
+          <button class="cover-play-overlay" (click)="playPlaylist($event, playlist)" title="Reproducir">
+            <mat-icon>play_arrow</mat-icon>
+          </button>
         </div>
 
         <div class="playList-info">
           <span class="title">{{ playlist.title }}</span>
-          <span class="subTitle">Playlist · {{ playlist.limit }} canciones</span>
-        </div>
-
-        <div class="playList-icon">
-          <button class="sidebar-play-btn" (click)="playPlaylist($event, playlist)" title="Reproducir">
-            <mat-icon>play_arrow</mat-icon>
-          </button>
+          <span class="subTitle">Playlist</span>
         </div>
 
       </div>
