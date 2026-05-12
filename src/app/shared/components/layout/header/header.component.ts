@@ -29,7 +29,7 @@ interface AccountDropDown {
 })
 export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   // ── Auth / dropdown ──────────────────────────────────────────────────────
-  searchResponse: any[] = [];
+  searchResponse: TrackModel[] = [];
   isAuth: boolean = false;
   isOpenDropdown: boolean = false;
   acountdropDown: AccountDropDown[] = [
@@ -80,7 +80,8 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.authService.isAuth$.subscribe((isAuth) => (this.isAuth = isAuth));
+    const auth$ = this.authService.isAuth$.subscribe((isAuth: boolean) => (this.isAuth = isAuth));
+    this.subs.push(auth$);
 
     // Set initial active state on load
     this.updateActiveState(this.router.url);
@@ -120,10 +121,11 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     if (this.accountButton) {
-      const focus$ = fromEvent(this.accountButton.nativeElement, 'focus');
-      const blur$  = fromEvent(this.accountButton.nativeElement, 'blur');
-      focus$.subscribe(() => (this.isOpenDropdown = true));
-      blur$.subscribe(()  => (this.isOpenDropdown = false));
+      const focusSub = fromEvent(this.accountButton.nativeElement, 'focus')
+        .subscribe(() => (this.isOpenDropdown = true));
+      const blurSub = fromEvent(this.accountButton.nativeElement, 'blur')
+        .subscribe(() => (this.isOpenDropdown = false));
+      this.subs.push(focusSub, blurSub);
     }
   }
 
