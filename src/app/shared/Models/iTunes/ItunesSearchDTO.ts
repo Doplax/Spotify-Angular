@@ -40,3 +40,27 @@ export interface ItunesTrack {
   primaryGenreName: string;
   isStreamable: boolean;
 }
+
+/**
+ * iTunes RSS feed response (Top Songs).
+ * Endpoint: https://itunes.apple.com/us/rss/topsongs/limit=N/json
+ */
+export interface ItunesRssResponse {
+  feed: {
+    entry?: ItunesRssEntry[];
+  };
+}
+
+export interface ItunesRssEntry {
+  id: {
+    label: string;
+    attributes: {
+      'im:id': string;
+    };
+  };
+  'im:name': { label: string };
+  'im:artist': { label: string };
+  'im:collection': { 'im:name': { label: string } };
+  'im:image': { label: string; attributes: { height: string } }[];
+  link: { attributes: { href: string } };
+}
