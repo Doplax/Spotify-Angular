@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Subject, takeUntil } from 'rxjs';
 import { PlaylistModel } from '@shared/Models/Playlist';
 import { TrackModel } from '@shared/Models/Tracks';
 import { PlaylistService } from '@shared/services/playlist.service';
@@ -15,47 +15,57 @@ import { MultimediaService } from '@shared/services/multimedia.service';
 export class PlaylistDetailPageComponent implements OnInit, OnDestroy {
   public playlist: PlaylistModel | undefined;
   public tracks: TrackModel[] = [];
-  public isLoading = true;
+  public isLoading: boolean = true;
   public currentTrack: TrackModel | null = null;
   public currentIndex: number = -1;
 
-  private subs: Subscription[] = [];
+  private readonly destroy$ = new Subject<void>();
 
   constructor(
     private route: ActivatedRoute,
     private playlistService: PlaylistService,
-    public multimediaService: MultimediaService,
+    public multimediaService: MultimediaService
   ) {}
 
   ngOnInit(): void {
-    const id$ = this.route.paramMap.subscribe((params) => {
-      const id = params.get('id') ?? '';
-      this.playlist = this.playlistService.getPlaylistById(id);
-      this.isLoading = true;
-      this.tracks = [];
+    this.route.paramMap
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((params: ParamMap) => {
+        const id = params.get('id') ?? '';
+        this.playlist = this.playlistService.getPlaylistById(id);
+        this.isLoading = true;
+        this.tracks = [];
 
-      this.playlistService.loadTracks$(id).subscribe({
-        next: (tracks) => {
-          this.tracks = tracks;
-          this.isLoading = false;
-        },
-        error: () => { this.isLoading = false; },
+        this.playlistService
+          .loadTracks$(id)
+          .pipe(takeUntil(this.destroy$))
+          .subscribe({
+            next: (tracks: TrackModel[]) => {
+              this.tracks = tracks;
+              this.isLoading = false;
+            },
+            error: () => {
+              this.isLoading = false;
+            },
+          });
       });
-    });
 
-    const track$ = this.multimediaService.trackInfo$.subscribe((t) => {
-      this.currentTrack = t;
-    });
+    this.multimediaService.trackInfo$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((track: TrackModel | null) => {
+        this.currentTrack = track;
+      });
 
-    const idx$ = this.multimediaService.queueIndex$.subscribe((i) => {
-      this.currentIndex = i;
-    });
-
-    this.subs.push(id$, track$, idx$);
+    this.multimediaService.queueIndex$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((index: number) => {
+        this.currentIndex = index;
+      });
   }
 
   ngOnDestroy(): void {
-    this.subs.forEach((s) => s.unsubscribe());
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
   /** Play the entire playlist from a specific track index. */

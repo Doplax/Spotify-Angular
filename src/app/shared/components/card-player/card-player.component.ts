@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
 import { TrackModel } from '@shared/Models/Tracks';
-import { MultimediaService } from '@shared/services/multimedia.service';
+import { MultimediaService, PlayerStates } from '@shared/services/multimedia.service';
 import { CardPlayerMode } from '@shared/enums';
 
 @Component({
@@ -27,8 +27,8 @@ export class CardPlayerComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.multimediaService.playerStatus$
       .pipe(takeUntil(this.destroy$))
-      .subscribe((status: string) => {
-        this.isPlaying = status === 'playing';
+      .subscribe((status: PlayerStates) => {
+        this.isPlaying = status === PlayerStates.PLAYING;
       });
 
     this.multimediaService.trackInfo$

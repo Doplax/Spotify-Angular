@@ -16,25 +16,25 @@ export enum PlayerStates {
   providedIn: 'root',
 })
 export class MultimediaService {
-  public trackInfo$ = new BehaviorSubject<TrackModel | null>(null);
-  public currentSong!: HTMLAudioElement;
+  public trackInfo$: BehaviorSubject<TrackModel | null> = new BehaviorSubject<TrackModel | null>(null);
+  public currentSong: HTMLAudioElement;
   public timeElapsed$: BehaviorSubject<string> = new BehaviorSubject<string>('00:00');
   public timeRemaining$: BehaviorSubject<string> = new BehaviorSubject<string>('00:00');
-  public playerStatus$: BehaviorSubject<string> = new BehaviorSubject<string>('paused');
+  public playerStatus$: BehaviorSubject<PlayerStates> = new BehaviorSubject<PlayerStates>(PlayerStates.PAUSE);
   public playerPercentage$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
   // ── Queue ─────────────────────────────────────────────────────────────────
   private queue: TrackModel[] = [];
   private queueIndex: number = -1;
-  public queue$ = new BehaviorSubject<TrackModel[]>([]);
-  public queueIndex$ = new BehaviorSubject<number>(-1);
+  public queue$: BehaviorSubject<TrackModel[]> = new BehaviorSubject<TrackModel[]>([]);
+  public queueIndex$: BehaviorSubject<number> = new BehaviorSubject<number>(-1);
 
   constructor() {
     this.currentSong = new Audio();
 
-    this.trackInfo$.subscribe((response) => {
-      if (response) {
-        this.setCurrentSong(response);
+    this.trackInfo$.subscribe((track: TrackModel | null) => {
+      if (track) {
+        this.setCurrentSong(track);
       }
     });
     this.setPlayerStatus = this.setPlayerStatus.bind(this);
@@ -49,7 +49,7 @@ export class MultimediaService {
     this.currentSong.addEventListener(PlayerStates.ENDED, this.onTrackEnded.bind(this), false);
   }
 
-  private calculateTime = () => {
+  private calculateTime = (): void => {
     const { duration, currentTime } = this.currentSong;
     // duration is NaN while audio hasn't loaded metadata yet — skip to avoid NaN in UI
     if (!duration || isNaN(duration)) return;
@@ -73,7 +73,7 @@ export class MultimediaService {
     this.timeElapsed$.next(displayFormat);
   }
 
-  private setRemaining(currentTime: number, duration: number) {
+  private setRemaining(currentTime: number, duration: number): void {
     let timeLeft = duration - currentTime;
     let seconds = Math.floor(timeLeft % 60);
     let minutes = Math.floor((timeLeft / 60) % 60);

@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { TrackModel } from '@shared/Models/Tracks';
-import { MultimediaService } from '@shared/services/multimedia.service';
+import { MultimediaService, PlayerStates } from '@shared/services/multimedia.service';
 
 @Component({
   selector: 'app-media-player',
@@ -12,7 +12,8 @@ import { MultimediaService } from '@shared/services/multimedia.service';
 export class MediaPlayerComponent implements OnInit, OnDestroy {
   @ViewChild('progressBar') progressBar!: ElementRef<HTMLElement>;
 
-  public state: string = 'paused';
+  public readonly PlayerStates = PlayerStates;
+  public state: PlayerStates = PlayerStates.PAUSE;
   public currentTrack: TrackModel | null = null;
   public progressBarValue: number = 0;
 
@@ -22,7 +23,7 @@ export class MediaPlayerComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     const playerStatus$ = this.multimediaService.playerStatus$
-      .subscribe((status: string) => (this.state = status));
+      .subscribe((status: PlayerStates) => (this.state = status));
 
     const trackInfo$ = this.multimediaService.trackInfo$
       .subscribe((track: TrackModel | null) => (this.currentTrack = track));

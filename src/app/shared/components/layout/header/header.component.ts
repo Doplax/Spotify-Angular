@@ -8,8 +8,8 @@ import {
   ViewChild,
 } from '@angular/core';
 import { AuthService } from '@modules/auth/services/auth.service';
-import { NavigationEnd, NavigationStart, Router } from '@angular/router';
-import { fromEvent, Subject, Subscription } from 'rxjs';
+import { Event as RouterEvent, NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { fromEvent, Observable, Subject, Subscription } from 'rxjs';
 import { debounceTime, distinctUntilChanged, filter, switchMap } from 'rxjs/operators';
 import { SearchService } from '@modules/search/services/search.service';
 import { TrackModel } from '@shared/Models/Tracks';
@@ -44,7 +44,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
 
   // ── Search ────────────────────────────────────────────────────────────────
   @ViewChild('searchInput') searchInputRef!: ElementRef<HTMLInputElement>;
-  @ViewChild('accountButton') accountButton!: ElementRef;
+  @ViewChild('accountButton') accountButton!: ElementRef<HTMLElement>;
 
   public suggestions: TrackModel[] = [];
   public isSearching: boolean = false;
@@ -60,7 +60,8 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   // ── Close suggestions on outside click or Escape ─────────────────────────
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent): void {
-    if (!this.elRef.nativeElement.contains(event.target)) {
+    const target = event.target as Node | null;
+    if (target && !this.elRef.nativeElement.contains(target)) {
       this.closeSuggestions();
     }
   }
@@ -75,7 +76,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
     private authService: AuthService,
     private searchService: SearchService,
     private multimediaService: MultimediaService,
-    private elRef: ElementRef,
+    private elRef: ElementRef<HTMLElement>,
     public router: Router,
   ) {}
 
@@ -88,49 +89,54 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
 
     // Track active nav icons on every navigation end
     const navEnd$ = this.router.events
-      .pipe(filter((e) => e instanceof NavigationEnd))
-      .subscribe((e) => this.updateActiveState((e as NavigationEnd).urlAfterRedirects));
+      .pipe(filter((e: RouterEvent): e is NavigationEnd => e instanceof NavigationEnd))
+      .subscribe((e: NavigationEnd) => this.updateActiveState(e.urlAfterRedirects));
     this.subs.push(navEnd$);
 
     // Close suggestions dropdown on navigation start
     const navStart$ = this.router.events
-      .pipe(filter((e) => e instanceof NavigationStart))
+      .pipe(filter((e: RouterEvent): e is NavigationStart => e instanceof NavigationStart))
       .subscribe(() => this.closeSuggestions());
     this.subs.push(navStart$);
 
     // Debounced live search
-    const search$ = this.searchTerm$.pipe(
-      debounceTime(350),
-      distinctUntilChanged(),
-      filter((term) => term.trim().length >= 2),
-      switchMap((term) => {
-        this.isSearching = true;
-        return this.searchService.search$(term, 6);
-      }),
-    ).subscribe({
-      next: (tracks) => {
-        this.suggestions = tracks;
-        this.showSuggestions = true;
-        this.isSearching = false;
-      },
-      error: () => { this.isSearching = false; },
-    });
+    const search$ = this.searchTerm$
+      .pipe(
+        debounceTime(350),
+        distinctUntilChanged(),
+        filter((term: string) => term.trim().length >= 2),
+        switchMap((term: string): Observable<TrackModel[]> => {
+          this.isSearching = true;
+          return this.searchService.search$(term, 6);
+        })
+      )
+      .subscribe({
+        next: (tracks: TrackModel[]) => {
+          this.suggestions = tracks;
+          this.showSuggestions = true;
+          this.isSearching = false;
+        },
+        error: () => {
+          this.isSearching = false;
+        },
+      });
 
     this.subs.push(search$);
   }
 
   ngAfterViewInit(): void {
     if (this.accountButton) {
-      const focusSub = fromEvent(this.accountButton.nativeElement, 'focus')
+      const button = this.accountButton.nativeElement;
+      const focusSub = fromEvent<FocusEvent>(button, 'focus')
         .subscribe(() => (this.isOpenDropdown = true));
-      const blurSub = fromEvent(this.accountButton.nativeElement, 'blur')
+      const blurSub = fromEvent<FocusEvent>(button, 'blur')
         .subscribe(() => (this.isOpenDropdown = false));
       this.subs.push(focusSub, blurSub);
     }
   }
 
   ngOnDestroy(): void {
-    this.subs.forEach((s) => s.unsubscribe());
+    this.subs.forEach((s: Subscription) => s.unsubscribe());
   }
 
   // ── Search handlers ───────────────────────────────────────────────────────

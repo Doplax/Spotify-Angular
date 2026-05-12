@@ -47,10 +47,10 @@
         <shared-svg-next [revert]="true" class="g-icon btn size32" />
         <button (click)="multimediaService.tooglePlayer()" class="play-btn btn">
           @switch(state){
-            @case('pause'){
+            @case(PlayerStates.PAUSE){
               <mat-icon>play_circle</mat-icon>
             }
-            @case('playing') {
+            @case(PlayerStates.PLAYING) {
               <mat-icon>pause_circle</mat-icon>
             }
             @default {

@@ -1,19 +1,16 @@
 import { Directive, ElementRef, HostListener } from '@angular/core';
 
+const DEFAULT_IMAGE_URL =
+  'https://raw.githubusercontent.com/Doplax/doplax/main/assets/img/product/defaultImage.png';
+
 @Directive({
-    selector: '[appImgBroken]',
-    standalone: false
+  selector: '[appImgBroken]',
+  standalone: false,
 })
-
 export class ImgBrokenDirective {
+  constructor(private elHost: ElementRef<HTMLImageElement>) {}
 
-  // Cuando una directiva detecte que su host (en este caso una imagen) dispara el evento de error,
-  // cambiaremos su src, por una imagen por defecto
-  @HostListener('error') handleError(): void{
-    const elNative = this.elHost.nativeElement
-    elNative.src = 'https://raw.githubusercontent.com/Doplax/doplax/main/assets/img/product/defaultImage.png'
+  @HostListener('error') handleError(): void {
+    this.elHost.nativeElement.src = DEFAULT_IMAGE_URL;
   }
-
-  constructor(private elHost: ElementRef) { }
-
 }
