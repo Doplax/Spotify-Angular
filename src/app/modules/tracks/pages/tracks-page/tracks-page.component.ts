@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { CardPlayerMode } from '@shared/enums';
 import { HomeSectionsService } from '@modules/tracks/services/home-sections.service';
 import { HomeSection, HOME_SECTIONS } from '@modules/tracks/models/home-sections.model';
+import { LoggerService } from '@shared/services/logger.service';
 
 @Component({
     selector: 'app-tracks-page',
@@ -21,15 +22,18 @@ export class TracksPageComponent implements OnInit, OnDestroy {
 
   private sub?: Subscription;
 
-  constructor(private homeSectionsService: HomeSectionsService) {}
+  constructor(
+    private homeSectionsService: HomeSectionsService,
+    private logger: LoggerService
+  ) {}
 
   ngOnInit(): void {
     this.sub = this.homeSectionsService.loadAllSections$().subscribe({
-      next: (sections) => {
+      next: (sections: HomeSection[]) => {
         this.sections = sections;
       },
-      error: (err) => {
-        console.error('Error loading home sections', err);
+      error: (err: unknown) => {
+        this.logger.error('Error loading home sections', err);
         this.sections = this.sections.map((s) => ({ ...s, isLoading: false }));
       },
     });

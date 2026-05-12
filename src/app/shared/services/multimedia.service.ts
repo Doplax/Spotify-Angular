@@ -84,9 +84,8 @@ export class MultimediaService {
     this.timeRemaining$.next(displayFormat);
   }
 
-  private setPlayerStatus(event: Event) {
+  private setPlayerStatus(event: Event): void {
     const type = event.type as PlayerStates;
-    console.log('setPlayerStatus', type);
     this.playerStatus$.next(type);
   }
 
@@ -154,7 +153,7 @@ export class MultimediaService {
 
   /** Called automatically when the current track finishes. */
   private onTrackEnded(): void {
-    this.setPlayerStatus({ type: PlayerStates.ENDED } as any);
+    this.playerStatus$.next(PlayerStates.ENDED);
     if (this.queue.length > 0) {
       this.playNext();
     }

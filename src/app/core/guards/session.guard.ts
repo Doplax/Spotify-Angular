@@ -1,12 +1,7 @@
 import { Injectable } from '@angular/core';
-import {
-  CanActivate,
-  ActivatedRouteSnapshot,
-  RouterStateSnapshot,
-  Router,
-} from '@angular/router';
+import { CanActivate, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { Observable } from 'rxjs';
+import { LoggerService } from '@shared/services/logger.service';
 
 @Injectable({
   providedIn: 'root',
@@ -14,26 +9,23 @@ import { Observable } from 'rxjs';
 export class SessionGuard implements CanActivate {
   constructor(
     private cookieService: CookieService,
-    private router: Router
+    private router: Router,
+    private logger: LoggerService
   ) {}
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Observable<boolean> | Promise<boolean> | boolean {
-    return this.checkCookieSeession();
+  canActivate(): boolean {
+    return this.checkCookieSession();
   }
 
-  checkCookieSeession(): boolean {
+  private checkCookieSession(): boolean {
     try {
-      const token: boolean = this.cookieService.check('token_service');
-      if (!token) {
-        this.router.navigate(['/','auth'])
+      const hasToken = this.cookieService.check('token_service');
+      if (!hasToken) {
+        this.router.navigate(['/', 'auth']);
       }
-      return token
-
-    } catch (e) {
-      console.error('Something happens:', e);
+      return hasToken;
+    } catch (e: unknown) {
+      this.logger.error('SessionGuard: error reading auth cookie', e);
       return false;
     }
   }
