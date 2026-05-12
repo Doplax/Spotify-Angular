@@ -1,24 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { TrackModel } from '@shared/Models/Tracks';
-import { TrackService } from '@modules/tracks/services/track.service';
 
 @Component({
-    selector: 'app-favorite-page',
-    templateUrl: './favorite-page.component.html',
-    styleUrl: './favorite-page.component.scss',
-    standalone: false
+  selector: 'app-favorite-page',
+  templateUrl: './favorite-page.component.html',
+  styleUrl: './favorite-page.component.scss',
+  standalone: false,
 })
-export class FavoritePageComponent implements OnInit {
-  tracksList: Array<TrackModel> = [];
-
-  constructor(private trackService: TrackService) {
-    this.loadData();
-  }
-
-  ngOnInit(): void {}
-
-  async loadData(): Promise<any> {
-    //this.tracksList = await this.trackService.getAllTracks$().toPromise();
-    console.log(this.tracksList);
-  }
+export class FavoritePageComponent {
+  public tracksList: TrackModel[] = [];
 }

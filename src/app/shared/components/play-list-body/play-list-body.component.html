@@ -2,7 +2,7 @@
   <ul class="play-list-table-header">
     <li (click)="changeSort('name')">Nombre</li>
     <li (click)="changeSort('album')">álbum</li>
-    <li (click)="changeSort('')">fecha incorporación</li>
+    <li>fecha incorporación</li>
     <li><i class="uil uil-clock-eight"></i></li>
   </ul>
   @for (track of tracks | orderList : optionSort.property : optionSort.order; track track) {
