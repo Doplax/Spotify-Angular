@@ -1,0 +1,64 @@
+// ── View Transitions API ─────────────────────────────────────────────────
+// Native browser transitions triggered by Angular Router's enableViewTransitions.
+// No @angular/animations needed.
+
+// Root fades a touch faster to keep nav snappy.
+::view-transition-old(root) {
+  animation: vt-fade-out 160ms cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+::view-transition-new(root) {
+  animation: vt-fade-in 200ms cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+// Sidebar and header stay put (no animation) — only the page area animates.
+::view-transition-old(sidebar),
+::view-transition-new(sidebar),
+::view-transition-old(app-header),
+::view-transition-new(app-header) {
+  animation: none;
+}
+
+// Main page area: cross-fade with a small upward slide.
+::view-transition-old(page-content) {
+  animation: vt-fade-out 180ms ease both;
+}
+::view-transition-new(page-content) {
+  animation: vt-slide-up 280ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+// Account / settings pages slide up from below.
+::view-transition-old(account-page) {
+  animation: vt-fade-out 200ms ease both;
+}
+::view-transition-new(account-page) {
+  animation: vt-slide-up 320ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes vt-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes vt-fade-out {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+@keyframes vt-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Honour user motion preferences.
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation-duration: 1ms !important;
+  }
+}
