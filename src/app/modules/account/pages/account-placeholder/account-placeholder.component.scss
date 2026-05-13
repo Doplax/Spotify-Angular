@@ -1,0 +1,98 @@
+.account-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1.5rem;
+  color: var(--color-white);
+  view-transition-name: account-page;
+}
+
+.page-hero {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2.5rem 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+
+  .hero-icon {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(6px);
+
+    mat-icon {
+      font-size: 3.2rem;
+      width: 3.2rem;
+      height: 3.2rem;
+      color: #fff;
+    }
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .hero-eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 1.1rem;
+    font-weight: 600;
+    opacity: 0.8;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1;
+  }
+
+  .hero-subtitle {
+    margin: 0;
+    font-size: 1.3rem;
+    opacity: 0.9;
+    max-width: 60ch;
+  }
+}
+
+.page-body {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 1rem;
+  padding: 3rem 2rem;
+
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+
+    mat-icon {
+      font-size: 4.8rem;
+      width: 4.8rem;
+      height: 4.8rem;
+      color: var(--color-green, #1db954);
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+
+    p {
+      margin: 0;
+      max-width: 50ch;
+      color: #b3b3b3;
+      font-size: 1.2rem;
+      line-height: 1.5;
+    }
+  }
+}

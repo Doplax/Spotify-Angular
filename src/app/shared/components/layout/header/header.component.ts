@@ -17,9 +17,14 @@ import { MultimediaService } from '@shared/services/multimedia.service';
 
 interface AccountDropDown {
   label: string;
+  icon: string;
   route: string;
   command: () => void;
 }
+
+const SEARCH_DEBOUNCE_MS = 350;
+const MIN_SEARCH_LENGTH = 2;
+const SEARCH_RESULTS_LIMIT = 6;
 
 @Component({
   selector: 'app-header',
@@ -33,13 +38,13 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   isAuth: boolean = false;
   isOpenDropdown: boolean = false;
   acountdropDown: AccountDropDown[] = [
-    { label: 'Cuenta',        route: '/account', command: () => this.router.navigate(['/numbers']) },
-    { label: 'Perfil',        route: '/profile', command: () => this.router.navigate(['/profile']) },
-    { label: 'Sube a Premium',route: '/premium', command: () => this.router.navigate(['/premium']) },
-    { label: 'Asistencia',    route: '/support', command: () => this.router.navigate(['/support']) },
-    { label: 'Descargar',     route: '/download',command: () => this.router.navigate(['/download']) },
-    { label: 'Configuración', route: '/settings',command: () => this.router.navigate(['/settings']) },
-    { label: 'Cerrar sesión', route: '/logout',  command: () => this.logOut() },
+    { label: 'Cuenta',         icon: 'account_circle',     route: '/account',          command: () => this.router.navigate(['/account']) },
+    { label: 'Perfil',         icon: 'person',             route: '/account/profile',  command: () => this.router.navigate(['/account/profile']) },
+    { label: 'Sube a Premium', icon: 'workspace_premium',  route: '/account/premium',  command: () => this.router.navigate(['/account/premium']) },
+    { label: 'Asistencia',     icon: 'help_outline',       route: '/account/support',  command: () => this.router.navigate(['/account/support']) },
+    { label: 'Descargar',      icon: 'download',           route: '/account/download', command: () => this.router.navigate(['/account/download']) },
+    { label: 'Configuración',  icon: 'settings',           route: '/account/settings', command: () => this.router.navigate(['/account/settings']) },
+    { label: 'Cerrar sesión',  icon: 'logout',             route: '/logout',           command: () => this.logOut() },
   ];
 
   // ── Search ────────────────────────────────────────────────────────────────
@@ -102,12 +107,12 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
     // Debounced live search
     const search$ = this.searchTerm$
       .pipe(
-        debounceTime(350),
+        debounceTime(SEARCH_DEBOUNCE_MS),
         distinctUntilChanged(),
-        filter((term: string) => term.trim().length >= 2),
+        filter((term: string) => term.trim().length >= MIN_SEARCH_LENGTH),
         switchMap((term: string): Observable<TrackModel[]> => {
           this.isSearching = true;
-          return this.searchService.search$(term, 6);
+          return this.searchService.search$(term, SEARCH_RESULTS_LIMIT);
         })
       )
       .subscribe({
@@ -142,7 +147,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   // ── Search handlers ───────────────────────────────────────────────────────
 
   onInputChange(value: string): void {
-    if (value.trim().length < 2) {
+    if (value.trim().length < MIN_SEARCH_LENGTH) {
       this.suggestions = [];
       this.showSuggestions = false;
     }

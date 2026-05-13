@@ -23,6 +23,11 @@ const routes: Routes = [
     component: ExplorePageComponent,
   },
   {
+    path: 'account',
+    loadChildren: () =>
+      import('@modules/account/account.module').then((m) => m.AccountModule),
+  },
+  {
     path: '**', // when 404 redirects us to tracks
     redirectTo:'/tracks'
   }

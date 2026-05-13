@@ -79,7 +79,7 @@
     @for (item of acountdropDown; track $index) {
       <button (mousedown)="item.command()" class="dropDown-item g-hover-grey">
         <span class="dropDown-text">{{ item.label }}</span>
-        <mat-icon>ios_share</mat-icon>
+        <mat-icon>{{ item.icon }}</mat-icon>
       </button>
     }
   </div>

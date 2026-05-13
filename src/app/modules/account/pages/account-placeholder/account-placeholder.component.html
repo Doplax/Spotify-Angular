@@ -1,0 +1,28 @@
+@if (pageData$ | async; as page) {
+  <div class="account-page">
+    <header
+      class="page-hero"
+      [style.background]="'linear-gradient(135deg, ' + page.gradient + ')'"
+    >
+      <div class="hero-icon">
+        <mat-icon>{{ page.icon }}</mat-icon>
+      </div>
+      <div class="hero-text">
+        <span class="hero-eyebrow">Cuenta</span>
+        <h1 class="hero-title">{{ page.title }}</h1>
+        <p class="hero-subtitle">{{ page.subtitle }}</p>
+      </div>
+    </header>
+
+    <section class="page-body">
+      <div class="empty-state">
+        <mat-icon>construction</mat-icon>
+        <h2>Próximamente</h2>
+        <p>
+          Esta sección está en construcción. Aquí encontrarás opciones de
+          {{ page.title | lowercase }} cuando esté disponible.
+        </p>
+      </div>
+    </section>
+  </div>
+}
