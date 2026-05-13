@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { PlaylistModel, STATIC_PLAYLISTS } from '@shared/Models/Playlist';
 import { TrackModel } from '@shared/Models/Tracks';
 import { ItunesService } from '@shared/services/itunes.service';

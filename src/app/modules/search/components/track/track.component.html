@@ -1,4 +1,12 @@
-<div class="track-row" (click)="play()">
+<div
+  class="track-row"
+  role="button"
+  tabindex="0"
+  [attr.aria-label]="'Reproducir ' + trackTitle"
+  (click)="play()"
+  (keydown.enter)="play()"
+  (keydown.space)="play(); $event.preventDefault()"
+>
   <!-- Cover and play icon -->
   <div class="track-cover">
     <img

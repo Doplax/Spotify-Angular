@@ -14,7 +14,7 @@
           }
         }
         @else {
-          @for (track of dataTracks; track track) {
+          @for (track of dataTracks; track track._id) {
             <li>
               <shared-card-player [isLoading]="false" [track]="track" [mode]="mode"/>
             </li>

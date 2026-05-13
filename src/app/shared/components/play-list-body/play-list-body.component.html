@@ -5,9 +5,8 @@
     <li>fecha incorporación</li>
     <li><i class="uil uil-clock-eight"></i></li>
   </ul>
-  @for (track of tracks | orderList : optionSort.property : optionSort.order; track track) {
+  @for (track of tracks | orderList : optionSort.property : optionSort.order; track track._id) {
     <ul class="play-list-rows">
-      <!--{{ track | json }}-->
       <li class="track-name">
         <ng-container *ngTemplateOutlet="coverSection; context: { track: track }">
         </ng-container>
