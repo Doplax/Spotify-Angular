@@ -5,6 +5,7 @@ import { HeaderComponent } from './components/layout/header/header.component';
 import { ImgBrokenDirective } from './directives/img-broken.directive';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MediaPlayerComponent } from './components/media-player/media-player.component';
@@ -37,6 +38,7 @@ import { FooterComponent } from './components/layout/footer/footer.component';
     FormsModule,
     MatButtonModule,
     MatIconModule,
+    MatMenuModule,
     MatSliderModule,
     MatTooltipModule,
     RouterModule,

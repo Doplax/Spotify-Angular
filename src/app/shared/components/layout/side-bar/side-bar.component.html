@@ -3,13 +3,48 @@
   <!-- Head Section -->
   <section class="head-section">
     <div class="top-section">
-      <div class="flex flex-row items-center">
+      <button
+        type="button"
+        class="library-toggle"
+        (click)="toggleCollapsed()"
+        matTooltip="Tu Biblioteca"
+        [attr.aria-label]="isCollapsed ? 'Expandir biblioteca' : 'Colapsar biblioteca'"
+        [attr.aria-expanded]="!isCollapsed"
+      >
         <shared-svg-library class="g-icon" />
-        <span>Tu Biblioteca</span>
-      </div>
-      <div class="flex flex-row">
-        <mat-icon>add</mat-icon>
-        <mat-icon>arrow_forward</mat-icon>
+        <span class="library-label">Tu Biblioteca</span>
+      </button>
+
+      <div class="head-actions">
+        <button
+          type="button"
+          class="icon-btn"
+          [matMenuTriggerFor]="addMenu"
+          matTooltip="Crear"
+          aria-label="Crear playlist o carpeta"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+        <mat-menu #addMenu="matMenu" class="sidebar-menu" xPosition="before">
+          <button mat-menu-item (click)="createPlaylist()">
+            <mat-icon>queue_music</mat-icon>
+            <span>Crear playlist</span>
+          </button>
+          <button mat-menu-item (click)="createFolder()">
+            <mat-icon>folder</mat-icon>
+            <span>Crear carpeta</span>
+          </button>
+        </mat-menu>
+
+        <button
+          type="button"
+          class="icon-btn collapse-btn"
+          (click)="toggleCollapsed()"
+          [matTooltip]="isCollapsed ? 'Expandir' : 'Mostrar más'"
+          [attr.aria-label]="isCollapsed ? 'Expandir biblioteca' : 'Colapsar biblioteca'"
+        >
+          <mat-icon>{{ isCollapsed ? 'arrow_back' : 'arrow_forward' }}</mat-icon>
+        </button>
       </div>
     </div>
   </section>
@@ -22,16 +57,44 @@
   <!-- Search + sort -->
   <section class="search-section">
     <shared-svg-search class="search-icon"/>
-    <div class="recents-lists">
-      <span>Recientes</span>
-      <mat-icon>format_list_bulleted</mat-icon>
-    </div>
+    <button
+      type="button"
+      class="sort-trigger"
+      [matMenuTriggerFor]="sortMenu"
+      matTooltip="Ordenar por"
+      [attr.aria-label]="'Ordenar por ' + currentSortOption.label"
+    >
+      <span>{{ currentSortOption.label }}</span>
+      <mat-icon>{{ currentSortOption.icon }}</mat-icon>
+    </button>
+    <mat-menu #sortMenu="matMenu" class="sidebar-menu" xPosition="before">
+      <span class="menu-section-title" mat-menu-item disabled>Ordenar por</span>
+      @for (option of sortOptions; track option.id) {
+        <button
+          mat-menu-item
+          [class.active]="option.id === currentSort"
+          (click)="setSort(option.id)"
+        >
+          <mat-icon>{{ option.icon }}</mat-icon>
+          <span>{{ option.label }}</span>
+        </button>
+      }
+    </mat-menu>
   </section>
 
   <!-- Playlists -->
   <section class="recents-list-section">
     @for (playlist of playlists; track playlist.id) {
-      <div class="playList-card g-hover-grey" (click)="navigateTo(playlist)">
+      <div
+        class="playList-card g-hover-grey"
+        role="button"
+        tabindex="0"
+        [attr.aria-label]="'Abrir lista ' + playlist.title"
+        [style.view-transition-name]="'playlist-' + playlist.id"
+        (click)="navigateTo(playlist)"
+        (keydown.enter)="navigateTo(playlist)"
+        (keydown.space)="navigateTo(playlist); $event.preventDefault()"
+      >
 
         <!-- Cover image with play overlay on hover -->
         <div class="playList-image" [style.background-color]="playlist.color">
